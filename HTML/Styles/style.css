@@ -237,7 +237,6 @@ h6 {
     border-radius: 4px;
     border: 0px;
     margin: 0 auto;
-    margin-bottom: 43px;
 }
 
 .blogread {
@@ -273,13 +272,8 @@ h6 {
 }
 
 .customerpart .card {
-    max-width: 357px;
-    min-height: 370px;
     border-left: 3px solid #1d7a8c;
-    margin: 0 auto 43px;
 }
-
-
 
 .cuscardhead {
     margin-top: 23px;
@@ -292,7 +286,6 @@ h6 {
 .cardtopimg {
     width: 70px;
     height: 70px;
-
 }
 
 .customerpart h2 {
@@ -306,7 +299,8 @@ h6 {
 
 /* -------------------------------------------------------------------------------- */
 .formpart .container-fluid {
-    max-width: 1320px !important;
+    padding-left: 70px;
+    padding-right: 70px;
 }
 
 .formpart {
@@ -338,7 +332,6 @@ h6 {
 
 .formpart .leftimg {
     transform: rotate(180deg);
-    margin: 0 auto;
 }
 
 .formleftimg {
@@ -349,6 +342,7 @@ h6 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -356,17 +350,38 @@ h6 {
     background: #111111;
 }
 
+.footernav .navbar {
+    padding: 0 !important;
+}
+
 .footernav .container-fluid {
-    max-width: 1230px;
+    min-height: 131px;
+    padding: 0 123px 0 115px;
+}
+
+.footernav ul {
+    max-width: 682px;
+    min-height: 44px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 27px;
 }
 
 .footernav .nav-link {
     color: #F1F1F1;
+    font-size: 13.99px;
+    margin: 0 10px;
 }
 
 .footerlogo {
     width: 120px;
     height: 92px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.footnavimg {
+    margin-top: 27px;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -399,7 +414,7 @@ h6 {
 
 @media only screen and (max-width: 992px) {
 
-    .navbar-nav {
+    .headernavbar {
         text-align: center;
         background-color: #525252;
         padding: 50px 0;
@@ -416,8 +431,6 @@ h6 {
     .helpbtn {
         margin-bottom: 20px;
     }
-
-
 }
 
 @media only screen and (max-width: 1180px) {
@@ -444,6 +457,27 @@ h6 {
     }
 }
 
+@media only screen and (max-width: 991px) {
+
+    .arrowpart {
+        display: none;
+    }
+
+    .steppart {
+        width: 50% !important;
+    }
+
+    .steps {
+        margin-top: 74px;
+
+    }
+
+    .card {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
 @media only screen and (min-width: 1200px) {
 
     .servicehead,
@@ -453,48 +487,34 @@ h6 {
 }
 
 @media only screen and (min-width: 992px) {
-
     .paymenthead {
         margin: 32px 0 68px 0 !important;
     }
 }
 
-@media only screen and (max-width: 1200px) and (min-width: 991px) {
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+    .help img {
+        width: 220px !important;
+        height: 220px !important;
+    }
+}
 
+@media only screen and (max-width: 443px) {
+    .help img {
+        width: 220px !important;
+        height: 220px !important;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 991px) {
     .blogpart .card {
         width: 307px;
         height: 366px;
     }
-
-
 }
 
-@media only screen and (max-width: 463px) {
 
-    .blogpart .card {
-        width: 257px;
-        height: 366px;
-    }
 
-}
-
-@media only screen and (max-width: 1199px) and (min-width: 992px) {
-
-    .help img {
-        width: 220px !important;
-        height: 220px !important;
-    }
-
-}
-
-@media only screen and (max-width: 443px) {
-
-    .help img {
-        width: 220px !important;
-        height: 220px !important;
-    }
-
-}
 
 @media only screen and (max-width: 1199px) {
 
@@ -503,6 +523,20 @@ h6 {
     }
 
 }
+
+
+
+@media only screen and (max-width: 768px) {
+    .formpart img {
+        display: block;
+        margin: 30px auto !important;
+    }
+
+    .formleftimg {
+        margin: 30px auto !important;
+    }
+}
+
 
 @media only screen and (max-width: 659px) {
 
@@ -537,25 +571,23 @@ h6 {
 
 }
 
-@media only screen and (max-width: 768px) {
-    .formpart img {
+@media only screen and (max-width: 519px) {
+    .footernav .navbar-brand {
         display: block;
-        margin: 30px auto !important;
+        margin: 0 auto;
+        margin-top: 20px;
     }
+
+    .footnavimg {
+        margin: 30px auto 20px;
+        width: 100%;
+    }
+
 }
 
-@media only screen and (max-width: 991px) {
-
-    .arrowpart {
-        display: none;
-    }
-
-    .steppart {
-        width: 50% !important;
-    }
-
-    .steps {
-        margin-top: 74px;
-
+@media only screen and (max-width: 1109px) and (min-width: 992px) {
+    .footernav ul {
+        display: block;
+        margin: 0 auto;
     }
 }
