@@ -91,7 +91,6 @@ a:hover {
 .faqpara {
     font-size: 18px;
     padding: 0 207px;
-    /* max-width: 32vw; */
     min-height: 48px;
     margin: 36px auto;
 
@@ -165,11 +164,6 @@ a:hover {
 
 }
 
-.queline a {
-
-    /* transform: rotate(90deg); */
-}
-
 .queline a[aria-expanded="true"] img {
     transform: rotate(90deg);
     transition-duration: 0.3s;
@@ -180,9 +174,7 @@ a:hover {
     /* transform: rotate(-90deg); */
 }
 
-/* .queline-img-rotate {
-    transform: rotate(90deg) !important;
-} */
+
 
 .queline p {
     padding-left: 15px;
