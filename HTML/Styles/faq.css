@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+a,
+a:hover {
+
+    text-decoration: none;
+}
+
+/* -------------------------------------------------------------------------------- */
+.headerpart .logo {
+    width: 73px;
+    height: 54px;
+    margin-top: -3px;
+}
+
+.headerpart {
+    width: 100%;
+    /* max-width: 1560px; */
+    height: 64px;
+    background-color: #4F4F4F;
+
+}
+
+.headerpart nav {
+    padding: 6px 0 8px;
+}
+
+.headerpart .nav-link {
+    color: #FFFFFF !important;
+}
+
+.headerpart .navbar-nav button {
+    background: #29626D;
+    border: 1px solid #FFFFFF80;
+    border-radius: 20px;
+}
+
+.bookingbtn {
+    max-width: 111px;
+    height: 40px;
+    font-size: 17px;
+    padding: 6px 18px 11px !important;
+}
+
+.pricebtn {
+    max-width: 161px;
+    height: 40px;
+    font-size: 17px;
+    padding: 6px 14px 11px !important;
+    background: transparent !important;
+    color: #fff;
+}
+
+.loginbtn {
+    max-width: 97px;
+    height: 40px;
+    font-size: 16px;
+    padding: 6px 29px 12px !important;
+    margin-right: 11px;
+}
+
+.helpbtn {
+    max-width: 161px;
+    height: 40px;
+    font-size: 16px;
+    padding: 6px 18px 12px 19px !important;
+    margin-right: 22px;
+}
+
+/* -------------------------------------------------------------------------------- */
+.faqheroimg img {
+    width: 100%;
+}
+
+/* -------------------------------------------------------------------------------- */
+.faq .container-fluid {
+    padding: 0 307px;
+}
+
+.faqhead {
+    font-size: 36px;
+    padding-top: 32px;
+
+}
+
+.faqpara {
+    font-size: 18px;
+    padding: 0 207px;
+    /* max-width: 32vw; */
+    min-height: 48px;
+    margin: 36px auto;
+
+}
+
+.design {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.design img {
+    margin: 0 10px;
+}
+
+.seprator-left,
+.seprator-right {
+    width: 62px;
+    height: 1px;
+    background-color: #858881;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+.faq .container-fluid {
+    padding: 0 307px;
+}
+
+.questionbtn {
+    margin: 0;
+    margin-bottom: 48px;
+}
+
+.questionbtn .btn {
+    font-size: 17px;
+    padding: 15px 0;
+}
+
+.questionbtn ul li {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.questionbtn .nav-pills .nav-link.active,
+.questionbtn .nav-pills .show>.nav-link {
+    color: #ffffff;
+    background-color: #1d7a8c;
+}
+
+.questionbtn .nav-item a {
+    background-color: #f6f6f6;
+    color: #646464;
+    border-bottom: 4px solid #1d7a8c;
+}
+
+.btn.focus,
+.btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+/* -------------------------------------------------------------------------------- */
+.eachquestion {
+    color: #646464;
+    margin-bottom: 44px;
+}
+
+.queline {
+    display: flex;
+    /* flex-wrap: wrap; */
+
+}
+
+.queline a {
+
+    /* transform: rotate(90deg); */
+}
+
+.queline a[aria-expanded="true"] img {
+    transform: rotate(90deg);
+    transition-duration: 0.3s;
+}
+
+.queline-img {
+    transition-duration: 0.3s;
+    /* transform: rotate(-90deg); */
+}
+
+/* .queline-img-rotate {
+    transform: rotate(90deg) !important;
+} */
+
+.queline p {
+    padding-left: 15px;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 23px;
+}
+
+.answer p {
+    padding-left: 37px;
+    margin-bottom: 30px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+.formpart {
+    padding-bottom: 53px;
+    margin-top: 55px;
+}
+
+.formpart p {
+    font-size: 18px;
+    color: #353548;
+    font-weight: bold;
+}
+
+.formpart .emailbox {
+    width: 233px;
+    height: 40px;
+    background: #F4F5F8 0% 0% no-repeat padding-box;
+    border: 1px solid #565656;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.formpart .btn {
+    width: 88px;
+    height: 40px;
+    background: #FF7B6D 0% 0% no-repeat padding-box;
+    border: 1px solid #FF7B6D;
+    border-radius: 20px;
+}
+
+
+
+/* -------------------------------------------------------------------------------- */
+.footernav {
+    background: #111111;
+}
+
+.footernav .navbar {
+    padding: 0 !important;
+}
+
+.footernav .container-fluid {
+    min-height: 131px;
+    padding: 0 123px 0 115px;
+}
+
+.footernav ul {
+    max-width: 682px;
+    min-height: 44px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 27px;
+}
+
+.footernav .nav-link {
+    color: #F1F1F1;
+    font-size: 13.99px;
+    margin: 0 10px;
+}
+
+.footerlogo {
+    width: 120px;
+    height: 92px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.footnavimg {
+    margin-top: 27px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------------- */
+.footer .container-fluid {
+    background-color: #292929;
+    min-height: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.footer p {
+    color: #9BA0A3;
+    font-size: 14px;
+    padding: 22px 0;
+    margin-bottom: 0;
+}
+
+.line {
+    width: 100%;
+    /* max-width: 1320px; */
+    height: 1px;
+    background: #424242 0% 0% no-repeat padding-box;
+    margin: 0 auto;
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+
+
+@media only screen and (max-width: 992px) {
+
+    .headernavbar {
+        text-align: center;
+        background-color: #525252;
+        padding: 50px 0;
+        position: relative;
+        z-index: 1;
+    }
+
+
+    .bookingbtn,
+    .pricebtn,
+    .helpbtn,
+    .loginbtn {
+        display: block;
+        margin: 10px auto !important;
+    }
+
+    .loginbtn,
+    .helpbtn {
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 1492px) {
+
+    .faq .container-fluid {
+        padding: 0 20%;
+    }
+
+    .faqpara {
+        padding: 0 0;
+    }
+
+}
+
+@media only screen and (max-width: 659px) {
+
+    .footernav .navbar {
+
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footernav ul {
+        width: 100%;
+        order: 3;
+    }
+
+    .footnavimg {
+        order: 2;
+    }
+
+}
+
+@media only screen and (max-width: 519px) {
+    .footernav .navbar-brand {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .footnavimg {
+        margin: 30px auto 20px;
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 1109px) and (min-width: 992px) {
+    .footernav ul {
+        display: block;
+        margin: 0 auto;
+    }
+}
