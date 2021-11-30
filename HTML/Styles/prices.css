@@ -484,7 +484,9 @@ a:hover {
         margin: 30px auto 20px;
         width: 100%;
     }
-
+    .footernav .container-fluid {
+        padding: 5%;
+    }
 }
 
 @media only screen and (max-width: 1109px) and (min-width: 992px) {
