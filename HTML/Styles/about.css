@@ -40,6 +40,27 @@ a:hover {
 
 
 
+/* --------------------------------hover effect start-------------------------------------------------- */
+
+
+.bookingbtn:hover,
+.loginbtn:hover,
+.helpbtn:hover {
+    background-color: #fff !important;
+    color: #29626D !important;
+}
+
+
+.headerpart .nav-link:hover {
+    border: 1px solid #FFFFFF80;
+    border-radius: 20px;
+    padding: 6px 14px 9px !important;
+}
+
+/* --------------------------------hover effect end-------------------------------------------------- */
+
+
+
 
 
 
@@ -47,6 +68,9 @@ a:hover {
 
 /* ==========================================common css========================================= */
 
+.fixed-top {
+    background: rgba(39, 39, 39, .7) !important;
+}
 
 .headerpart .logo {
     width: 73px;
@@ -55,25 +79,23 @@ a:hover {
 }
 
 .headerpart {
-    width: 100%;
-    /* max-width: 1560px; */
     height: 64px;
-    background-color: #4F4F4F;
-
 }
 
 .headerpart nav {
-    padding: 6px 0 8px;
+    padding: 6px 0 8px !important;
 }
 
 .headerpart .nav-link {
     color: #FFFFFF !important;
 }
 
+
 .headerpart .navbar-nav button {
     background: #29626D;
-    border: 1px solid #FFFFFF80;
+    border: 1px solid #ffffffb7;
     border-radius: 20px;
+    color: #FFFFFF;
 }
 
 .bookingbtn {
@@ -105,13 +127,14 @@ a:hover {
     height: 40px;
     font-size: 16px;
     padding: 6px 18px 12px 19px !important;
-    margin-right: 22px;
+    /* margin-right: 22px; */
 }
 
 /* -------------------------------------------------------------------------------- */
 .commonheroimg img {
     width: 100%;
     margin-bottom: 39px;
+    margin-top: 64px;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -152,7 +175,7 @@ a:hover {
     padding-bottom: 53px;
 }
 
-.formpart p {
+.formpart h2 {
     font-size: 18px;
     color: #353548;
     font-weight: bold;
