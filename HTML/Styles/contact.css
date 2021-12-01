@@ -137,9 +137,31 @@ a:hover {
 
 
 
+/* --------------------------------hover effect start-------------------------------------------------- */
+
+
+.bookingbtn:hover,
+.loginbtn:hover,
+.helpbtn:hover {
+    background-color: #fff !important;
+    color: #29626D !important;
+}
+
+
+.headerpart .nav-link:hover {
+    border: 1px solid #FFFFFF80;
+    border-radius: 20px;
+    padding: 6px 14px 9px !important;
+}
+
+/* --------------------------------hover effect end-------------------------------------------------- */
+
 
 /* ==========================================common css========================================= */
 
+.fixed-top {
+    background: rgba(39, 39, 39, .7) !important;
+}
 
 .headerpart .logo {
     width: 73px;
@@ -148,8 +170,6 @@ a:hover {
 }
 
 .headerpart {
-    width: 100%;
-    /* max-width: 1560px; */
     height: 64px;
     background-color: #4F4F4F;
 
@@ -167,6 +187,7 @@ a:hover {
     background: #29626D;
     border: 1px solid #FFFFFF80;
     border-radius: 20px;
+    color: #FFFFFF;
 }
 
 .bookingbtn {
@@ -205,6 +226,7 @@ a:hover {
 .commonheroimg img {
     width: 100%;
     margin-bottom: 39px;
+    margin-top: 64px;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -245,7 +267,7 @@ a:hover {
     padding-bottom: 53px;
 }
 
-.formpart p {
+.formpart h2 {
     font-size: 18px;
     color: #353548;
     font-weight: bold;
