@@ -25,6 +25,22 @@ h6 {
     font-size: 16px;
 }
 
+/* --------------------------------------------------------- */
+.sticky-header {
+    background: rgba(39, 39, 39, .7);
+    transition: .3s linear;
+}
+
+.sticky-header .logo {
+    width: 72px;
+    height: 54px
+}
+
+.flagdropdown {
+    left: auto;
+    right: 4px;
+}
+
 /* ---------------------------------------------------------------------------------- */
 .logo {
     width: 175px;
@@ -33,12 +49,13 @@ h6 {
 }
 
 /* ---------------------------------------------------------------------------------- */
-.main-menu {
+.headernavbar {
     max-width: 925px !important;
     max-height: 40px;
+    /* padding-left: 428px !important; */
 }
 
-.main-menu .nav-link {
+.headernavbar .nav-link {
     color: #fff;
 }
 
@@ -83,7 +100,7 @@ h6 {
 }
 
 /* ---------------------------------------------------------------------------------- */
-.homepage {
+.herocontent {
     background: url(../images/Landing-Page-background-image.png);
     min-height: 930px;
     background-size: cover;
@@ -91,13 +108,12 @@ h6 {
     background-position: center center;
 }
 
-
 /* -------------------------------------------------------------------------------------------------- */
 
 .herotext {
-    padding-top: 170px;
     padding-left: 55px;
     color: #fff;
+    padding-top: 316px;
 }
 
 .herohead {
@@ -177,7 +193,7 @@ h6 {
     font-family: Roboto-Bold;
 }
 
-.help h1 {
+.help h3 {
     font-size: 30px;
     margin: 32px 0 32px 0;
     color: #565656;
@@ -189,6 +205,7 @@ h6 {
     max-width: 340px;
     margin: 0 auto;
 }
+
 
 /* -------------------------------------------------------------------------------- */
 .blogpart {
@@ -224,7 +241,9 @@ h6 {
 
 /* -------------------------------------------------------------------------------- */
 
-.bloghead2 {
+.bloghead2 h2 {
+    position: relative;
+    z-index: 1;
     font-size: 40px;
     color: #4F4F4F;
     margin-bottom: 64px;
@@ -245,9 +264,14 @@ h6 {
 
 }
 
-.card h5 {
+.card h3 {
     font-size: 20px;
-    color: #3D4046;
+    color: #3d4046;
+    font-weight: bold;
+}
+
+.card h3 p {
+    font-weight: normal;
 }
 
 .carddate {
@@ -265,7 +289,7 @@ h6 {
 }
 
 .customerhead {
-    font-size: 40px;
+    font-size: 40px !important;
     color: #4F4F4F;
     text-align: center;
     padding: 57px 0 57px 0 !important;
@@ -288,7 +312,7 @@ h6 {
     height: 70px;
 }
 
-.customerpart h2 {
+.customerpart h3 {
     font-size: 24px;
     color: #4F4F4F;
 }
@@ -351,12 +375,12 @@ h6 {
 }
 
 .footernav .navbar {
-    padding: 0 !important;
+    padding: 0 123px 0 115px;
 }
 
 .footernav .container-fluid {
     min-height: 131px;
-    padding: 0 123px 0 115px;
+    padding: 0;
 }
 
 .footernav ul {
@@ -364,7 +388,7 @@ h6 {
     min-height: 44px;
     display: flex;
     justify-content: space-evenly;
-    margin-top: 27px;
+    margin: 32px 0;
 }
 
 .footernav .nav-link {
@@ -374,18 +398,18 @@ h6 {
 }
 
 .footerlogo {
-    width: 120px;
-    height: 92px;
-    margin-top: 20px;
+    width: 106px;
+    height: 78px;
     padding: 0;
+    margin: 27px 0;
 }
 
 .footnavimg {
-    margin-top: 27px;
+    margin: 32px 0;
 }
 
 /* -------------------------------------------------------------------------------- */
-.footer .container-fluid {
+.cookie-footer {
     background-color: #292929;
     min-height: 64px;
     display: flex;
@@ -393,14 +417,15 @@ h6 {
     align-items: center;
     justify-content: center;
     position: relative;
+    /* width: 100%; */
 }
 
-.footer p {
+.cookie-footer p {
     color: #F1F1F1;
-    margin-bottom: 0;
+    margin: 22px 0;
 }
 
-.footer .btn {
+.cookie-footer .btn {
     width: 99px;
     height: 40px;
     background: #EED507 0% 0% no-repeat padding-box;
@@ -411,13 +436,29 @@ h6 {
 }
 
 /* -------------------------------------------------------------------------------- */
+/* @media only screen and (max-width: 992px) {
 
-@media only screen and (max-width: 992px) {
+} */
+@media only screen and (max-width: 991px) {
+    .navbar-toggler {
+
+        position: absolute;
+        top: 23px;
+        right: 75px;
+    }
+
+    .flagsection {
+
+        position: absolute;
+        top: 23px;
+        right: 5px;
+    }
 
     .headernavbar {
         text-align: center;
         background-color: #525252;
-        padding: 50px 0;
+        /* height: 800px !important; */
+        padding: 50px 0 350px;
     }
 
     .bookingbtn,
@@ -442,13 +483,13 @@ h6 {
     }
 
     .bookingbtn {
-        font-size: 15px;
-        padding: 5px 30px !important;
+        font-size: 14px;
+        padding: 5px 20px !important;
     }
 
     .loginbtn {
         font-size: 14px;
-        padding: 9px 29px 12px !important;
+        padding: 9px 17px 12px !important;
     }
 
     .helpbtn {
@@ -560,13 +601,27 @@ h6 {
 
 @media only screen and (max-width: 1128px) {
 
-    .footer p {
+    .cookie-footer p {
         width: 100%;
     }
 
-    .footer .btn {
+    .cookie-footer .btn {
         position: relative;
         margin-bottom: 25px;
+
+    }
+
+}
+
+@media only screen and (max-width: 992px) {
+
+    .cookie-footer p {
+        width: 100%;
+    }
+
+    .cookie-footer .btn {
+        top: 0;
+        right: 0;
     }
 
 }
