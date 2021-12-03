@@ -12,6 +12,10 @@ a:hover {
 }
 
 /* -------------------------------------------------------------------------------- */
+.fixed-top {
+    background: rgba(39, 39, 39, .7) !important;
+}
+
 .headerpart .logo {
     width: 73px;
     height: 54px;
@@ -19,8 +23,6 @@ a:hover {
 }
 
 .headerpart {
-    width: 100%;
-    /* max-width: 1560px; */
     height: 64px;
     background-color: #4F4F4F;
 
@@ -38,6 +40,7 @@ a:hover {
     background: #29626D;
     border: 1px solid #FFFFFF80;
     border-radius: 20px;
+    color: #FFFFFF;
 }
 
 .bookingbtn {
@@ -75,6 +78,7 @@ a:hover {
 /* -------------------------------------------------------------------------------- */
 .faqheroimg img {
     width: 100%;
+    margin-top: 64px;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -85,12 +89,15 @@ a:hover {
 .faqhead {
     font-size: 36px;
     padding-top: 32px;
+    color: #4F4F4F;
+    font-weight: 500;
 
 }
 
 .faqpara {
     font-size: 18px;
     padding: 0 207px;
+    /* max-width: 32vw; */
     min-height: 48px;
     margin: 36px auto;
 
@@ -164,6 +171,8 @@ a:hover {
 
 }
 
+
+
 .queline a[aria-expanded="true"] img {
     transform: rotate(90deg);
     transition-duration: 0.3s;
@@ -171,9 +180,7 @@ a:hover {
 
 .queline-img {
     transition-duration: 0.3s;
-    /* transform: rotate(-90deg); */
 }
-
 
 
 .queline p {
@@ -195,7 +202,7 @@ a:hover {
     margin-top: 55px;
 }
 
-.formpart p {
+.formpart h2 {
     font-size: 18px;
     color: #353548;
     font-weight: bold;
@@ -288,6 +295,25 @@ a:hover {
 }
 
 
+/* --------------------------------hover effect start-------------------------------------------------- */
+
+
+.bookingbtn:hover,
+.loginbtn:hover,
+.helpbtn:hover {
+    background-color: #fff !important;
+    color: #29626D !important;
+}
+
+
+.headerpart .nav-link:hover {
+    border: 1px solid #FFFFFF80;
+    border-radius: 20px;
+    padding: 6px 14px 9px !important;
+}
+
+/* --------------------------------hover effect end-------------------------------------------------- */
+
 /* ---------------------------------------------------------------------------------------------- */
 
 
@@ -360,6 +386,9 @@ a:hover {
         width: 100%;
     }
 
+    .footernav .container-fluid {
+        padding: 5%;
+    }
 }
 
 @media only screen and (max-width: 1109px) and (min-width: 992px) {
