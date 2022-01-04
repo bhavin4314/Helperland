@@ -6,15 +6,15 @@ function hide_policy(){
 $(document).ready(function(){
     $(window).scroll(function(){
         if(this.scrollY > 20 ){
-            $(".navbar").addClass("sticky-header");
+            $(".navbar-sticky").addClass("sticky-header");
         }
         else{
-            $(".navbar").removeClass("sticky-header");
-        }
+            $(".navbar-sticky").removeClass("sticky-header");
+        }   
     });
 
-    // $('.menu-toggler').click(function(){
-    //     $(this).toggleClass("active");
-    //     $('.custom-navbar-menu').toggleClass("active");
-    // });
+    $('.menu-toggler').click(function(){
+        $(this).toggleClass("active");
+        $('.main-menu').toggleClass("active");
+    });
 });
