@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/service-history.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ----------------------------header start------------------------------------------- -->
+    <header class="headerpart fixed-top">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand logo" href="index.html">
+                    <img class="logo" src="images/logo-small.png" alt="logo">
+                </a>
+                <div class="notification-part ml-auto">
+                  
+                  <div class="line1"></div>
+                  <img src="images/icon-notification.png" class="nav-image1" alt="" srcset="">
+                  <div class="notification-number-mobile">2</div>
+                  <div class="line2"></div>
+                </div>
+              <!-- Mobile Menu -->
+              <button class="menu-toggler"  >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </button>
+              <!-- Mobile Menu -->
+      
+                <div class=" navbar-collapse main-menu d-xl-flex justify-content-end" id="navbarSupportedContent active" >
+                    <ul class="navbar-nav  headernavbar mx-left" >
+                            <span class="collapse-menu-item">
+                              <p>Welcome,<br><span class="font-weight-bold">Gaurang Patel</span></p>
+                              <hr>
+                              <li class="nav-item"><a href="" class="nav-link">Dashboard</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Service History</a></li>
+                              <li><a href="" class="nav-link left-menu-service">Service Schedule</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Favourite Pros</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Invoices</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Notifications</a></li>
+                              <hr>
+                              <li class="nav-item "><a class="nav-link nav-link-1" href="#">Book now</a></li>
+                            
+                            </span>
+                            
+                            <li class="nav-item nav-item-1"><a class="nav-link btn bookingbtn" >Book now</button></a>
+                            <li class="nav-item "><a class="nav-link nav-link-1" href="#">Prices & services</a></li>
+                            <li class="nav-item "><a class="nav-link nav-link-1" href="#">Warranty</a></li>
+                            <li class="nav-item "><a class="nav-link nav-link-1" href="#">Blog</a></li>
+                            <li class="nav-item "><a class="nav-link nav-link-2" href="#">Contact</a></li>
+                            <div class="line1"></div>
+                            <img src="images/icon-notification.png" class="nav-image1" alt="" srcset="">
+                            <div class="notification-number">2</div>
+                            <div class="line2"></div>
+                            
+                            <li class="nav-item dropdown-list">
+                              <a class="nav-link " id="navbar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="images/user.png" class="nav-image2" alt="" srcset="">
+                                <img src="images/forma-1-copy@2x.png" class="nav-image3" alt="" srcset="">
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="list-item1"><a href="" disabled>Welcome, <br><span class="font-weight-bold">Gaurang Patel</span></a></li>
+                                <hr>
+                                <li class="dropdown-item" type="button">My Dashboard</li>
+                                <li class="dropdown-item" type="button">My Settings</li>
+                                <li class="dropdown-item" type="button">Logout</li>
+                              </ul>
+                            </li>
+                            
+                            <span class="collapse-menu-item">
+                              <hr>
+                              <div class="d-flex justify-content-center mobile-icon">
+                                <a href=""><img src="images/instagram-mobile-menu.png" class="mx-3" alt="" srcset=""></a>
+                                <a href=""><img src="images/facebook-mobile-menu.png" class="mx-3" alt="" srcset=""></a>
+                                
+                              </div>
+                              
+                            </span>
+                    </ul>
+                </div>
+        </nav>
+        </div>
+      </header>
+      <!-- ----------------------------header End------------------------------------------- -->
+     
+     
+      <!-- ----------------------------welcome part start------------------------------------------- -->
+      <section class="welcome-part">
+        <h2 class="Welcome-name">Welcome,  <span style="color: 4f4f4f; font-weight: bold; padding-left: 10px;">   Gaurang!</span></h2>
+      </section>
+     
+      <!-- ----------------------------welcome part End------------------------------------------- -->
+      
+      
+      
+      <!-- ----------------------------table part start------------------------------------------- -->
+      
+      <section class="services">
+        <div class="container table-part">
+          <div class="left-menu">
+            <li class="nav-item"><a href="" class="nav-link">Dashboard</a></li>
+            <li class="nav-item"><a href="" class="nav-link">Service History</a></li>
+            <li><a href="" class="nav-link left-menu-service">Service Schedule</a></li>
+            <li class="nav-item"><a href="" class="nav-link">Favourite Pros</a></li>
+            <li class="nav-item"><a href="" class="nav-link">Invoices</a></li>
+            <li class="nav-item"><a href="" class="nav-link">Notifications</a></li>
+       
+          </div>
+          <div class="right-table">
+            <div class="table-name d-flex justify-content-between   ">
+                <p class="table-name-info">Service History</p>
+                <button class="btn export-btn">Export</button>
+            </div>
+            <table class="table ">
+              <thead>
+                <tr>
+                  <th scope="col">Service Details <img src="images/sort.png" alt="" srcset=""></th>
+                  <th scope="col">Service Provider <img src="images/sort.png" alt="" srcset=""></th>
+                  <th scope="col">Payment <img src="images/sort.png" alt="" srcset=""></th>
+                  <th scope="col">Status <img src="images/sort.png" alt="" srcset=""></th>
+                  <th scope="col">Rate SP <img src="images/sort.png" alt="" srcset=""></th>
+                </tr>
+              </thead>
+              <tbody>
+                 
+                <tr>
+                    <td class="service-date-time">
+                      <a href="" class="date-time">
+                        <span class="service-date"><img src="images/calendar.png" alt="" srcset="">09/04/2018</span>
+                        <span class="service-time">12:00 - 18:00</span>
+                      </a>
+                    </td>
+                    <td class="customer-deails">
+                      <a href="" class="">
+                        <div class="d-flex">
+                            <div class="cap-img">  
+                                <img class="" src="images/cap.png" alt="" srcset="">
+                            </div>
+                            <div class="name-rating">
+                                <p class="customer-name">Lyum Watson</p>
+                                <span class="all-star">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star2.png" class="star" alt="">
+                                    <span >4 </span>
+                                </span>
+                               
+                            </div>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="payment">€63</td>
+                    <td><button class="status-complete">Completed</button></td>
+                    <td><button class="right-table-button">Rate SP</button></td>
+                </tr> 
+                <tr>
+                    <td class="service-date-time">
+                      <a href="" class="date-time">
+                        <span class="service-date"><img src="images/calendar.png" alt="" srcset="">09/04/2018</span>
+                        <span class="service-time">12:00 - 18:00</span>
+                      </a>
+                    </td>
+                    <td class="customer-deails">
+                      <a href="" class="">
+                        <div class="d-flex">
+                            <div class="cap-img">  
+                                <img class="" src="images/cap.png" alt="" srcset="">
+                            </div>
+                            <div class="name-rating">
+                                <p class="customer-name">Lyum Watson</p>
+                                <span class="all-star">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star2.png" class="star" alt="">
+                                    <span >4 </span>
+                                </span>
+                               
+                            </div>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="payment">€63</td>
+                    <td><button class="status-complete">Completed</button></td>
+                    <td><button class="right-table-button">Rate SP</button></td>
+                </tr> 
+                <tr>
+                    <td class="service-date-time">
+                      <a href="" class="date-time">
+                        <span class="service-date"><img src="images/calendar.png" alt="" srcset="">09/04/2018</span>
+                        <span class="service-time">12:00 - 18:00</span>
+                      </a>
+                    </td>
+                    <td class="customer-deails">
+                      <a href="" class="">
+                        <div class="d-flex">
+                            <div class="cap-img">  
+                                <img class="" src="images/cap.png" alt="" srcset="">
+                            </div>
+                            <div class="name-rating">
+                                <p class="customer-name">Lyum Watson</p>
+                                <span class="all-star">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star2.png" class="star" alt="">
+                                    <span >4 </span>
+                                </span>
+                               
+                            </div>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="payment">€63</td>
+                    <td><button class="status-complete">Completed</button></td>
+                    <td><button class="right-table-button">Rate SP</button></td>
+                </tr> 
+                <tr>
+                    <td class="service-date-time">
+                      <a href="" class="date-time">
+                        <span class="service-date"><img src="images/calendar.png" alt="" srcset="">09/04/2018</span>
+                        <span class="service-time">12:00 - 18:00</span>
+                      </a>
+                    </td>
+                    <td class="customer-deails">
+                      <a href="" class="">
+                        <div class="d-flex">
+                            <div class="cap-img">  
+                                <img class="" src="images/cap.png" alt="" srcset="">
+                            </div>
+                            <div class="name-rating">
+                                <p class="customer-name">Lyum Watson</p>
+                                <span class="all-star">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star2.png" class="star" alt="">
+                                    <span >4 </span>
+                                </span>
+                               
+                            </div>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="payment">€63</td>
+                    <td><button class="status-cancel ">Cancelled</button></td>
+                    <td><button class="right-table-button">Rate SP</button></td>
+                </tr> 
+                <tr>
+                    <td class="service-date-time">
+                      <a href="" class="date-time">
+                        <span class="service-date"><img src="images/calendar.png" alt="" srcset="">09/04/2018</span>
+                        <span class="service-time">12:00 - 18:00</span>
+                      </a>
+                    </td>
+                    <td class="customer-deails">
+                      <a href="" class="">
+                        <div class="d-flex">
+                            <div class="cap-img">  
+                                <img class="" src="images/cap.png" alt="" srcset="">
+                            </div>
+                            <div class="name-rating">
+                                <p class="customer-name">Lyum Watson</p>
+                                <span class="all-star">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star2.png" class="star" alt="">
+                                    <span >4 </span>
+                                </span>
+                               
+                            </div>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="payment">€63</td>
+                    <td><button class="status-complete">Completed</button></td>
+                    <td><button class="right-table-button">Rate SP</button></td>
+                </tr> 
+                <tr>
+                    <td class="service-date-time">
+                      <a href="" class="date-time">
+                        <span class="service-date"><img src="images/calendar.png" alt="" srcset="">09/04/2018</span>
+                        <span class="service-time">12:00 - 18:00</span>
+                      </a>
+                    </td>
+                    <td class="customer-deails">
+                      <a href="" class="">
+                        <div class="d-flex">
+                            <div class="cap-img">  
+                                <img class="" src="images/cap.png" alt="" srcset="">
+                            </div>
+                            <div class="name-rating">
+                                <p class="customer-name">Lyum Watson</p>
+                                <span class="all-star">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star2.png" class="star" alt="">
+                                    <span >4 </span>
+                                </span>
+                               
+                            </div>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="payment">€63</td>
+                    <td><button class="status-cancel">Cancelled</button></td>
+                    <td><button class="right-table-button">Rate SP</button></td>
+                </tr> 
+                <tr>
+                    <td class="service-date-time">
+                      <a href="" class="date-time">
+                        <span class="service-date"><img src="images/calendar.png" alt="" srcset="">09/04/2018</span>
+                        <span class="service-time">12:00 - 18:00</span>
+                      </a>
+                    </td>
+                    <td class="customer-deails">
+                      <a href="" class="">
+                        <div class="d-flex">
+                            <div class="cap-img">  
+                                <img class="" src="images/cap.png" alt="" srcset="">
+                            </div>
+                            <div class="name-rating">
+                                <p class="customer-name">Lyum Watson</p>
+                                <span class="all-star">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star2.png" class="star" alt="">
+                                    <span >4 </span>
+                                </span>
+                               
+                            </div>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="payment">€63</td>
+                    <td><button class="status-complete">Completed</button></td>
+                    <td><button class="right-table-button">Rate SP</button></td>
+                </tr> 
+                <tr>
+                    <td class="service-date-time">
+                      <a href="" class="date-time">
+                        <span class="service-date"><img src="images/calendar.png" alt="" srcset="">09/04/2018</span>
+                        <span class="service-time">12:00 - 18:00</span>
+                      </a>
+                    </td>
+                    <td class="customer-deails">
+                      <a href="" class="">
+                        <div class="d-flex">
+                            <div class="cap-img">  
+                                <img class="" src="images/cap.png" alt="" srcset="">
+                            </div>
+                            <div class="name-rating">
+                                <p class="customer-name">Lyum Watson</p>
+                                <span class="all-star">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star2.png" class="star" alt="">
+                                    <span >4 </span>
+                                </span>
+                               
+                            </div>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="payment">€63</td>
+                    <td><button class="status-cancel">Cancelled</button></td>
+                    <td><button class="right-table-button">Rate SP</button></td>
+                </tr> 
+                <tr>
+                    <td class="service-date-time">
+                      <a href="" class="date-time">
+                        <span class="service-date"><img src="images/calendar.png" alt="" srcset="">09/04/2018</span>
+                        <span class="service-time">12:00 - 18:00</span>
+                      </a>
+                    </td>
+                    <td class="customer-deails">
+                      <a href="" class="">
+                        <div class="d-flex">
+                            <div class="cap-img">  
+                                <img class="" src="images/cap.png" alt="" srcset="">
+                            </div>
+                            <div class="name-rating">
+                                <p class="customer-name">Lyum Watson</p>
+                                <span class="all-star">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star1.png" class="star" alt="">
+                                    <img src="images/star2.png" class="star" alt="">
+                                    <span >4 </span>
+                                </span>
+                               
+                            </div>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="payment">€63</td>
+                    <td><button class="status status-cancel">Cancelled</button></td>
+                    <td><button class="right-table-button">Rate SP</button></td>
+                </tr> 
+                
+      
+               
+ 
+               
+         
+              </tbody>
+            </table>
+             <!------------------------------- pageination start--------------------------------------->
+          <div class="page-hadling " >
+            <div class="pagination-spacing d-flex">
+              <p class=" pagination-para pagination-spacing">show</p>
+              <select class="form-group entry-selction pagination-spacing"  id="exampleFormControlSelect1">
+                  <option>10</option>
+                  <option>20</option>
+                  <option>30</option>
+                  <option>40</option>
+                  <option>50</option>
+                </select>
+                <span class="pagination-spacing pagination-para">entries</span>
+                <p class=" pagination-para">Total Record: 55</p>
+            </div>
+            
+            <div class="ml-auto ">
+                <ul class="pagination ">
+                    <li><a href=""><img src="images/left1.png" alt=""></a></li>
+                    <li><a href=""><img src="images/left2.png" alt=""></a></li>
+                    <li class="active-page"><a href="" >1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href=""><img src="images/left2.png" alt="" class="rotate-img"></a></li>
+                    <li><a href=""><img src="images/left1.png" alt="" class="rotate-img"></a></li>
+                </ul>
+            </div>            
+        </div>
+
+    <!------------------------------- pageination end------------------------------------------- -->
+
+          </div>
+
+     
+        </div>
+      </section>
+
+      <!-- ----------------------------table part End------------------------------------------- -->
+
+      
+
+      
+      <!-------------------------------footernav start------------------------------------------- -->
+      <footer class="footernav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand" href="#">
+                    <img class="footerlogo" src="images/logo-large.png"  class="d-inline-block align-top" alt="logo">
+                  </a>
+                
+              
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">ABOUT</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">TESTIMONIALS </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">FAQS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">INSURANCE POLICY</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">IMPRESSUM</a>
+                    </li>
+                  </ul>
+                  <div class="footnavimg">
+                    <img class="mr-3" src="images/ic-facebook.png" width="9px" height="18px" alt="logo">
+                    <img class="" src="images/ic-instagram.png" width="20px" height="20px" alt="logo">
+                  </div>
+              </nav>
+              <div class="line mt-2"></div>
+            </div>
+              <div class="container footer">
+                      <p class="text-center ">©2018 Helperland. All rights reserved. <span class="pl-3">Terms and Conditions | Privacy Policy</span></p>
+              </div>
+      
+      
+    </footer>
+    <!-- ----------------------------footernav End------------------------------------------- -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+
+
+</body>
+</html>
