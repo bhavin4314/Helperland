@@ -22,25 +22,6 @@ a:hover {
 
 
 
-
-
-/* --------------------------------hover effect start-------------------------------------------------- */
-
-
-
-
-
-/* --------------------------------hover effect end-------------------------------------------------- */
-
-
-
-
-
-
-
-
-/* ==========================================common css========================================= */
-
 .fixed-top {
     background: rgba(39, 39, 39, .7) !important;
 }
@@ -71,12 +52,6 @@ a:hover {
     margin-right: 4px;
 }
 
-.headerpart .nav-link-1:hover,
-.headerpart .nav-link-2:hover {
-    border: 1px solid #FFFFFF80;
-    border-radius: 22px;
-    padding: 8px 12px;
-}
 
 .headerpart .navbar-nav button {
     background: #29626D;
@@ -369,6 +344,13 @@ tr {
     .collapse-menu-item {
         display: none;
     }
+    
+.headerpart .nav-link-1:hover,
+.headerpart .nav-link-2:hover {
+    border: 1px solid #FFFFFF80;
+    border-radius: 22px;
+    padding: 8px 12px;
+}
 }
 
 @media only screen and (max-width: 992px) {
@@ -566,5 +548,3 @@ tr {
 }
 
 
-
-/* ==========================================common css========================================= */
