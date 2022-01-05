@@ -1,0 +1,726 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+li,
+a,
+a:hover {
+    color: inherit;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+
+
+
+
+/* ---------------------------------------------------------------------------------- */
+
+
+
+
+
+/* --------------------------------hover effect start-------------------------------------------------- */
+
+
+
+
+
+/* --------------------------------hover effect end-------------------------------------------------- */
+
+
+
+
+
+
+
+
+/* ==========================================common css========================================= */
+
+.fixed-top {
+    background: rgba(39, 39, 39, .7) !important;
+}
+
+.headerpart .logo {
+    width: 73px;
+    height: 54px;
+    margin-top: -3px;
+}
+
+.main-menu {
+    height: 64px;
+}
+
+.headerpart nav {
+    padding: 6px 0 8px !important;
+}
+
+.bookingbtn {
+    max-width: 111px;
+    height: 40px;
+    font-size: 17px;
+    padding: 6px 18px 11px !important;
+    margin-top: 14px;
+    margin-right: 34px;
+    color: #FFFFFF !important;
+    background-color: #29626D;
+    border-radius: 20px;
+    border: 1px solid #FFFFFF80;
+}
+
+
+
+.headerpart .nav-link-1 {
+    color: #FFFFFF;
+    margin-top: 14px;
+    margin-right: 34px;
+}
+
+.headerpart .nav-link-2 {
+    color: #FFFFFF;
+    margin-top: 14px;
+    margin-right: 4px;
+}
+
+
+.headerpart .navbar-nav button {
+    background: #29626D;
+    border: 1px solid #ffffffb7;
+    border-radius: 20px;
+    color: #FFFFFF;
+}
+
+.nav-image1 {
+    width: 27px;
+    height: 32px;
+    margin: 16px 0;
+}
+
+.nav-image2 {
+    width: 36px;
+    height: 36px;
+    margin-top: 7px;
+    margin-left: -5px;
+}
+
+.nav-image3 {
+    width: 11px;
+    height: 6px;
+    margin-top: 14px;
+    margin-left: 5px;
+}
+
+.dropdown-list li {
+    color: #646464;
+}
+
+.list-item1 {
+    margin-left: 23px;
+}
+
+
+
+.line1 {
+    height: 48px;
+    margin: 8px 16px 5px 30px;
+    border-left: 1px solid #E1E1E1;
+}
+
+.line2 {
+    height: 48px;
+    margin: 8px 14px 4px 15px;
+    border-left: 1px solid #E1E1E1;
+}
+
+.notification-number {
+    background-color: red;
+    color: #ffffff;
+    font-size: 13px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 18px;
+    right: 93px;
+}
+
+.menu-toggler {
+    background: none;
+    width: 22px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    right: 15px;
+    outline: none;
+    z-index: 19;
+    display: none;
+    margin-left: 20px;
+}
+
+.menu-toggler span {
+    display: block;
+    height: 2px;
+    background-color: white;
+    margin: 5px 0;
+    position: relative;
+    transition: .3s linear;
+
+}
+
+.menu-toggler:focus {
+    outline: none;
+}
+
+.menu-toggler.active span:nth-child(1) {
+    transform: rotate(-45deg);
+    top: 7px;
+}
+
+.menu-toggler.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggler.active span:nth-child(3) {
+    transform: rotate(45deg);
+    bottom: 7px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+.Welcome-name {
+    height: 119px;
+    background-color: #F9F9F9;
+    margin-top: 79px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4f4f4f;
+    font-weight: normal;
+}
+
+/* -------------------------------------------------------------------------------- */
+.services {
+    margin: 31px 0;
+
+}
+
+.table-name-info {
+    color: #646464;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.export-btn {
+    max-width: 111px;
+    height: 40px;
+    font-size: 17px;
+    padding: 6px 18px 11px !important;
+    color: #FFFFFF !important;
+    background-color: #29626D;
+    border-radius: 20px;
+}
+
+.table-part {
+    display: flex;
+    /* width: 845px; */
+}
+
+.left-menu {
+    background-color: #1D7A8C;
+    width: 262px;
+    margin-right: 31px;
+
+}
+
+.left-menu a {
+    font-size: 17px;
+    color: #ffffff;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+    padding: 17px 69px 22px 15px;
+    margin-bottom: 0;
+}
+
+.left-menu a:hover {
+
+    background-color: #146371;
+}
+
+.left-menu-service {
+    background-color: #146371;
+}
+
+
+.right-table {
+    color: #646464;
+    width: 845px;
+    /* margin-left: 31px; */
+}
+
+tr {
+    border: #e1e1e1 1px solid;
+
+
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    vertical-align: middle !important;
+}
+
+.right-table th {
+    color: #646464;
+    font-weight: bold;
+    background-color: #F9F9F9;
+}
+
+.table thead th {
+    vertical-align: text-top;
+}
+
+
+.service-date-time {
+    display: block;
+    margin-left: 15px;
+    padding-right: 0 !important;
+}
+
+
+.service-date-time img {
+    margin-right: 7px;
+}
+
+.service-date {
+    display: block;
+    font-weight: bold;
+}
+
+
+.cap-img {
+    width: 44px;
+    height: 44px;
+    border: solid 1px #aaa;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3px;
+    margin-left: 40px;
+}
+
+.cap-img img {
+    width: 30px;
+    height: 20px;
+    margin: 0;
+
+}
+
+.name-rating {
+    margin-left: 12px;
+}
+
+.customer-name {
+    margin-bottom: 0;
+}
+
+.star {
+    margin-right: 0 !important;
+    margin-bottom: 5px !important;
+}
+
+.all-star {}
+
+.payment {
+    color: #1d7a8c;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.status-complete {
+    background-color: #67b644;
+    color: #FFFFFF;
+    border: none;
+    height: 34px;
+    padding: 5px 15px !important;
+    margin: 0 auto;
+    display: block;
+}
+
+.status-cancel {
+    background-color: #ff6b6b;
+    color: #FFFFFF;
+    border: none;
+    height: 34px;
+    padding: 5px 15px !important;
+    margin: 0 auto;
+    display: block;
+}
+
+.status:focus {
+    outline: none;
+}
+
+.right-table-button {
+    background-color: #6da9b5;
+    color: #FFFFFF;
+    border: none;
+    width: 80px;
+    height: 34px;
+    border-radius: 34px;
+    margin: 0 auto;
+    display: block;
+}
+
+.right-table-button:hover {
+    background-color: rgb(35, 160, 72);
+}
+
+/* -------------------------------------------------------------------------------- */
+.page-hadling {
+    display: flex;
+
+}
+
+.entry-selction {
+    width: 50px;
+}
+
+.pagination li {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: solid 1px #e1e1e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3px;
+}
+
+.pagination .rotate-img {
+    transform: rotate(180deg);
+}
+
+.active-page {
+    background-color: #146371;
+    color: #ffffff;
+}
+
+.pagination-spacing {
+    margin-right: 10px;
+}
+
+.pagination-para {
+    padding-top: 5px;
+}
+
+/* -------------------------------------------------------------------------------- */
+.footernav {
+    background: #111111;
+}
+
+.footernav .navbar {
+    padding: 0 !important;
+}
+
+.footernav .container-fluid {
+    min-height: 131px;
+    padding: 0 123px 0 115px;
+}
+
+.footernav ul {
+    max-width: 682px;
+    min-height: 44px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 27px;
+}
+
+.footernav .nav-link {
+    color: #F1F1F1;
+    font-size: 13.99px;
+    margin: 0 10px;
+}
+
+.footerlogo {
+    width: 120px;
+    height: 92px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.footnavimg {
+    margin-top: 27px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+
+.line {
+    width: 100%;
+    height: 1px;
+    background: #424242 0% 0% no-repeat padding-box;
+    margin: 0 auto;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+
+.footer .container-fluid {
+    background-color: #292929;
+    min-height: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.footer p {
+    color: #9BA0A3;
+    font-size: 14px;
+    padding: 22px 0;
+    margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+
+@media only screen and (min-width: 992px) {
+
+    .notification-part {
+        display: none;
+    }
+
+    .collapse-menu-item {
+        display: none;
+    }
+
+    /* .bookingbtn:hover {
+        background-color: #fff !important;
+        color: #29626D !important;
+    } */
+
+    .headerpart .nav-link-1:hover,
+    .headerpart .nav-link-2:hover {
+        border: 1px solid #FFFFFF80;
+        border-radius: 22px;
+        padding: 8px 12px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+
+    .notification-part {
+        display: flex;
+        position: relative;
+    }
+
+    .notification-number {
+        display: none;
+    }
+
+    .notification-number-mobile {
+        background-color: red;
+        color: #ffffff;
+        font-size: 13px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 12px;
+        right: 25px;
+        z-index: -22;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .nav-item-1 {
+        display: none;
+    }
+
+    .nav-image2,
+    .nav-image3 {
+        display: none;
+    }
+
+    .menu-toggler {
+        display: block;
+    }
+
+    .menu-toggler.active span {
+        background-color: black;
+
+    }
+
+    .main-menu {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: #ffffff;
+        top: 0;
+        right: -100%;
+        max-width: 400px;
+        padding: 80px 50px;
+        transition: .3s linear;
+        overflow-y: scroll;
+    }
+
+    .main-menu .nav-link,
+    .main-menu p {
+        color: #646464 !important;
+        display: block;
+        font-size: 17px;
+        margin-left: 20px;
+        margin-top: 25px;
+        transition: .5s ease-out;
+        text-decoration: none;
+        margin-top: 0;
+        padding-top: 8px !important;
+        width: 100%;
+    }
+
+
+
+    .mobile-icon a:hover {
+        background-color: #e1e1e1;
+        border-radius: 50% !important;
+        /* width: 20px; */
+        height: 30px;
+    }
+
+    .left-menu-service {
+        background-color: #ffffff;
+        color: #146371 !important;
+    }
+
+    .main-menu .nav-link:hover {
+        background-color: #e1e1e1;
+        color: #146371 !important;
+
+    }
+
+    .main-menu.active {
+        right: 0;
+    }
+
+
+    .headernavbar .line1,
+    .headernavbar .line2 {
+        display: none;
+    }
+
+    .headernavbar .nav-image1 {
+        display: none;
+    }
+
+    .left-menu {
+        display: none;
+    }
+
+    .right-table {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    thead {
+        display: none;
+    }
+
+    tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+        box-shadow: 0px 0px 8px #4f4f4f;
+        max-width: 0 auto;
+    }
+
+    td {
+        display: block;
+    }
+
+    .right-table-button {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .right-table-button:hover {
+        background-color: rgb(35, 160, 72);
+    }
+
+    .service-date-time,
+    .customer-deails {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .page-hadling {
+        display: block;
+    }
+
+    .cap-img {
+        margin-left: 0;
+    }
+
+}
+
+@media only screen and (max-width: 659px) {
+
+    .footernav .navbar {
+
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footernav ul {
+        width: 100%;
+        order: 3;
+    }
+
+    .footnavimg {
+        order: 2;
+    }
+
+}
+
+@media only screen and (max-width: 519px) {
+    .footernav .navbar-brand {
+        display: block;
+        margin: 0 auto !important;
+        margin-top: 20px;
+    }
+
+    .footnavimg {
+        margin: 30px auto 20px;
+        width: 100%;
+    }
+
+    .footernav .container-fluid {
+        padding: 5%;
+    }
+}
+
+@media only screen and (max-width: 1109px) and (min-width: 992px) {
+    .footernav ul {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+
+
+/* ==========================================common css========================================= */
