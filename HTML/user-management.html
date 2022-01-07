@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/user-management.css">
+    <title>Document</title>
+</head>
+<body>
+    
+<!-- -------------------------------navbar start----------------------------------------------- -->
+<header class="header-navbar">
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand nav-title" href="#">helperland</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item nav-user disabled">
+              <img src="images/user.png" alt="">
+              <span class="disabled">James Smith</span>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " href="#"><img src="images/logout.png" alt="" srcset=""></a>
+            </li>            
+          </ul>
+        </div>
+      </nav>
+</header>
+<!-- -------------------------------navbar end----------------------------------------------- -->
+
+
+<!-- -------------------------------main-section start--------------------------------------------- -->
+
+<section class="container-fluid home-section">
+
+    <!-- -------------------------------left-section start-------------------------------------- -->
+
+    <div class="left-section">
+        <li class="nav-item"><a href="" class="nav-link">Service Management </a></li>
+        <li class="nav-item"><a href="" class="nav-link">Role Management</a></li>
+        <li class="nav-item collapsable"> 
+          <a class="nav-link"  href=""> Coupon Code Management
+          <img class="" src="images/forma-1_3.png" alt="">
+         </a>
+        </li>
+        <li class="nav-item"><a href="" class="nav-link">Escalation Management</a></li>
+        <li class="nav-item"><a href="" class="nav-link">Service Requests</a></li>
+        <li class="nav-item"><a href="" class="nav-link">Service Providers</a></li>
+        <li class="nav-item"><a href="" class="nav-link user-active">User Management</a></li>
+        <li class="nav-item collapsable">
+          <a href="" class="nav-link">Finance Module 
+            <img class="" src="images/forma-1_3.png" alt="">
+          </a>
+        </li>
+        <li class="nav-item"><a href="" class="nav-link"> Zip Code Management </a></li>
+        <li class="nav-item"><a href="" class="nav-link">Rating Management</a></li>
+        <li class="nav-item"><a href="" class="nav-link">Inquiry Management</a></li>
+        <li class="nav-item"><a href="" class="nav-link"> Newsletter Management</a></li>
+        <li class="nav-item collapsable">
+          <a href="" class="nav-link"> Content Management
+            <img class="" src="images/forma-1_3.png" alt="">
+          </a>
+        </li>
+    </div>
+
+    <!-- -------------------------------left-section end-------------------------------------- -->
+
+    <!-- -------------------------------right-section start-------------------------------------- -->
+
+    <div class="right-section">
+      
+      <div class="table-name d-flex justify-content-between">
+        <p class="table-name-info">User Management </p>
+        <button class="btn user-btn"> <span><img src="images/add.png" class="pb-1" alt="" srcset=""></span> Add New User</button>
+      </div>
+    
+      <div class="formpart">
+        <form>
+          <div class="d-flex flex-wrap">
+            <div class="dropdown mr-3 ">
+              <!-- <input type="text" class="form-control" placeholder="User name"> -->
+              <select  class="form-control user-name-select" placeholder="" name="user-name" id="user-name">
+                <option value="user-name">User name</option>
+                <option value="	Lyum watson">Lyum watson</option>
+                <option value="John Smith">John Smith</option>
+              </select>
+            </div>
+            <div class="mr-3 ">
+              <select  class="form-control user-role-select" placeholder="" name="user-role" id="user-role">
+                <option value="user-role">User role</option>
+                <option value="	Inquiry Manager">	Inquiry Manager</option>
+                <option value="Content Manager">Content Manager</option>
+                <option value="	Finance Manager">	Finance Manager</option>
+              </select>
+            </div>
+            <div class="mr-3 contact">
+              <span class="phone-code">+91</span>
+              <input type="text" class="form-control contact-input" placeholder="Phone number">
+            </div>
+            <div class="mr-3 zipcode">
+              <input type="text" class="form-control" placeholder="Zipcode">
+            </div>
+            <div class="mr-3 ">
+              <button type="submit" class="btn searchbtn">Search</button>
+            </div>
+            <div class="clear">
+              <button type="" class="btn clearbtn">Clear</button>
+            </div>
+          </div>
+        </form>
+      </div>
+ <!-- -------------------------------table-section start-------------------------------------- -->
+    
+ <div class="table-part">
+  <table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">User Name<img src="images/sort.png" alt="" srcset=""></th>
+        <th scope="col">User Type</th>
+        <th scope="col">Role</th>
+        <th scope="col">Postal Code<img src="images/sort.png" alt="" srcset=""></th>
+        <th scope="col">City </th>
+        <th scope="col">Radius <img src="images/sort.png" alt="" srcset=""></th>
+        <th scope="col">User Status <img src="images/sort.png" alt="" srcset=""></th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+       
+      <tr>
+          <td>Lyum watson</td>
+          <td>Call Center</td>
+          <td>Inquiry Manager</td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td></td>
+          <td><span class="active-status">Active</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      <tr>
+          <td>John Smith </td>
+          <td>Service provider</td>
+          <td></td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td>10 km</td>
+          <td><span class="active-status">Active</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      <tr>
+          <td>John Smith </td>
+          <td>Call Center</td>
+          <td>Inquiry Manager</td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td></td>
+          <td><span class="active-status">Active</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      <tr>
+          <td>John Smith </td>
+          <td>Customer</td>
+          <td></td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td></td>
+          <td><span class="active-status">Active</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      <tr>
+          <td>John Smith </td>
+          <td>Call Center</td>
+          <td>Content Manager</td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td></td>
+          <td><span class="active-status">Active</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      <tr>
+          <td>John Smith </td>
+          <td>Customer</td>
+          <td></td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td></td>
+          <td><span class="inactive-status ">Inactive</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      <tr>
+          <td>John Smith </td>
+          <td>Service provider</td>
+          <td></td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td>20 km</td>
+          <td><span class="active-status">Active</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      <tr>
+          <td>John Smith </td>
+          <td>Call Center</td>
+          <td>Finance Manager</td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td></td>
+          <td><span class="active-status">Active</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      <tr>
+          <td>John Smith </td>
+          <td>Customer</td>
+          <td></td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td></td>
+          <td><span class="active-status">Active</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      <tr>
+          <td>John Smith </td>
+          <td>Customer</td>
+          <td></td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td></td>
+          <td><span class="active-status">Active</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown action-dropdown-active" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      
+      </tbody>
+    </table>
+        <!------------------------------- pageination start--------------------------------------->
+        <div class="page-hadling " >
+          <div class="pagination-spacing d-flex">
+            <p class=" pagination-para pagination-spacing">show</p>
+            <select class="form-group entry-selction pagination-spacing"  id="exampleFormControlSelect1">
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+                <option>1000</option>
+              </select>
+              <span class="pagination-spacing pagination-para">entries</span>
+              <p class=" pagination-para">Total Record: 55</p>
+          </div>
+          
+          <div class="ml-auto ">
+              <ul class="pagination ">
+                  <li><a href=""><img src="images/polygon-1-copy-5.png" alt=""></a></li>
+                  <li class="active-page"><a href="" >1</a></li>
+                  <li><a href="">2</a></li>
+                  <li><a href="">3</a></li>
+                  <li><a href="">4</a></li>
+                  <li><a href="">5</a></li>
+                  <li><a href=""><img src="images/polygon-1-copy-5.png" alt="" class="rotate-img"></a></li>
+              </ul>
+          </div>            
+      </div>
+
+  <!------------------------------- pageination end------------------------------------------- -->
+</div>
+
+<!-- -------------------------------table-section end-------------------------------------- -->
+<div class="footer">
+  <p>©2018 Helperland. All rights reserved.</p>
+</div>   
+</div>
+
+    <!-- -------------------------------right-section end-------------------------------------- -->
+
+  </section>
+
+<!-- -------------------------------main-section end----------------------------------------------- -->
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+</body>
+</html>
