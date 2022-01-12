@@ -4,6 +4,8 @@ function hide_policy(){
 }
 
 $(document).ready(function(){
+
+    // sticky navbar behaviour when scrolling
     $(window).scroll(function(){
         if(this.scrollY > 20 ){
             $(".navbar-sticky").addClass("sticky-header");
@@ -13,13 +15,16 @@ $(document).ready(function(){
         }   
     });
 
+    
+    // add event for mobile navbar
     $('.menu-toggler').click(function(){
         $(this).toggleClass("active");
         $('.main-menu').toggleClass("active");
     });
-
-    $('.menu-toggler').click(function(){
-        $(this).toggleClass("active");
-        $('.main-menu').toggleClass("active");
-    });
+    
+    
+    // add event for dropdown of nav-item in left side menu in service request page
+    $('.leftmenu-click').click(function(){
+        $(this).toggleClass("collapsable-bg");
+    }); 
 });
