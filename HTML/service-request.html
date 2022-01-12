@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/service-request.css">
+    <title>Document</title>
+</head>
+<body>
+    
+<!-- -------------------------------navbar start----------------------------------------------- -->
+<header class="header-navbar">
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand nav-title" href="#">helperland</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item nav-user disabled">
+              <img src="images/user.png" alt="">
+              <span class="disabled">James Smith</span>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " href="#"><img src="images/logout.png" alt="" srcset=""></a>
+            </li>            
+          </ul>
+        </div>
+      </nav>
+</header>
+<!-- -------------------------------navbar end----------------------------------------------- -->
+
+
+<!-- -------------------------------main-section start--------------------------------------------- -->
+
+<section class="container-fluid home-section">
+
+    <!-- -------------------------------left-section start-------------------------------------- -->
+
+    <div class="left-section">
+        <li class="nav-item"><a href="" class="nav-link">Service Management </a></li>
+        <li class="nav-item"><a href="" class="nav-link">Role Management</a></li>
+        <li class="nav-item collapsable  leftmenu-click"> 
+          <a class="nav-link" data-toggle="collapse" href="#leftmenu-collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample" > Coupon Code Management
+          <img class="" src="images/forma-1_3.png" alt="">
+          </a>
+          <ul class="collapse collapasble-leftmenu" id="leftmenu-collapseExample1">
+            <li><a  href="">Coupon Codes</a></li>
+            <li><a  href="">Usage History</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="" class="nav-link">Escalation Management</a></li>
+        <li class="nav-item"><a href="" class="nav-link service-requests">Service Requests</a></li>
+        <li class="nav-item"><a href="" class="nav-link">Service Providers</a></li>
+        <li class="nav-item"><a href="" class="nav-link ">User Management</a></li>
+        <li class="nav-item collapsable leftmenu-click">
+          <a class="nav-link" data-toggle="collapse" href="#leftmenu-collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample" > Finance Module
+            <img class="" src="images/forma-1_3.png" alt="">
+          </a>
+          <ul class="collapse collapasble-leftmenu" id="leftmenu-collapseExample2">
+            <li><a  href="">All Transactions</a></li>
+            <li><a  href="">Generate Payment</a></li>
+            <li><a  href=""> Customer Invoices</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="" class="nav-link"> Zip Code Management </a></li>
+        <li class="nav-item"><a href="" class="nav-link">Rating Management</a></li>
+        <li class="nav-item"><a href="" class="nav-link">Inquiry Management</a></li>
+        <li class="nav-item"><a href="" class="nav-link"> Newsletter Management</a></li>
+        <li class="nav-item collapsable leftmenu-click">
+          <a class="nav-link" data-toggle="collapse" href="#leftmenu-collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample" >Content Management
+            <img class="" src="images/forma-1_3.png" alt="">
+          </a>
+          <ul class="collapse collapasble-leftmenu" id="leftmenu-collapseExample3">
+            <li><a  href="">Blog</a></li>
+            <li><a  href="">FAQs</a></li>
+          </ul>
+        </li>
+    </div>
+
+    <!-- -------------------------------left-section end-------------------------------------- -->
+
+    <!-- -------------------------------right-section start-------------------------------------- -->
+
+    <div class="right-section">
+      
+      <div class="table-name d-flex justify-content-between">
+        <p class="table-name-info">Service Requests </p>
+      </div>
+    
+      <div class="formpart">
+        <form>
+          <div class="d-flex flex-wrap">
+            <div class="mr-3 service-id">
+              <input type="text" class="form-control" placeholder="Service ID">
+            </div>
+            <div class="dropdown customer-input mr-3 ">
+              <select  class="form-control " placeholder="" name="customer" id="customer">
+                <option value="customer">Customer</option>
+                <option value="	Lyum watson">Lyum watson</option>
+                <option value="John Smith">John Smith</option>
+              </select>
+            </div>
+            <div class="dropdown mr-3 ">
+              <select  class="form-control " placeholder="" name="service-provider" id="service-provider">
+                <option value="service-provider">Service Provider</option>
+                <option value="	Lyum watson">Lyum watson</option>
+                <option value="John Smith">John Smith</option>
+              </select>
+            </div>
+            <div class="mr-3 ">
+              <select  class="form-control " placeholder="" name="status" id="status">
+                <option value="status">Status</option>
+                <option value="	">New</option>
+                <option value="	">Pending</option>
+                <option value="	">Closed</option>
+                <option value="	">Canceled</option>
+                <option value="	">Reimbursed</option>
+                <option value="	">Expired</option>
+                <option value="	">Rescheduled</option>
+              </select>
+            </div>
+            <div class="mr-3 ">
+                <input placeholder="From Date" type="text" onfocus="(this.type = 'date')" id="" class="form-control calender-img" name=""  >
+            </div>
+            <div class="mr-3 ">
+              <input placeholder="To Date" type="text" onfocus="(this.type = 'date')" id="" class="form-control calender-img" name=""  >
+            </div>
+            <div class="mr-3 ">
+              <button type="submit" class="btn searchbtn">Search</button>
+            </div>
+            <div class="clear">
+              <button type="" class="btn clearbtn">Clear</button>
+            </div>
+          </div>
+        </form>
+      </div>
+ <!-- -------------------------------table-section start-------------------------------------- -->
+    
+ <div class="table-part">
+  <table class="table ">
+    <thead>
+        <th scope="col">Service ID<img src="images/sort.png" alt="" srcset=""></th>
+        <th scope="col">Service date <img src="images/sort.png" alt="" srcset=""></th>
+        <th scope="col">Customer details<img src="images/sort.png" alt="" srcset=""></th>
+        <th scope="col">Service provider<img src="images/sort.png" alt="" srcset=""></th>
+        <th scope="col">Status <img src="images/sort.png" alt="" srcset=""></th>
+        <th scope="col">Actions </th>
+      </tr>
+    </thead>
+    <tbody>
+       
+      <tr>
+          <td>323436</td>
+          <td>
+            <a href="" class="service-date-time">
+              <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+              <span class="service-time"><img src="images/layer-712.png" alt="" srcset="">12:00 - 18:00</span>
+            </a>
+          </td>
+          <td>
+            <a href="" class="customer-deails">
+              <span class="customer-name">David Bough</span>
+              <span class="customer-location"><img src="images/layer-719.png" alt="" srcset="">Musterstrabe 5,12345 Bonn</span>
+            </a>
+          </td>
+          
+          <td class="customer-deails">
+            
+          </td> 
+          <td><span class="new-status">New</span></td>
+          <td>
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+  
+      <tr>
+          <td>323436</td>
+          <td>
+            <a href="" class="service-date-time">
+              <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+              <span class="service-time"><img src="images/layer-712.png" alt="" srcset="">12:00 - 18:00</span>
+            </a>
+          </td>
+          <td>
+            <a href="" class="customer-deails">
+              <span class="customer-name">David Bough</span>
+              <span class="customer-location"><img src="images/layer-719.png" alt="" srcset="">Musterstrabe 5,12345 Bonn</span>
+            </a>
+          </td>
+          
+          <td class="customer-deails">
+          
+          </td> 
+          <td><span class="new-status">New</span></td>
+          <td>
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+  
+      <tr>
+          <td>323436</td>
+          <td>
+            <a href="" class="service-date-time">
+              <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+              <span class="service-time"><img src="images/layer-712.png" alt="" srcset="">12:00 - 18:00</span>
+            </a>
+          </td>
+          <td>
+            <a href="" class="customer-deails">
+              <span class="customer-name">David Bough</span>
+              <span class="customer-location"><img src="images/layer-719.png" alt="" srcset="">Musterstrabe 5,12345 Bonn</span>
+            </a>
+          </td>
+          
+          <td class="customer-deails">
+            <a href="" class="">
+              <div class="d-flex">
+                  <div class="cap-img">  
+                      <img class="" src="images/cap.png" alt="" srcset="">
+                  </div>
+                  <div class="name-rating">
+                      <p class="customer-name">Lyum Watson</p>
+                      <span class="all-star">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star2.png" class="star" alt="">
+                          <span >4 </span>
+                      </span>
+                      
+                  </div>
+              </div>
+            </a>
+          </td> 
+          <td><span class="pending-status">Pending</span></td>
+          <td>
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit & Reschedule</a>
+                <a class="dropdown-item" href="#">Refund</a>
+                <a class="dropdown-item" href="#">Cancel</a>
+                <a class="dropdown-item" href="#">Change SP</a>
+                <a class="dropdown-item" href="#">Escalate</a>
+                <a class="dropdown-item" href="#">History Log</a>
+                <a class="dropdown-item" href="#">Download Invoice</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      <tr>
+        <td>323436</td>
+        <td>
+          <a href="" class="service-date-time">
+            <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+            <span class="service-time"><img src="images/layer-712.png" alt="" srcset="">12:00 - 18:00</span>
+          </a>
+        </td>
+        <td>
+          <a href="" class="customer-deails">
+            <span class="customer-name">David Bough</span>
+            <span class="customer-location"><img src="images/layer-719.png" alt="" srcset="">Musterstrabe 5,12345 Bonn</span>
+          </a>
+        </td>
+        
+        <td class="customer-deails">
+          <a href="" class="">
+            <div class="d-flex">
+                <div class="cap-img">  
+                    <img class="" src="images/cap.png" alt="" srcset="">
+                </div>
+                <div class="name-rating">
+                    <p class="customer-name">Lyum Watson</p>
+                    <span class="all-star">
+                        <img src="images/star1.png" class="star" alt="">
+                        <img src="images/star1.png" class="star" alt="">
+                        <img src="images/star1.png" class="star" alt="">
+                        <img src="images/star1.png" class="star" alt="">
+                        <img src="images/star2.png" class="star" alt="">
+                        <span >4 </span>
+                    </span>
+                    
+                </div>
+            </div>
+          </a>
+        </td> 
+        <td><span class="pending-status">Pending</span></td>
+        <td>
+          <div class="dropdown">
+            <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="images/group-38.png" alt="">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Edit & Reschedule</a>
+              <a class="dropdown-item" href="#">Refund</a>
+              <a class="dropdown-item" href="#">Cancel</a>
+              <a class="dropdown-item" href="#">Change SP</a>
+              <a class="dropdown-item" href="#">Escalate</a>
+              <a class="dropdown-item" href="#">History Log</a>
+              <a class="dropdown-item" href="#">Download Invoice</a>
+            </div>
+          </div>
+        </td>
+      </tr> 
+      <tr>
+          <td>323436</td>
+          <td>
+            <a href="" class="service-date-time">
+              <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+              <span class="service-time"><img src="images/layer-712.png" alt="" srcset="">12:00 - 18:00</span>
+            </a>
+          </td>
+          <td>
+            <a href="" class="customer-deails">
+              <span class="customer-name">David Bough</span>
+              <span class="customer-location"><img src="images/layer-719.png" alt="" srcset="">Musterstrabe 5,12345 Bonn</span>
+            </a>
+          </td>
+          
+          <td class="customer-deails">
+            <a href="" class="">
+              <div class="d-flex">
+                  <div class="cap-img">  
+                      <img class="" src="images/cap.png" alt="" srcset="">
+                  </div>
+                  <div class="name-rating">
+                      <p class="customer-name">Lyum Watson</p>
+                      <span class="all-star">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star2.png" class="star" alt="">
+                          <span >4 </span>
+                      </span>
+                      
+                  </div>
+              </div>
+            </a>
+          </td> 
+          <td><span class="completed-status">Completed</span></td>
+          <td>
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Refund</a>
+                <a class="dropdown-item" href="#">Escalate</a>
+                <a class="dropdown-item" href="#">History Log</a>
+                <a class="dropdown-item" href="#">Downlaod Invoice</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+  
+      <tr>
+          <td>323436</td>
+          <td>
+            <a href="" class="service-date-time">
+              <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+              <span class="service-time"><img src="images/layer-712.png" alt="" srcset="">12:00 - 18:00</span>
+            </a>
+          </td>
+          <td>
+            <a href="" class="customer-deails">
+              <span class="customer-name">David Bough</span>
+              <span class="customer-location"><img src="images/layer-719.png" alt="" srcset="">Musterstrabe 5,12345 Bonn</span>
+            </a>
+          </td>
+          
+          <td class="customer-deails">
+            <a href="" class="">
+              <div class="d-flex">
+                  <div class="cap-img">  
+                      <img class="" src="images/cap.png" alt="" srcset="">
+                  </div>
+                  <div class="name-rating">
+                      <p class="customer-name">Lyum Watson</p>
+                      <span class="all-star">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star2.png" class="star" alt="">
+                          <span >4 </span>
+                      </span>
+                      
+                  </div>
+              </div>
+            </a>
+          </td> 
+          <td><span class="completed-status">Completed</span></td>
+          <td>
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Refund</a>
+                <a class="dropdown-item" href="#">Escalate</a>
+                <a class="dropdown-item" href="#">History Log</a>
+                <a class="dropdown-item" href="#">Downlaod Invoice</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+  
+      <tr>
+          <td>323436</td>
+          <td>
+            <a href="" class="service-date-time">
+              <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+              <span class="service-time"><img src="images/layer-712.png" alt="" srcset="">12:00 - 18:00</span>
+            </a>
+          </td>
+          <td>
+            <a href="" class="customer-deails">
+              <span class="customer-name">David Bough</span>
+              <span class="customer-location"><img src="images/layer-719.png" alt="" srcset="">Musterstrabe 5,12345 Bonn</span>
+            </a>
+          </td>
+          
+          <td class="customer-deails">
+            <a href="" class="">
+              <div class="d-flex">
+                  <div class="cap-img">  
+                      <img class="" src="images/cap.png" alt="" srcset="">
+                  </div>
+                  <div class="name-rating">
+                      <p class="customer-name">Lyum Watson</p>
+                      <span class="all-star">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star2.png" class="star" alt="">
+                          <span >4 </span>
+                      </span>
+                      
+                  </div>
+              </div>
+            </a>
+          </td> 
+          <td><span class="cancelled-status">Cancelled</span></td>
+          <td>
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+  
+      <tr>
+          <td>323436</td>
+          <td>
+            <a href="" class="service-date-time">
+              <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+              <span class="service-time"><img src="images/layer-712.png" alt="" srcset="">12:00 - 18:00</span>
+            </a>
+          </td>
+          <td>
+            <a href="" class="customer-deails">
+              <span class="customer-name">David Bough</span>
+              <span class="customer-location"><img src="images/layer-719.png" alt="" srcset="">Musterstrabe 5,12345 Bonn</span>
+            </a>
+          </td>
+          
+          <td class="customer-deails">
+            <a href="" class="">
+              <div class="d-flex">
+                  <div class="cap-img">  
+                      <img class="" src="images/cap.png" alt="" srcset="">
+                  </div>
+                  <div class="name-rating">
+                      <p class="customer-name">Lyum Watson</p>
+                      <span class="all-star">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star2.png" class="star" alt="">
+                          <span >4 </span>
+                      </span>
+                      
+                  </div>
+              </div>
+            </a>
+          </td> 
+          <td><span class="completed-status">Completed</span></td>
+          <td>
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Refund</a>
+                <a class="dropdown-item" href="#">Escalate</a>
+                <a class="dropdown-item" href="#">History Log</a>
+                <a class="dropdown-item" href="#">Downlaod Invoice</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+  
+      <tr>
+          <td>323436</td>
+          <td>
+            <a href="" class="service-date-time">
+              <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+              <span class="service-time"><img src="images/layer-712.png" alt="" srcset="">12:00 - 18:00</span>
+            </a>
+          </td>
+          <td>
+            <a href="" class="customer-deails">
+              <span class="customer-name">David Bough</span>
+              <span class="customer-location"><img src="images/layer-719.png" alt="" srcset="">Musterstrabe 5,12345 Bonn</span>
+            </a>
+          </td>
+          
+          <td class="customer-deails">
+            <a href="" class="">
+              <div class="d-flex">
+                  <div class="cap-img">  
+                      <img class="" src="images/cap.png" alt="" srcset="">
+                  </div>
+                  <div class="name-rating">
+                      <p class="customer-name">Lyum Watson</p>
+                      <span class="all-star">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star2.png" class="star" alt="">
+                          <span >4 </span>
+                      </span>
+                      
+                  </div>
+              </div>
+            </a>
+          </td> 
+          <td><span class="cancelled-status">Cancelled</span></td>
+          <td>
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+  
+      <tr>
+          <td>323436</td>
+          <td>
+            <a href="" class="service-date-time">
+              <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+              <span class="service-time"><img src="images/layer-712.png" alt="" srcset="">12:00 - 18:00</span>
+            </a>
+          </td>
+          <td>
+            <a href="" class="customer-deails">
+              <span class="customer-name">David Bough</span>
+              <span class="customer-location"><img src="images/layer-719.png" alt="" srcset="">Musterstrabe 5,12345 Bonn</span>
+            </a>
+          </td>
+          
+          <td class="customer-deails">
+            <a href="" class="">
+              <div class="d-flex">
+                  <div class="cap-img">  
+                      <img class="" src="images/cap.png" alt="" srcset="">
+                  </div>
+                  <div class="name-rating">
+                      <p class="customer-name">Lyum Watson</p>
+                      <span class="all-star">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star1.png" class="star" alt="">
+                          <img src="images/star2.png" class="star" alt="">
+                          <span >4 </span>
+                      </span>
+                      
+                  </div>
+              </div>
+            </a>
+          </td> 
+          <td><span class="completed-status">Completed</span></td>
+          <td>
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Refund</a>
+                <a class="dropdown-item" href="#">Escalate</a>
+                <a class="dropdown-item" href="#">History Log</a>
+                <a class="dropdown-item" href="#">Downlaod Invoice</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+  
+  
+  
+      </tbody>
+    </table>
+        <!------------------------------- pageination start--------------------------------------->
+        <div class="page-hadling " >
+          <div class="pagination-spacing d-flex">
+            <p class=" pagination-para pagination-spacing">show</p>
+            <select class="form-group entry-selction pagination-spacing"  id="exampleFormControlSelect1">
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+                <option>1000</option>
+              </select>
+              <span class="pagination-spacing pagination-para">entries</span>
+              <p class=" pagination-para">Total Record: 55</p>
+          </div>
+          
+          <div class="ml-auto ">
+              <ul class="pagination ">
+                  <li><a href=""><img src="images/polygon-1-copy-5.png" alt=""></a></li>
+                  <li class="active-page"><a href="" >1</a></li>
+                  <li><a href="">2</a></li>
+                  <li><a href="">3</a></li>
+                  <li><a href="">4</a></li>
+                  <li><a href="">5</a></li>
+                  <li><a href=""><img src="images/polygon-1-copy-5.png" alt="" class="rotate-img"></a></li>
+              </ul>
+          </div>            
+      </div>
+
+  <!------------------------------- pageination end------------------------------------------- -->
+</div>
+
+<!-- -------------------------------table-section end-------------------------------------- -->
+<div class="footer">
+  <p>©2018 Helperland. All rights reserved.</p>
+</div>   
+</div>
+
+    <!-- -------------------------------right-section end-------------------------------------- -->
+
+  </section>
+
+<!-- -------------------------------main-section end----------------------------------------------- -->
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+</body>
+</html>
