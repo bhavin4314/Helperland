@@ -1,0 +1,143 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- ---------------------------------Homepage Start------------------------------------------- -->
+    
+    <div id="" class="herocontent">
+        <header class="">
+            <nav class="navbar navbar-expand-lg fixed-top navbar-sticky">
+                <!-- <div class="container-fluid p-0"> -->
+                    <a class="navbar-brand logo" href="index.html">
+                        <img class="logo" src="~/images/logo-large.png" alt="logo">
+                    </a>
+        
+                    <button class="navbar-toggler bg-light navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
+                    
+                    
+
+                    <div class="collapse navbar-collapse main-menu d-xl-flex justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav headernavbar">
+                                <button class="btn nav-link bookingbtn" href="#">Book a Cleaner</button>
+                                <li class="nav-item ml-2"><a class="nav-link" asp-controller="Home" asp-action="prices">Prices</a></li>
+                                <li class="nav-item mx-3"><a class="nav-link" href="#">Our Guarantee</a></li>
+                                <li class="nav-item mr-3"><a class="nav-link" href="#">Blog</a></li>
+                                <li class="nav-item mr-2"><a class="nav-link" asp-controller="Home" asp-action="contact">Contact Us</a></li>
+                                <button class="btn nav-link loginbtn" href="#">Login</button>
+                                <button class="btn nav-link helpbtn" href="#">Become a Helper</button>
+                              
+
+                        </ul>
+                    </div>
+                    <div class="dropdown flagsection">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="navflag " src="~/images/ic-flag.png" alt=""> </button>
+                        <div class="dropdown-menu flagdropdown "aria-labelledby="dropdownMenuButton ">
+                          <a class="dropdown-item d-flex justify-content-around " href="#"><img class="navflag " src="~/images/ic-flag.png" alt="">UK</a>
+                          <a class="dropdown-item d-flex justify-content-around" href="#"><img class="navflag " src="~/images/ic-flag.png" alt="">UK</a>
+                          <a class="dropdown-item d-flex justify-content-around" href="#"><img class="navflag " src="~/images/ic-flag.png" alt="">UK</a>
+                        </div>
+                      </div>
+                <!-- </div> -->
+            </nav>
+         
+        </header>
+        @RenderBody()
+        </div>
+   
+
+        <!-- ---------------------------------newsletter start------------------------------------------- -->
+         <div class="formpart">
+            <div class="container-fluid ">
+                <div class="row">
+                    <div class="col-lg-1 col-md-2 col-sm-12 "><div class="formleftimg" ><img class="leftimg" src="~/images/sp-arrow-down.png" alt=""></div></div>
+                    <div class="col-lg-10 col-md-8 col-sm-12 text-center">
+                        <p>GET OUR NEWSLETTER</p>
+                        <form class="form-inline justify-content-center ">
+                            <div class="form-group  mx-sm-3 mb-2">
+                            
+                            <input type="email" class="form-control emailbox" id="email" placeholder="YOUR EMAIL">
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-1 col-md-2 col-sm-12"><img src="images/layer-598.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------------------------------newsletter end------------------------------------------- -->
+
+    <!-- ---------------------------------footernav start------------------------------------------- -->
+    <footer class="footernav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand" href="#">
+                    <img class="footerlogo" src="images/logo-large.png"  class="d-inline-block align-top" alt="logo">
+                  </a>
+                
+              
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item ">
+                      <a class="nav-link" asp-controller="Home" asp-action="index">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" asp-controller="Home" asp-action="about">ABOUT</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">TESTIMONIALS </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " asp-controller="Home" asp-action="faq">FAQS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">INSURANCE POLICY</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">IMPRESSUM</a>
+                    </li>
+                  </ul>
+                  <div class="footnavimg">
+                    <img class="mr-3" src="~/images/ic-facebook.png" width="9px" height="18px" alt="logo">
+                    <img class="" src="~/images/ic-instagram.png" width="20px" height="20px" alt="logo">
+                  </div>
+              </nav>
+              <div class="cookie-footer">
+                <p class="text-center ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat nunc libero, ac malesuada ligula aliquam ac. <span style="color:#6EABEF">Privacy Policy</span></p>
+                <button class="btn" onclick="hide_policy()">OK!</button> 
+            </div>
+        </div>
+    </footer>
+    <!-- ---------------------------------footernav End------------------------------------------- -->
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
