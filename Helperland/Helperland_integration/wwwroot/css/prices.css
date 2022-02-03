@@ -7,7 +7,6 @@
 
 a,
 a:hover {
-    color:none;
     text-decoration: none;
 }
 
@@ -44,10 +43,10 @@ a:hover {
     left: 27%;
 }
 
-.pricing .cardpara p {
-    line-height: 24px;
-    margin-bottom: 19px;
-}
+    .pricing .cardpara p {
+        line-height: 24px;
+        margin-bottom: 19px;
+    }
 
 /* -------------------------------------------------------------------------------- */
 
@@ -90,7 +89,6 @@ a:hover {
     font-size: 18px;
     font-weight: bold;
     margin: 0;
-
 }
 
 
@@ -105,15 +103,14 @@ a:hover {
     margin-top: 43px;
 }
 
-.include-section .section {
-    margin: 0 auto;
-}
+    .include-section .section {
+        margin: 0 auto;
+    }
 
-.include-section .section-img {
-    max-width: 100%;
-    width: 100%;
-
-}
+    .include-section .section-img {
+        max-width: 100%;
+        width: 100%;
+    }
 
 .include-content h3 {
     font-size: 20px;
@@ -256,25 +253,23 @@ a:hover {
 }
 
 .headerpart {
-
     background-color: #4F4F4F;
-
 }
 
-.headerpart nav {
-    padding: 6px 0 8px;
-}
+    .headerpart nav {
+        padding: 6px 0 8px;
+    }
 
-.headerpart .nav-link {
-    color: #FFFFFF !important;
-}
+    .headerpart .nav-link {
+        color: #FFFFFF !important;
+    }
 
-.headerpart .navbar-nav btn {
-    background: #29626D;
-    border: 1px solid #FFFFFF80;
-    border-radius: 20px;
-    color: #FFFFFF;
-}
+    .headerpart .navbar-nav button {
+        background: #29626D;
+        border: 1px solid #FFFFFF80;
+        border-radius: 20px;
+        color: #FFFFFF;
+    }
 
 .bookingbtn {
     max-width: 111px;
@@ -320,7 +315,6 @@ a:hover {
 
 .commonhead {
     font-size: 36px;
-
     font-weight: 500;
     margin-bottom: 0;
     color: #4f4f4f;
@@ -335,9 +329,9 @@ a:hover {
     padding-top: 10px;
 }
 
-.design img {
-    margin: 0 10px;
-}
+    .design img {
+        margin: 0 10px;
+    }
 
 .seprator-left,
 .seprator-right {
@@ -357,28 +351,28 @@ a:hover {
     padding-bottom: 53px;
 }
 
-.formpart h2 {
-    font-size: 18px;
-    color: #353548;
-    font-weight: bold;
-}
+    .formpart h2 {
+        font-size: 18px;
+        color: #353548;
+        font-weight: bold;
+    }
 
-.formpart .emailbox {
-    width: 233px;
-    height: 40px;
-    background: #F4F5F8 0% 0% no-repeat padding-box;
-    border: 1px solid #565656;
-    border-radius: 20px;
-    font-size: 14px;
-}
+    .formpart .emailbox {
+        width: 233px;
+        height: 40px;
+        background: #F4F5F8 0% 0% no-repeat padding-box;
+        border: 1px solid #565656;
+        border-radius: 20px;
+        font-size: 14px;
+    }
 
-.formpart .btn {
-    width: 88px;
-    height: 40px;
-    background: #FF7B6D 0% 0% no-repeat padding-box;
-    border: 1px solid #FF7B6D;
-    border-radius: 20px;
-}
+    .formpart .btn {
+        width: 88px;
+        height: 40px;
+        background: #FF7B6D 0% 0% no-repeat padding-box;
+        border: 1px solid #FF7B6D;
+        border-radius: 20px;
+    }
 
 
 /* -------------------------------------------------------------------------------- */
@@ -386,28 +380,28 @@ a:hover {
     background: #111111;
 }
 
-.footernav .navbar {
-    padding: 0 !important;
-}
+    .footernav .navbar {
+        padding: 0 !important;
+    }
 
-.footernav .container-fluid {
-    min-height: 131px;
-    padding: 0 123px 0 115px;
-}
+    .footernav .container-fluid {
+        min-height: 131px;
+        padding: 0 123px 0 115px;
+    }
 
-.footernav ul {
-    max-width: 682px;
-    min-height: 44px;
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 27px;
-}
+    .footernav ul {
+        max-width: 682px;
+        min-height: 44px;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 27px;
+    }
 
-.footernav .nav-link {
-    color: #F1F1F1;
-    font-size: 13.99px;
-    margin: 0 10px;
-}
+    .footernav .nav-link {
+        color: #F1F1F1;
+        font-size: 13.99px;
+        margin: 0 10px;
+    }
 
 .footerlogo {
     width: 120px;
@@ -480,7 +474,6 @@ a:hover {
 @media only screen and (max-width: 659px) {
 
     .footernav .navbar {
-
         text-align: center;
         display: flex;
         flex-direction: row;
@@ -494,7 +487,6 @@ a:hover {
     .footnavimg {
         order: 2;
     }
-
 }
 
 @media only screen and (max-width: 519px) {

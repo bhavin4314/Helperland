@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+a,
+a:hover {
+
+    text-decoration: none;
+}
+
+/* -------------------------------------------------------------------------------- */
+.registration {
+    margin-top: 65px;
+    padding: 70px 0;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+.registration .container {
+    padding: 0 260px;
+
+}
+
+.register-form {
+    padding-top: 30px;
+}
+
+.register-form .form-control {
+    color: #a0a0a0 !important;
+}
+
+.register-form h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4F4F4F;
+    margin-bottom: 23px;
+}
+
+.register-form input,
+.register-form select,
+.register-form .txtarea {
+    margin-bottom: 15px;
+}
+
+
+
+
+.phone-num {
+    display: flex;
+}
+
+.country-code {
+    padding: 7px 0 0 10px !important;
+    color: #4f4f4f;
+    background-color: #c8c8c8;
+    border: 1px solid #c8c8c8;
+    width: 57px;
+    height: 38px;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.codenum {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
+.recaptcha {
+    background-color: #fff;
+}
+
+.recaptcha img {
+    display: block;
+    margin: 0 auto;
+}
+
+.form-check {
+    margin-bottom: 15px;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+
+}
+
+.form-check-label {
+    margin-left: 7px;
+    padding-top: 3px;
+}
+
+.submit-btn {
+    background-color: #1D7A8C;
+    color: #FFFFFF;
+    width: 166px;
+    height: 46px;
+    border-radius: 23px;
+    display: block;
+    margin: 25px auto !important;
+    /* padding: 14px 0 14px; */
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+
+/* --------------------------------hover effect start-------------------------------------------------- */
+
+
+.bookingbtn:hover,
+.loginbtn:hover,
+.helpbtn:hover {
+    background-color: #fff !important;
+    color: #29626D !important;
+}
+
+
+.headerpart .nav-link:hover {
+    border: 1px solid #FFFFFF80;
+    border-radius: 20px;
+    padding: 6px 14px 9px !important;
+}
+
+/* --------------------------------hover effect end-------------------------------------------------- */
+
+
+/* ==========================================common css========================================= */
+
+
+.headerpart .logo {
+    width: 73px;
+    height: 54px;
+    margin-top: -3px;
+}
+
+.fixed-top {
+    background: rgba(39, 39, 39, .7) !important;
+}
+
+.headerpart {
+
+    background-color: #4F4F4F;
+
+}
+
+.headerpart nav {
+    padding: 6px 0 8px;
+}
+
+.headerpart .nav-link {
+    color: #FFFFFF !important;
+}
+
+.headerpart .navbar-nav button {
+    background: #29626D;
+    border: 1px solid #FFFFFF80;
+    border-radius: 20px;
+    color: #FFFFFF;
+}
+
+.bookingbtn {
+    max-width: 111px;
+    height: 40px;
+    font-size: 17px;
+    padding: 6px 18px 11px !important;
+}
+
+.pricebtn {
+    max-width: 161px;
+    height: 40px;
+    font-size: 17px;
+    padding: 6px 14px 11px !important;
+    background: transparent !important;
+    color: #fff;
+}
+
+.loginbtn {
+    max-width: 97px;
+    height: 40px;
+    font-size: 16px;
+    padding: 6px 29px 12px !important;
+    margin-right: 11px;
+}
+
+.helpbtn {
+    max-width: 161px;
+    height: 40px;
+    font-size: 16px;
+    padding: 6px 18px 12px 19px !important;
+    margin-right: 22px;
+}
+
+/* -------------------------------------------------------------------------------- */
+.commonheroimg img {
+    width: 100%;
+    margin-bottom: 39px;
+    margin-top: 64px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+
+.commonhead {
+    font-size: 36px;
+
+    font-weight: 500;
+    margin-bottom: 0;
+    color: #4f4f4f;
+}
+
+
+
+.design {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.design img {
+    margin: 0 10px;
+}
+
+.seprator-left,
+.seprator-right {
+    width: 62px;
+    height: 1px;
+    background-color: #858881;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+.formpart .container-fluid {
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.formpart {
+    padding-bottom: 53px;
+}
+
+.formpart h2 {
+    font-size: 18px;
+    color: #353548;
+    font-weight: bold;
+}
+
+.formpart .emailbox {
+    width: 233px;
+    height: 40px;
+    background: #F4F5F8 0% 0% no-repeat padding-box;
+    border: 1px solid #565656;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.formpart .btn {
+    width: 88px;
+    height: 40px;
+    background: #FF7B6D 0% 0% no-repeat padding-box;
+    border: 1px solid #FF7B6D;
+    border-radius: 20px;
+}
+
+
+/* -------------------------------------------------------------------------------- */
+.footernav {
+    background: #111111;
+}
+
+.footernav .navbar {
+    padding: 0 !important;
+}
+
+.footernav .container-fluid {
+    min-height: 131px;
+    padding: 0 123px 0 115px;
+}
+
+.footernav ul {
+    max-width: 682px;
+    min-height: 44px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 27px;
+}
+
+.footernav .nav-link {
+    color: #F1F1F1;
+    font-size: 13.99px;
+    margin: 0 10px;
+}
+
+.footerlogo {
+    width: 120px;
+    height: 92px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.footnavimg {
+    margin-top: 27px;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+.line {
+    width: 100%;
+    height: 1px;
+    background: #424242 0% 0% no-repeat padding-box;
+    margin: 0 auto;
+}
+
+/* -------------------------------------------------------------------------------- */
+
+
+.footer .container-fluid {
+    background-color: #292929;
+    min-height: 64px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.footer p {
+    color: #9BA0A3;
+    font-size: 14px;
+    padding: 22px 0;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 992px) {
+
+    .headernavbar {
+        text-align: center;
+        background-color: #525252;
+        padding: 50px 0;
+        position: relative;
+        z-index: 1;
+    }
+
+
+    .bookingbtn,
+    .pricebtn,
+    .helpbtn,
+    .loginbtn {
+        display: block;
+        margin: 10px auto !important;
+    }
+
+    .loginbtn,
+    .helpbtn {
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 659px) {
+
+    .footernav .navbar {
+
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footernav ul {
+        width: 100%;
+        order: 3;
+    }
+
+    .footnavimg {
+        order: 2;
+    }
+
+}
+
+@media only screen and (max-width: 519px) {
+    .footernav .navbar-brand {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    .footnavimg {
+        margin: 30px auto 20px;
+        width: 100%;
+    }
+
+    .footernav .container-fluid {
+        padding: 5%;
+    }
+}
+
+@media only screen and (max-width: 1109px) and (min-width: 992px) {
+    .footernav ul {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+
+
+/* ==========================================common css========================================= */
+
+
+
+
+/* ---------------------------login page CSS start----------------------------------- */
+@media only screen and (max-width: 1192px) {
+    .registration .container {
+        padding: 0 30px !important;
+    }
+
+}
+
+/* --------------------------------- */
+
+.login-part .modal-content {
+    width: 380px;
+    padding: 40px 20px;
+}
+
+.password-forgot .modal-content {
+    /* width: 380px; */
+    padding: 40px 20px;
+}
+
+.login-part h2,
+.password-forgot h2 {
+    color: #4f4f4f;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.login-submit-btn {
+    display: block;
+    margin: 0 auto;
+    background: #29626D;
+    border: 1px solid #FFFFFF80;
+    border-radius: 30px;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 12px 30px;
+}
+
+.login-center-tag {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* ---------------------------login page CSS end----------------------------------- */

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\.NET project\\Helperland_integration\\Helperland_integration\\Helperland_integration.csproj": {}
+    "H:\\Bhavin_Tatvasoft_Training\\PSD to HTML\\Helperland\\Helperland\\Helperland_integration\\Helperland_integration.csproj": {}
   },
   "projects": {
-    "H:\\.NET project\\Helperland_integration\\Helperland_integration\\Helperland_integration.csproj": {
+    "H:\\Bhavin_Tatvasoft_Training\\PSD to HTML\\Helperland\\Helperland\\Helperland_integration\\Helperland_integration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\.NET project\\Helperland_integration\\Helperland_integration\\Helperland_integration.csproj",
+        "projectUniqueName": "H:\\Bhavin_Tatvasoft_Training\\PSD to HTML\\Helperland\\Helperland\\Helperland_integration\\Helperland_integration.csproj",
         "projectName": "Helperland_integration",
-        "projectPath": "H:\\.NET project\\Helperland_integration\\Helperland_integration\\Helperland_integration.csproj",
+        "projectPath": "H:\\Bhavin_Tatvasoft_Training\\PSD to HTML\\Helperland\\Helperland\\Helperland_integration\\Helperland_integration.csproj",
         "packagesPath": "C:\\Users\\Radhey\\.nuget\\packages\\",
-        "outputPath": "H:\\.NET project\\Helperland_integration\\Helperland_integration\\obj\\",
+        "outputPath": "H:\\Bhavin_Tatvasoft_Training\\PSD to HTML\\Helperland\\Helperland\\Helperland_integration\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Radhey\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,16 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.13, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"

@@ -26,7 +26,7 @@
 <header class="headerpart fixed-top">
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg ">
-            <a class="navbar-brand logo" href="index.html">
+            <a class="navbar-brand logo" asp-controller="Home" asp-action="index">
                 <img class="logo" src="~/images/logo-small.png" alt="logo">
             </a>
   
@@ -41,7 +41,7 @@
                         <li class="nav-item ml-3"><a class="nav-link" href="#">Warranty</a></li>
                         <li class="nav-item mx-4"><a class="nav-link" href="#">Blog</a></li>
                         <li class="nav-item mr-3"><a class="nav-link" asp-controller="Home" asp-action="contact">Contact</a></li>
-                        <button class="btn loginbtn" href="#">Login</button>
+                        <button class="btn loginbtn" data-toggle="modal" data-target=".bd-login-modal-sm" >Login</button>
                         <button class="btn helpbtn" href="#">Become a Helper</button>
   
   
@@ -127,9 +127,41 @@
         <!-- ---------------------------------footernav End------------------------------------------- -->
         
         
+
+<section class="login-part" id="login-part" >
+  <div class="modal fade bd-login-modal-sm login-hide" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <h2 class="mb-5">log in <span><img src="~/images/close.png" class="float-right close-click" alt="img"></span> </h2>
+        <form>
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Save on computer</label>
+          </div>
+          <button type="submit" class="btn btn-primary login-submit-btn">log in</button><br>
+          <a class="login-center-tag forgot-password-click" data-toggle="modal" data-target=".bd-forgot-modal-sm" onclick="hide_policy()" href="">Forgot Password?</a>
+          <p class="login-center-tag">Don't have an account yet? <span><a class=""  asp-controller="Home" asp-action="register">create Account</a></span></p>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
  
         
 
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/js/script.js"></script>
         
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

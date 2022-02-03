@@ -15,123 +15,202 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/style.css">
+    
     <title>Document</title>
 </head>
+<style>
+    /* ---------------------------login page CSS start----------------------------------- */
+
+/* --------------------------------- */
+
+.login-part .modal-content {
+    width: 380px;
+    padding: 40px 20px;
+}
+
+.password-forgot .modal-content {
+    /* width: 380px; */
+    padding: 40px 20px;
+}
+
+.login-part h2,
+.password-forgot h2 {
+    color: #4f4f4f;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.login-submit-btn {
+    display: block;
+    margin:15px auto 0;
+    background: #29626D;
+    border: 1px solid #FFFFFF80;
+    border-radius: 30px;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 12px 30px;
+
+}
+
+.login-center-tag {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.form-check-input {
+    width: 20px;
+    height: 20px;
+}
+.form-check-label {
+    margin-left: 7px;
+    padding-top: 3px;
+}
+/* ---------------------------login page CSS end----------------------------------- */
+
+
+</style>
 <body>
-    
+
     <!-- ---------------------------------Homepage Start------------------------------------------- -->
-    
+
     <div id="" class="herocontent">
         <header class="">
             <nav class="navbar navbar-expand-lg fixed-top navbar-sticky">
                 <!-- <div class="container-fluid p-0"> -->
-                    <a class="navbar-brand logo" href="index.html">
-                        <img class="logo" src="~/images/logo-large.png" alt="logo">
-                    </a>
-        
-                    <button class="navbar-toggler bg-light navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
-                    
-                    
+                <a class="navbar-brand logo" asp-controller="Home" asp-action="index">
+                    <img class="logo" src="~/images/logo-large.png" alt="logo">
+                </a>
 
-                    <div class="collapse navbar-collapse main-menu d-xl-flex justify-content-end" id="navbarSupportedContent">
-                        <ul class="navbar-nav headernavbar">
-                                <button class="btn nav-link bookingbtn" href="#">Book a Cleaner</button>
-                                <li class="nav-item ml-2"><a class="nav-link" asp-controller="Home" asp-action="prices">Prices</a></li>
-                                <li class="nav-item mx-3"><a class="nav-link" href="#">Our Guarantee</a></li>
-                                <li class="nav-item mr-3"><a class="nav-link" href="#">Blog</a></li>
-                                <li class="nav-item mr-2"><a class="nav-link" asp-controller="Home" asp-action="contact">Contact Us</a></li>
-                                <button class="btn nav-link loginbtn" href="#">Login</button>
-                                <button class="btn nav-link helpbtn" href="#">Become a Helper</button>
-                              
+                <button class="navbar-toggler bg-light navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
 
-                        </ul>
+
+
+                <div class="collapse navbar-collapse main-menu d-xl-flex justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav headernavbar">
+                        <button class="btn nav-link bookingbtn" href="#">Book a Cleaner</button>
+                        <li class="nav-item ml-2"><a class="nav-link" asp-controller="Home" asp-action="prices">Prices</a></li>
+                        <li class="nav-item mx-3"><a class="nav-link" href="#">Our Guarantee</a></li>
+                        <li class="nav-item mr-3"><a class="nav-link" href="#">Blog</a></li>
+                        <li class="nav-item mr-2"><a class="nav-link" asp-controller="Home" asp-action="contact">Contact Us</a></li>
+                        <button class="btn nav-link loginbtn" data-toggle="modal" data-target=".bd-login-modal-sm" >Login</button>
+                        <button class="btn nav-link helpbtn" href="#">Become a Helper</button>
+
+
+                    </ul>
+                </div>
+                <div class="dropdown flagsection">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="navflag " src="~/images/ic-flag.png" alt="">
+                    </button>
+                    <div class="dropdown-menu flagdropdown " aria-labelledby="dropdownMenuButton ">
+                        <a class="dropdown-item d-flex justify-content-around " href="#"><img class="navflag " src="~/images/ic-flag.png" alt="">UK</a>
+                        <a class="dropdown-item d-flex justify-content-around" href="#"><img class="navflag " src="~/images/ic-flag.png" alt="">UK</a>
+                        <a class="dropdown-item d-flex justify-content-around" href="#"><img class="navflag " src="~/images/ic-flag.png" alt="">UK</a>
                     </div>
-                    <div class="dropdown flagsection">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="navflag " src="~/images/ic-flag.png" alt=""> </button>
-                        <div class="dropdown-menu flagdropdown "aria-labelledby="dropdownMenuButton ">
-                          <a class="dropdown-item d-flex justify-content-around " href="#"><img class="navflag " src="~/images/ic-flag.png" alt="">UK</a>
-                          <a class="dropdown-item d-flex justify-content-around" href="#"><img class="navflag " src="~/images/ic-flag.png" alt="">UK</a>
-                          <a class="dropdown-item d-flex justify-content-around" href="#"><img class="navflag " src="~/images/ic-flag.png" alt="">UK</a>
-                        </div>
-                      </div>
+                </div>
                 <!-- </div> -->
             </nav>
-         
+
         </header>
         @RenderBody()
-        </div>
-   
+    </div>
 
-        <!-- ---------------------------------newsletter start------------------------------------------- -->
-         <div class="formpart">
-            <div class="container-fluid ">
-                <div class="row">
-                    <div class="col-lg-1 col-md-2 col-sm-12 "><div class="formleftimg" ><img class="leftimg" src="~/images/sp-arrow-down.png" alt=""></div></div>
-                    <div class="col-lg-10 col-md-8 col-sm-12 text-center">
-                        <p>GET OUR NEWSLETTER</p>
-                        <form class="form-inline justify-content-center ">
-                            <div class="form-group  mx-sm-3 mb-2">
-                            
+    
+<section class="login-part"  >
+  <div class="modal fade bd-login-modal-sm login-hide" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-sm login-modal"  >
+      <div class="modal-content">
+        <h2 class="mb-5">log in <span><img src="~/images/close.png" class="float-right close-click" alt="img"></span> </h2>
+        <form>
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Save on computer</label>
+          </div>
+          <button type="submit" class="btn btn-primary login-submit-btn">log in</button><br>
+          <a class="login-center-tag forgot-password-click" data-toggle="modal" data-target=".bd-forgot-modal-sm" onclick="hide_policy()" href="">Forgot Password?</a>
+          <p class="login-center-tag">Don't have an account yet? <span><a class=""  asp-controller="Home" asp-action="register">create Account</a></span></p>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- ---------------------------------newsletter start------------------------------------------- -->
+    <div class="formpart">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-lg-1 col-md-2 col-sm-12 "><div class="formleftimg"><img class="leftimg" src="~/images/sp-arrow-down.png" alt=""></div></div>
+                <div class="col-lg-10 col-md-8 col-sm-12 text-center">
+                    <p>GET OUR NEWSLETTER</p>
+                    <form class="form-inline justify-content-center ">
+                        <div class="form-group  mx-sm-3 mb-2">
+
                             <input type="email" class="form-control emailbox" id="email" placeholder="YOUR EMAIL">
-                            </div>
-                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                        </form>
-                    </div>
-                    <div class="col-lg-1 col-md-2 col-sm-12"><img src="images/layer-598.png" alt=""></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </form>
                 </div>
+                <div class="col-lg-1 col-md-2 col-sm-12"><img src="images/layer-598.png" alt=""></div>
             </div>
         </div>
+    </div>
 
-        <!-- ---------------------------------newsletter end------------------------------------------- -->
-
+    <!-- ---------------------------------newsletter end------------------------------------------- -->
     <!-- ---------------------------------footernav start------------------------------------------- -->
     <footer class="footernav">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg ">
                 <a class="navbar-brand" href="#">
-                    <img class="footerlogo" src="images/logo-large.png"  class="d-inline-block align-top" alt="logo">
-                  </a>
-                
-              
-                  <ul class="navbar-nav mx-auto">
+                    <img class="footerlogo" src="images/logo-large.png" class="d-inline-block align-top" alt="logo">
+                </a>
+
+
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item ">
-                      <a class="nav-link" asp-controller="Home" asp-action="index">HOME <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" asp-controller="Home" asp-action="index">HOME <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" asp-controller="Home" asp-action="about">ABOUT</a>
+                        <a class="nav-link" asp-controller="Home" asp-action="about">ABOUT</a>
                     </li>
-                   
+
                     <li class="nav-item">
-                      <a class="nav-link " href="#">TESTIMONIALS </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link " asp-controller="Home" asp-action="faq">FAQS</a>
+                        <a class="nav-link " href="#">TESTIMONIALS </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " href="#">INSURANCE POLICY</a>
+                        <a class="nav-link " asp-controller="Home" asp-action="faq">FAQS</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " href="#">IMPRESSUM</a>
+                        <a class="nav-link " href="#">INSURANCE POLICY</a>
                     </li>
-                  </ul>
-                  <div class="footnavimg">
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">IMPRESSUM</a>
+                    </li>
+                </ul>
+                <div class="footnavimg">
                     <img class="mr-3" src="~/images/ic-facebook.png" width="9px" height="18px" alt="logo">
                     <img class="" src="~/images/ic-instagram.png" width="20px" height="20px" alt="logo">
-                  </div>
-              </nav>
-              <div class="cookie-footer">
+                </div>
+            </nav>
+            <div class="cookie-footer">
                 <p class="text-center ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat nunc libero, ac malesuada ligula aliquam ac. <span style="color:#6EABEF">Privacy Policy</span></p>
-                <button class="btn" onclick="hide_policy()">OK!</button> 
+                <button class="btn" onclick="hide_policy()">OK!</button>
             </div>
         </div>
     </footer>
     <!-- ---------------------------------footernav End------------------------------------------- -->
-    
-    
+
+
+
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

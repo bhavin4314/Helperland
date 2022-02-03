@@ -1,6 +1,7 @@
 function hide_policy(){
     console.log("heloo");
     document.querySelector('.cookie-footer').style.display = "none";
+    // document.querySelector('#login-part').style.display = "none";
 }
 
 $(document).ready(function(){
@@ -27,4 +28,19 @@ $(document).ready(function(){
     $('.leftmenu-click').click(function(){
         $(this).toggleClass("collapsable-bg");
     }); 
+
+    // add event on register page
+    $('.forgot-password-click').click(function(){
+        $('.login-hide').modal('hide');
+    }); 
+    $('.login-click').click(function(){
+        $('.forgot-hide').modal('hide');
+    }); 
+    $('.close-click').click(function(){
+        $('.login-hide').modal('hide');
+    }); 
+    $('.close-click').click(function(){
+        $('.forgot-hide').modal('hide');
+    }); 
+    
 });

@@ -26,5 +26,19 @@ $(document).ready(function(){
     // add event for dropdown of nav-item in left side menu in service request page
     $('.leftmenu-click').click(function(){
         $(this).toggleClass("collapsable-bg");
-    }); 
+    });
+
+    // add event on register page
+    $('.forgot-password-click').click(function () {
+        $('.login-hide').modal('hide');
+    });
+    $('.login-click').click(function () {
+        $('.forgot-hide').modal('hide');
+    });
+    $('.close-click').click(function () {
+        $('.login-hide').modal('hide');
+    });
+    $('.close-click').click(function () {
+        $('.forgot-hide').modal('hide');
+    });
 });
