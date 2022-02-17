@@ -1,8 +1,9 @@
-﻿
+﻿@model Helperland_integration.ViewModel.LoginViewModel
 
 @{
     Layout = null;
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +94,7 @@
                         <li class="nav-item mr-3"><a class="nav-link" href="#">Blog</a></li>
                         <li class="nav-item mr-2"><a class="nav-link" asp-controller="Home" asp-action="contact">Contact Us</a></li>
                         <button class="btn nav-link loginbtn" data-toggle="modal" data-target=".bd-login-modal-sm" >Login</button>
-                        <button class="btn nav-link helpbtn" href="#">Become a Helper</button>
+                        <button class="btn nav-link helpbtn" onclick="location.href='@Url.Action("HelperRegistration","Home")'">Become a Helper</button>
 
 
                     </ul>
@@ -116,31 +117,7 @@
     </div>
 
     
-<section class="login-part"  >
-  <div class="modal fade bd-login-modal-sm login-hide" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
-    <div class="modal-dialog modal-sm login-modal"  >
-      <div class="modal-content">
-        <h2 class="mb-5">log in <span><img src="~/images/close.png" class="float-right close-click" alt="img"></span> </h2>
-        <form>
-          <div class="form-group">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Save on computer</label>
-          </div>
-          <button type="submit" class="btn btn-primary login-submit-btn">log in</button><br>
-          <a class="login-center-tag forgot-password-click" data-toggle="modal" data-target=".bd-forgot-modal-sm" onclick="hide_policy()" href="">Forgot Password?</a>
-          <p class="login-center-tag">Don't have an account yet? <span><a class=""  asp-controller="Home" asp-action="register">create Account</a></span></p>
-          
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+
     <!-- ---------------------------------newsletter start------------------------------------------- -->
     <div class="formpart">
         <div class="container-fluid ">
@@ -156,7 +133,7 @@
                         <button type="submit" class="btn btn-primary mb-2">Submit</button>
                     </form>
                 </div>
-                <div class="col-lg-1 col-md-2 col-sm-12"><img src="images/layer-598.png" alt=""></div>
+                <div class="col-lg-1 col-md-2 col-sm-12"><img src="~/images/layer-598.png" alt=""></div>
             </div>
         </div>
     </div>
@@ -167,7 +144,7 @@
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg ">
                 <a class="navbar-brand" href="#">
-                    <img class="footerlogo" src="images/logo-large.png" class="d-inline-block align-top" alt="logo">
+                    <img class="footerlogo" src="~/images/logo-large.png" class="d-inline-block align-top" alt="logo">
                 </a>
 
 
@@ -204,7 +181,53 @@
         </div>
     </footer>
     <!-- ---------------------------------footernav End------------------------------------------- -->
-
+    <form class="login-part" asp-action="login" asp-controller="Home"  >
+       
+          <div class="modal fade bd-login-modal-sm login-hide" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
+            <div class="modal-dialog modal-sm login-modal"  >
+              <div class="modal-content" >
+                <h2 class="mb-5">log in <span><img src="~/images/close.png" class="float-right close-click" alt="img"></span> </h2>
+                <form method="post" >
+                  <div class="form-group">
+                    <input asp-for="Email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email">
+                    @*<input asp-for="Email" class="form-control" placeholder="Email address">*@
+                    <span asp-validation-for="Email" class="text-danger"></span> 
+                </div>
+                  <div class="form-group">
+                    <input asp-for="Password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Save on computer</label>
+                  </div>
+                  <button type="submit" class="btn btn-primary login-submit-btn">log in</button><br>
+                  <a class="login-center-tag forgot-password-click" data-toggle="modal" data-target=".bd-forgot-modal-sm" onclick="hide_policy()" href="">Forgot Password?</a>
+                  <p class="login-center-tag">Don't have an account yet? <span><a class=""  asp-controller="Home" asp-action="register">create Account</a></span></p>
+          
+                </form>
+              </div>
+            </div>
+          </div>
+</form>
+<section class="password-forgot">
+  <div class="modal fade bd-forgot-modal-sm forgot-hide" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <h2 class="mb-5">Forgot Password<span><img src="~/images/close.png" class="float-right close-click" alt="img"></span></h2>
+        <form>
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <button type="submit" class="btn btn-primary login-submit-btn">Send</button><br>
+          <a class="login-center-tag login-click" href="" data-toggle="modal" data-target=".bd-login-modal-sm">log in now </a>
+          
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
 
   
@@ -212,6 +235,8 @@
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/js/script.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

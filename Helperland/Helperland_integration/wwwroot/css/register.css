@@ -15,6 +15,7 @@ a:hover {
 .registration {
     margin-top: 65px;
     padding: 70px 0;
+    
 }
 
 /* ------------------------------------------------------------------------------------------------ */
@@ -38,17 +39,16 @@ a:hover {
     margin-bottom: 23px;
 }
 
-.register-form input,
 .register-form select,
 .register-form .txtarea {
-    margin-bottom: 15px;
+        margin-bottom: 15px;
 }
 
-
-
-
+ .register-form .user-register-input {
+        margin-bottom: 15px;
+ }
 .phone-num {
-    display: flex;
+        display: flex;
 }
 
 .country-code {

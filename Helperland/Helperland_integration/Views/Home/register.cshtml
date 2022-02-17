@@ -4,15 +4,34 @@
     Layout = "~/Views/Shared/_OtherLayout.cshtml";
 }
     
-
+@model Helperland_integration.ViewModel.UserViewModel
 
 
 <link rel="stylesheet" href="~/css/register.css">
 
 <!-- ---------------------------------register-page start------------------------------------------- -->
+
 <section class="registration">
   <div class="container">
-    
+        @if (ViewBag.IsSuccess==true)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Your registration successfully done.</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>   
+        }
+        @if (ViewBag.IsExistEmail==true)
+        {
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>This email-id already exist try with another email-id.</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>   
+        }
+
     <h2 class="commonhead text-center" >Create Account</h2>
     <div class="design text-center">
       <div class="seprator-left "></div>
@@ -21,37 +40,45 @@
     </div>
 
     <div class="register-form">
-        <form>
+        <form method="post">
             <div class="row">
-              <div class="col-lg-6 col-sm-12 ">
+              <div class="col-lg-6 col-sm-12 user-register-input">
                   
-                <input type="text" class="form-control" placeholder="First name">
+                <input asp-for="FirstName" class="form-control" placeholder="First name">
+                <span asp-validation-for="FirstName" class="text-danger"></span>
               </div>
-              <div class="col-lg-6 col-sm-12">
-                <input type="text" class="form-control" placeholder="Last name">
+              <div class="col-lg-6 col-sm-12 user-register-input">
+                <input asp-for="LastName" class="form-control" placeholder="Last name">
+                <span asp-validation-for="LastName" class="text-danger"></span>
               </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <input type="text" class="form-control" placeholder="Email address">
+                <div class="col-lg-6 col-sm-12 user-register-input">
+                    <input asp-for="Email" class="form-control"  placeholder="Email address">
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>  
-                <div class="col-lg-6 col-sm-12 phone-num ">
-                    <span class="country-code">+91</span>
-                    <input type="text" class="form-control codenum" placeholder="Mobile number">
+                <div class="col-lg-6 col-sm-12  user-register-input">
+                    <div class="phone-num">
+                        <span class="country-code">+91</span>
+                        <input asp-for="Mobile" class="form-control codenum" placeholder="Mobile number">
+                    </div>
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-sm-12 ">
+                <div class="col-lg-6 col-sm-12 user-register-input">
                     
-                  <input type="text" class="form-control" placeholder="Password">
+                  <input asp-for="Password" class="form-control" placeholder="Password">
+                  <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
-                <div class="col-lg-6 col-sm-12">
-                  <input type="text" class="form-control" placeholder="Repeat Password">
+                <div class="col-lg-6 col-sm-12 user-register-input">
+                  <input asp-for="ConfirmPassword" class="form-control" placeholder="Repeat Password">
+                  <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>
               </div>
               
               <div class="form-check ">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input type="checkbox" asp-validation-for="" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1"> Yes, I would like to subscribe to the Helperland GmbH newsletter with vouchers, trends, promotions and individualized offers. I can unsubscribe from the newsletter at any time in the newsletter and in my customer account.</label>
               </div>
               <div class="form-check ">
@@ -79,10 +106,12 @@
         <h2 class="mb-5">log in <span><img src="~/images/close.png" class="float-right close-click" alt="img"></span> </h2>
         <form>
           <div class="form-group">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
+            <input asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <span asp-validation-for="Email" class="text-danger"></span> 
+        </div>
           <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input asp-for="Password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
           </div>
           <div class="form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">

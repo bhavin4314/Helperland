@@ -114,7 +114,7 @@ h6 {
 .register-form-part {
     background-color: #FFFFFF;
     width: 430px;
-    height: 664px;
+    min-height: 664px;
     /* display: flex; */
     margin: 0 auto;
 }
@@ -131,7 +131,7 @@ h6 {
 
 }
 
-.inner-form input {
+.inner-form .helper-register-input {
     margin-bottom: 15px;
 }
 
@@ -270,6 +270,7 @@ h6 {
 .formpart {
     margin-top: 77px;
     padding-bottom: 53px;
+    background-color:#fff;
 }
 
 .formpart h2 {
@@ -303,14 +304,12 @@ h6 {
     background: #111111;
 }
 
-.footernav .navbar {
-    padding: 0 !important;
-}
 
-.footernav .container-fluid {
-    min-height: 131px;
-    padding: 0 123px 0 115px;
-}
+
+    .footernav .navbar {
+        min-height: 131px;
+        padding: 0 123px 0 115px;
+    }
 
 .footernav ul {
     max-width: 682px;

@@ -69,14 +69,16 @@ a:hover {
     margin-bottom: 23px;
 }
 
-.contact-form input,
+
 .contact-form select,
 .contact-form .txtarea {
     margin-bottom: 15px;
 }
+.input-bottom-margin {
+    margin-bottom: 15px;
+}
 
-
-.contact-form button {
+.contact-form .contact-submit-btn {
     display: block;
     margin: 0 auto;
     height: 46px;

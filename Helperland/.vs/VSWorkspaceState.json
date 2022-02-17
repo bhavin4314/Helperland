@@ -3,9 +3,14 @@
     "",
     "\\Helperland_integration",
     "\\Helperland_integration\\Controllers",
+    "\\Helperland_integration\\Repository",
+    "\\Helperland_integration\\ViewModel",
     "\\Helperland_integration\\Views",
-    "\\Helperland_integration\\Views\\Shared"
+    "\\Helperland_integration\\Views\\Home",
+    "\\Helperland_integration\\Views\\Shared",
+    "\\Helperland_integration\\wwwroot",
+    "\\Helperland_integration\\wwwroot\\css"
   ],
-  "SelectedNode": "\\Helperland_integration.sln",
+  "SelectedNode": "\\Helperland_integration\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,131 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+@model Helperland_integration.ViewModel.UserViewModel
+
+
+<link rel="stylesheet" href="~/css/helper-registration.css">
+
+  <div class="register-form-part">
+        @if (ViewBag.IsSuccess==true)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Your registration successfully done.</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>   
+        }
+        @if (ViewBag.IsExistEmail==true)
+        {
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>This email-id already exist try with another email-id.</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>   
+        }
+          <form class="inner-form" method="post">
+            <h2 class="form-head">Register Now!</h2>
+            <div class="form-group">
+              <div class="helper-register-input">
+                <input asp-for="FirstName" class="form-control" placeholder="First name">
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+              </div>
+
+              <div class="helper-register-input">
+                <input asp-for="LastName" class="form-control" placeholder="Last name">
+                <span asp-validation-for="LastName" class="text-danger"></span>
+              </div>
+
+              <div class="helper-register-input">
+                  <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+              </div>
+                            
+              <div class="helper-register-input">
+                <div class="phone-num ">
+                    <span class="country-code">+91</span>
+                    <input asp-for="Mobile" class="form-control codenum" placeholder="Mobile number">
+                </div>
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+              </div>
+             
+              <div class="helper-register-input">
+                <input asp-for="Password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+              </div>
+
+              <div class="helper-register-input">
+                <input asp-for="ConfirmPassword" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+              </div>
+  
+            
+              <div class="form-check condition1">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Send me newsletters from Helperland</label>
+              </div>
+              <div class="form-check condition2">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">I accept <span style="color: #1FB6FF;">terms and conditions</span> & <span style="color: #1FB6FF;">privacy policy</span></label>
+              </div>
+              <div class="recaptcha">
+                <img src="~/images/layer-20.png" class="img-fluid" alt="" srcset="">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary form-btn">Get Started
+              <img src="~/images/arrow-white.png" alt="">
+            </button>
+          </form>
+        </div>
+
+        <div class="downarrow text-center">
+          <img src="~/images/group-18_5.png" alt="">
+        </div>
+        
+  </div>
+
+
+
+    <!-- ---------------------------------how it work part start---------------------------------- -->
+
+    <section class="container-fluid mainwork">
+      <img class="blogbg1" src="~/images/blog-left-bg.png" alt="">
+      <img class="blogbg2" src="~/images/blog-right-bg.png" alt="">
+      <h2 class="work-head">How it works</h2>
+      <div class="work-step">
+        <div class="work-info">
+          <h3>Register yourself</h3>
+          <p class="work-info-para">Provide your basic information to register yourself as a service provider.</p>
+            <p class="work-read">Read more <img src="~/images/shape-2.png" alt="" srcset=""></p>
+        </div>
+        <div class="work-img">
+          <img src="~/images/work_img-1.png"  alt="" srcset="">
+        </div>
+      </div>
+      <div class="work-step">
+        <div class="work-img work-img-middle">
+          <img src="~/images/work2.png"  alt="" srcset="">
+        </div>
+        <div class="work-info-middle ">
+          <h3>Get service requests</h3>
+          <p class="work-info-para">You will get service requests from
+            customes depend on service area and profile.</p>
+            <p class="work-read">Read more <img src="~/images/shape-2.png" alt="" srcset=""></p>
+        </div>
+     
+      </div>
+      <div class="work-step">
+        <div class="work-info ">
+          <h3>Complete service</h3>
+          <p class="work-info-para">Accept service requests from your customers
+            and complete your work.</p>
+            <p class="work-read">Read more <img src="~/images/shape-2.png" alt="" srcset=""></p>
+        </div>
+        <div class="work-img">
+          <img src="~/images/work3.png"  alt="" srcset="">
+        </div>
+      </div>
+      </section>
