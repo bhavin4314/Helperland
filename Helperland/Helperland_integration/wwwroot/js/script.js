@@ -2,6 +2,13 @@ function hide_policy(){
     console.log("heloo");
     document.querySelector('.cookie-footer').style.display = "none";
 }
+function loginError(data, status, xhr) {
+    console.log(data);
+    console.log(status);
+    console.log(xhr);
+    console.log("Bhavin");
+    alert("Invalid username and password");
+}
 
 $(document).ready(function(){
 
@@ -41,4 +48,8 @@ $(document).ready(function(){
     $('.close-click').click(function () {
         $('.forgot-hide').modal('hide');
     });
+
+    //login-error
+
+    
 });

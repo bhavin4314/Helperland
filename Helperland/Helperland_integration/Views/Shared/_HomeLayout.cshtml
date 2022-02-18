@@ -183,14 +183,22 @@
     <!-- ---------------------------------footernav End------------------------------------------- -->
     <form class="login-part" asp-action="login" asp-controller="Home"  >
        
-          <div class="modal fade bd-login-modal-sm login-hide" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
+          <div class="modal fade bd-login-modal-sm login-hide" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
             <div class="modal-dialog modal-sm login-modal"  >
               <div class="modal-content" >
+
+            <div class="alert alert-danger alert-dismissible fade show" id="login-alert" style="display:none" role="alert">
+                <strong>Invalid username and password.</strong> 
+                @*<div asp-validation-summary="ModelOnly" ></div>*@
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>   
+                  
                 <h2 class="mb-5">log in <span><img src="~/images/close.png" class="float-right close-click" alt="img"></span> </h2>
-                <form method="post" >
+                <form method="post" data-ajax="true" data-ajax-success="loginError" >
                   <div class="form-group">
                     <input asp-for="Email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email">
-                    @*<input asp-for="Email" class="form-control" placeholder="Email address">*@
                     <span asp-validation-for="Email" class="text-danger"></span> 
                 </div>
                   <div class="form-group">
@@ -237,10 +245,20 @@
     <script src="~/js/script.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/jquery-ajax-unobtrusive~/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+       @if (ViewBag.isOpen == true)
+    {
+        <script>
+            $(window).on('load', function () {
+                $('#login-modal').modal('show');
+                $('#login-alert').show();
+            });
+        </script>
 
+    }
 </body>
 </html>
 

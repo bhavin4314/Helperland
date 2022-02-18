@@ -135,48 +135,22 @@ namespace Helperland_integration.Controllers
             {
                 
                 bool isValidUser = _loginRepository.IsValidUser(loginViewModel);
-                Console.WriteLine(isValidUser);
                 if (isValidUser)
                 {
-                    //FormsAuthentication.SetAuthCookie(loginViewModel.Email, false);
-                    return RedirectToAction("contact");
+                    
+                    return RedirectToAction("index");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username and password.");
-                    return RedirectToAction("about");
+                    ViewBag.isOpen = true;
+                   
                 }
                 
 
             }
-            else
-            {
-                return View("index");
-            }
-            //return View();
-            //if (ModelState.IsValid)
-            //{
-            //    if (_loginRepository.IsValidUser(loginViewModel))
-            //    {
+           
+            return View("index");
 
-            //        ModelState.Clear();
-            //    }
-            //    else
-            //    {
-            //        ModelState.AddModelError("", "Invalid username and password.");
-            //        ViewBag.isOpen = true;
-            //    }
-
-
-            //}
-            //else
-            //{
-            //    ViewBag.isOpen = true;
-            //    ModelState.AddModelError("", "Enter valid Data");
-            //}
-
-
-            //return View("Index");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
