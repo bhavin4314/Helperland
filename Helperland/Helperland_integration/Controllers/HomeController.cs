@@ -17,12 +17,14 @@ namespace Helperland_integration.Controllers
         private readonly UserRegistration _userRegistration = null;
         private readonly LoginRepository _loginRepository = null;
         private readonly ContactRepository _contactRepository = null;
-        public HomeController(ILogger<HomeController> logger,UserRegistration userRegistration, LoginRepository loginRepository, ContactRepository contactRepository)
+        private readonly ForgotPassword _forgotPassword = null;
+        public HomeController(ILogger<HomeController> logger, UserRegistration userRegistration, LoginRepository loginRepository, ContactRepository contactRepository, ForgotPassword forgotPassword)
         {
             _logger = logger;
             _userRegistration = userRegistration;
             _loginRepository = loginRepository;
             _contactRepository = contactRepository;
+            _forgotPassword = forgotPassword;
         }
 
         public IActionResult index()
@@ -38,9 +40,9 @@ namespace Helperland_integration.Controllers
         {
             return View();
         }
-        public IActionResult contact(bool isSuccess=false)
+        public IActionResult contact(bool isSuccess = false)
         {
-            ViewBag.IsSuccess=isSuccess;
+            ViewBag.IsSuccess = isSuccess;
             return View();
         }
 
@@ -49,9 +51,9 @@ namespace Helperland_integration.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+
                 int id = _contactRepository.SendMessage(contactViewModel);
-                if(id>0)
+                if (id > 0)
                 {
                     return RedirectToAction(nameof(contact), new { isSuccess = true });
                 }
@@ -62,10 +64,10 @@ namespace Helperland_integration.Controllers
         {
             return View();
         }
-        public IActionResult register(bool isSuccess = false,bool isExistEmail=false)
+        public IActionResult register(bool isSuccess = false, bool isExistEmail = false)
         {
-            ViewBag.IsSuccess=isSuccess;
-            ViewBag.IsExistEmail=isExistEmail;  
+            ViewBag.IsSuccess = isSuccess;
+            ViewBag.IsExistEmail = isExistEmail;
             return View();
         }
 
@@ -74,13 +76,13 @@ namespace Helperland_integration.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+
                 int id = _userRegistration.AddNewUser(userViewModel);
                 if (id > 0)
                 {
                     return RedirectToAction(nameof(register), new { isSuccess = true });
                 }
-                else if(id==-1)
+                else if (id == -1)
                 {
                     return RedirectToAction(nameof(register), new { isExistEmail = true });
                 }
@@ -92,7 +94,7 @@ namespace Helperland_integration.Controllers
             else
             {
                 return View();
-            }  
+            }
         }
 
         public IActionResult HelperRegistration(bool isSuccess = false, bool isExistEmail = false)
@@ -133,29 +135,97 @@ namespace Helperland_integration.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                bool isUserExist = _loginRepository.IsUserExist(loginViewModel);
                 bool isValidUser = _loginRepository.IsValidUser(loginViewModel);
-                if (isValidUser)
+                if (isUserExist)
                 {
-                    
-                    return RedirectToAction("index");
+                    if (isValidUser)
+                    {
+                        return RedirectToAction("index");
+                    }
+                    else
+                    {
+                        ModelState.Clear();
+                        ModelState.AddModelError("", "Invalid password.");
+                        ViewBag.isModalOpen = true;
+                    }
+
                 }
                 else
                 {
-                    ViewBag.isOpen = true;
-                   
+                    ModelState.Clear();
+                    ModelState.AddModelError("", "This email id is not registered.");
+                    ViewBag.isModalOpen = true;
                 }
-                
+                //if (isValidUser)
+                //{
+
+                //    return RedirectToAction("index");
+                //}
+                //else
+                //{
+                //    ViewBag.isOpen = true;
+
+                //}
+
 
             }
-           
+
             return View("index");
 
         }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult forgotPassword(ForgotPasswordmodel forgotPasswordmodel)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                bool isUserExist = _forgotPassword.IsUserExist(forgotPasswordmodel);
+                int userId = _forgotPassword.getUserId(forgotPasswordmodel.Email);
+                Console.WriteLine(userId);
+                if (isUserExist)
+                {
+                        
+                    return RedirectToAction(nameof(ResetPassword), new { userId });
+                }
+                else
+                {
+                    ModelState.Clear();
+                    ModelState.AddModelError("", "This email id is not registered.");
+                    ViewBag.isNotExist = true;
+                }
+                
+            }
+            return View("index");
         }
+        [HttpGet]
+        [Route("Home/ResetPassword/{userId:int}")]
+        public IActionResult ResetPassword(int userId)
+            {
+                ViewBag.id = userId;    
+                return View();
+            }
+
+        [HttpPost]
+        
+        public IActionResult ResetPassword(ResetPasswordModel resetPasswordModel)
+            {
+                if (ModelState.IsValid)
+                {
+                
+                if (_forgotPassword.resetThePassword(resetPasswordModel))
+                    {
+                    
+                        RedirectToAction(nameof(ResetPassword),ViewBag.isSuccessReset=true);
+                    }
+                Console.WriteLine(resetPasswordModel.Password);
+            }
+                return View("resetPassword");
+            }
+            [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+            public IActionResult Error()
+            {
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
     }
 }
+

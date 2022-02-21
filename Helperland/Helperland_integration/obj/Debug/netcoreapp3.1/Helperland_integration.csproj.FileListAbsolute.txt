@@ -542,3 +542,4 @@ H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integr
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Helperland_integration.MvcApplicationPartsAssemblyInfo.cs
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\Home\HelperRegistration.cshtml.g.cs
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\bin\Debug\netcoreapp3.1\libman.json
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\Home\ResetPassword.cshtml.g.cs

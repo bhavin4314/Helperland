@@ -18,5 +18,10 @@ namespace Helperland_integration.Repository
             bool isCheckUser = _helperlandContext.Users.Any(x => x.Email == loginViewModel.Email && x.Password == loginViewModel.Password);
             return isCheckUser;
         }
+        public bool IsUserExist(LoginViewModel loginViewModel)
+        {
+            bool isCheckemail = _helperlandContext.Users.Any(x => x.Email == loginViewModel.Email );
+            return isCheckemail;
+        }
     }
 }

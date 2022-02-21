@@ -29,6 +29,7 @@ namespace Helperland_integration
             services.AddScoped<UserRegistration>();
             services.AddScoped<LoginRepository>();
             services.AddScoped<ContactRepository>();
+            services.AddScoped<ForgotPassword>();
 #if DEBUG
             services.AddRazorPages().AddRazorRuntimeCompilation();
 #endif       
