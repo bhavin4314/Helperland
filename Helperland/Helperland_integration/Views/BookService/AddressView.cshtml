@@ -1,0 +1,84 @@
+﻿@{
+    //Layout = null;
+}   
+@*@model Helperland_integration.ViewModel.AddressViewModel
+     <div class="address">
+        <div class="save-address">
+      
+                <input type="radio" id="" name="" value="">
+            <label>
+                <div><span>Address: </span> 48, Nund bunglows, Ahmedabad</div>
+                 <div><span>Mobile number: </span>99999999</div>
+           </label><br>
+        </div>
+        <p>Please enter your address so that your helper can find you.</p>
+                  <div>
+                    <button class="address-btn font-weight-bold">+ Add New Address</button>
+                  </div>
+                  <form class="address-form" method="post" asp-action="saveAddress" asp-controller="BookService" onsubmit="return jQueryAjaxPost(this);">
+                    <div>
+                      <div class="form-row">
+                        <div class="col">
+                          <label>Street</label>
+                          <input  class="form-control" asp-for="AddressLine2" placeholder="Street Name">
+                           <span asp-validation-for="AddressLine2" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                          <label>House number</label>
+                          <input class="form-control" asp-for="AddressLine1" placeholder="House number">
+                           <span asp-validation-for="AddressLine1" class="text-danger"></span>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="col">
+                          <label>Pincode</label>
+                          <input id="pincode" value="" class="form-control" asp-for="Zipcode" placeholder="Pincode">
+                          <span asp-validation-for="Zipcode" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                          <label>Location</label>
+                          <input class="form-control" asp-for="City" placeholder="City name">
+                          <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="col">
+                          <label>Phone number</label>
+                          <input class="form-control" asp-for="Mobile" placeholder="Phone number">
+                          <span asp-validation-for="Mobile" class="text-danger"></span>
+                        </div>
+                      </div>
+                      <button class="save-btn" type="submit">Save</button>
+                      <button class="discard-btn" type="button">Discard</button>
+                      
+                    </div>
+                  </form>
+                  
+                  <div class="form-check">
+                    <input type="checkbox" class="bill-checkbox mr-2 " name="" id="">
+                    <label for="">My billing address differs from the given address.</label>
+                  </div>
+
+                  <hr>
+
+                  <div class="button">
+                    <button type="button" class="next-btn float-right">Continue</button>
+                  </div>
+
+                </div>*@  
+
+               @* <script>
+                   $('.address-btn').click(function() {
+                   $('.address-form').show();
+                   $('.address-btn').hide();
+                   console.log("Ss");
+                  });
+
+                  $('.discard-btn').click(function() {
+                    console.log("Saaas");
+                   $('.address-form').hide();
+                   $('.address-btn').show();
+                   console.log("Saaas");
+                  }); 
+               </script>
+*@

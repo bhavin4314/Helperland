@@ -543,3 +543,6 @@ H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integr
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\Home\HelperRegistration.cshtml.g.cs
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\bin\Debug\netcoreapp3.1\libman.json
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\Home\ResetPassword.cshtml.g.cs
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\BookService\Index.cshtml.g.cs
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_activeUser.cshtml.g.cs
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\BookService\AddressView.cshtml.g.cs

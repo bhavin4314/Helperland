@@ -1,3 +1,4 @@
+using Helperland_integration.Controllers;
 using Helperland_integration.Data;
 using Helperland_integration.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +31,7 @@ namespace Helperland_integration
             services.AddScoped<LoginRepository>();
             services.AddScoped<ContactRepository>();
             services.AddScoped<ForgotPassword>();
+            services.AddScoped<BookingRepository>();
 #if DEBUG
             services.AddRazorPages().AddRazorRuntimeCompilation();
 #endif       
