@@ -28,33 +28,6 @@ namespace Helperland_integration.Repository
             }
         }
 
-     
-        //public bool setAddress(AddressViewModel addressViewModel)
-        //{
-        //    UserAddress userAddress = new UserAddress();
-        //    userAddress.UserId = 24;
-        //    userAddress.AddressLine1= addressViewModel.AddressLine1;
-        //    userAddress.AddressLine2= addressViewModel.AddressLine2;
-        //    userAddress.City= addressViewModel.City;
-        //    userAddress.PostalCode=addressViewModel.Zipcode;
-        //    userAddress.Mobile= addressViewModel.Mobile;
-        //    _helperlandContext.UserAddresses.Add(userAddress);
-        //    _helperlandContext.SaveChanges();
-        //    return true;
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         public Boolean SetAddress(AddressViewModel addressViewModel)
@@ -85,8 +58,8 @@ namespace Helperland_integration.Repository
                     AddressViewModel addressViewModel = new AddressViewModel();
                 //addressViewModel.UserId = userID;
                     addressViewModel.AddressId = item.AddressId;
-                    addressViewModel.AddressLine1 = item.AddressLine1;
-                    addressViewModel.AddressLine2 = item.AddressLine2;
+                    addressViewModel.AddressLine1 = item.AddressLine2;
+                    addressViewModel.AddressLine2 = item.AddressLine1;
                     addressViewModel.ZipCode = item.PostalCode;
                     addressViewModel.MobileNo = item.Mobile;
                     addresses.Add(addressViewModel);

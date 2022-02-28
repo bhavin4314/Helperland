@@ -44,43 +44,7 @@ namespace Helperland_integration.Controllers
             }
         }
 
-        //[HttpPost]
-        //public IActionResult saveAddress(AddressViewModel addressViewModel)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _bookingRepository.setAddress(addressViewModel);
-        //        return Json(new { address = true });
-        //    }
-        //    else
-        //    {
-        //        return Json(new { addressNot = true });
-        //    }
-
-        //}
-
-
-
-
-        //[HttpPost]
-        //public JsonResult CheckPincode(string Pincode)
-        //{
-        //    if (Pincode.Length != 6)
-        //    {
-        //        return Json(false);
-        //    }
-        //    else
-        //    {
-        //        if (_bookingRepository.IsServiceAvailable(Pincode))
-        //        {
-        //            return Json(true);
-        //        }
-        //        else
-        //            return Json("We are not providing service in this area. We’ll notify you if any helper would start working near your area.");
-        //    }
-        //}
-
-
+     
 
         [HttpPost]
         public IActionResult AddAddress([FromBody] AddressViewModel addressViewModel)

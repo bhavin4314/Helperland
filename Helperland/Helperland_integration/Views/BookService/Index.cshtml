@@ -52,7 +52,7 @@
               </div>
               
               <div class="tab-pane fade" id="pills-Schedule" role="tabpanel" aria-labelledby="pills-profile-tab">
-                 <form class="" asp-action="AddServiceRequest" asp-controller="BookService" id="finalSubmitForm">
+                 <form class="" asp-action="AddServiceRequest" asp-controller="BookService" id="finalSubmitForm" onsubmit="return jQueryAjaxPost(this);">
                   <div class="service-schedule">
                  
                   <div class="service-details">
@@ -177,7 +177,7 @@
                   <div>
                     <button class="address-btn font-weight-bold">+ Add New Address</button>
                   </div>
-                  <form class="address-form" method="post" asp-action="" asp-controller="" onsubmit="">
+                  <form class="address-form" method="post" >
                     <div>
                       <div class="form-row">
                         <div class="col">
@@ -194,7 +194,7 @@
                       <div class="form-row">
                         <div class="col">
                           <label>Pincode</label>
-                          <input class="form-control" id="pincode" placeholder="Pincode">
+                          <input class="form-control" id="pincodeAddress" placeholder="Pincode">
                           <span class="text-danger" id="errpincode"></span>
                         </div>
                         <div class="col">
@@ -210,7 +210,7 @@
                           <span class="text-danger" id="errAddAddressPhoneNumber"></span>
                         </div>
                       </div>
-                      <button class="save-btn" id="save-address" type="submit">Save</button>
+                      <button class="save-btn" id="save-address" type="button">Save</button>
                       <button class="discard-btn" type="button">Discard</button>
                       
                     </div>
@@ -254,7 +254,27 @@
                     </div>
 
                     <div id="booking-message" style="display:none"> 
-                        <p class="text-success">Your request booked successfuly.</p>
+                        @*<p class="text-success">Your request booked successfuly.</p>*@
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary d-none" id="successPopuBtn" data-toggle="modal" data-target="#exampleModal">
+                          Launch demo modal
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p class="text-success">Your service request booked successfully</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                     </div>
 
                   </div>
@@ -332,21 +352,15 @@
               });
 
               $("#btnServiceDetails").click(function(){
-               console.log("3rd tab");  
-               
+               console.log($("#pincode-text").val());  
+                $("#pincodeAddress").val($("#pincode-text").val());
                //$("#pills-Details").load("BookServAddServiceRequestice/AddressView");
                document.getElementsByClassName("tab3")[0].click();
                getAddress();
               });
 
               $("#tab3-continue-btn").click(function(){
-                  //if ($("input[name='address']").prop("checked")) {
-                      //console.log("checked");
-                      //document.getElementsByClassName("tab4")[0].click();
-                  //}
-                  //else {
-                  //      $("#errSelectAddress").text("Please Select Address");
-                  //}
+              
                 addId = $("input[name=address]:checked").val();
                 console.log(addId);
                 if (!addId) {
@@ -394,14 +408,9 @@
                                else if(res.finalBooking){
                                    console.log("submitteddd");
                                    $("#booking-message").css("display", "block");
+                                   $("#successPopuBtn").click();
                                }
-                               //else if(res.address){
-                               //    console.log("saved adddress");
-                               //    document.getElementsByClassName("tab4")[0].click();
-                               //}
-                               //else if(res.addressNot){
-                               //    console.log("not saved address")
-                               //}
+                           
             },
             error: function (err) {
                 console.log(err);
@@ -417,8 +426,6 @@
 
 
 
-
-
     $("#save-address").on("click", function () {
             var check = false;
             if ($("#addAddressLine1").val() == "") {
@@ -429,7 +436,7 @@
                 $("#errAddAddressLine2").text("Enter House Number");
                 check = true;
             }
-            if ($("#pincode").val() == "") {
+            if ($("#pincodeAddress").val() == "") {
                 $("#errpincode").text("Enter pincode");
                 check = true;
             }
@@ -450,20 +457,22 @@
             address.addressLine2 = $("#addAddressLine2").val();
             //address.cityId = parseInt($("#addAddressCity").val());
             address.city = $("#addCity").val();
-            address.zipCode = $("#pincode").val();
+            address.zipCode = $("#pincodeAddress").val();
             address.mobileNo = $("#addAddressPhoneNumber").val();
             $.ajax({
                     type: "POST",
-                    url: "@Url.Action("AddAddress")",
+                    url: "@Url.Action("AddAddress","BookService")",
                     data:JSON.stringify(address),
                     dataType: 'json',
                     contentType: 'application/json',
-                    success: function (responce) {
-                        if (responce) {
-                            alert("inner");
-                            $("#addAddress").hide();
-                            $("#btnAddNewAddress").show();
-                            getAddress();
+                    success: function (response) {
+                        if (response) {
+                            console.log(response);
+                            console.log("getaddress inner");
+                             $('.address-form').hide();
+                             $('.address-btn').show();
+                             getAddress();
+                             console.log("getaddress executed");
                         }
                     
                     },
@@ -475,9 +484,11 @@
                     }
                 });
         });
-
+        
 
         });
+
+
 
          function getAddress() {
               $.ajax({
@@ -486,7 +497,7 @@
                   data: { "userID": 24 },
                   success: function (response) {
                       var obj = JSON.parse(response);
-                      $("#show-address").empty();
+                      $("#showAddress").empty();
                       for (var i = 0; i < obj.length; i++) {
                           $("#showAddress").append(' <div class="border mt-3 address"> <input type="radio" class="rbAddress" name="address" value="' + obj[i].AddressId + '"  > <div class="d-inline-block margin-left-10">  <b> Address:</b> ' + obj[i].AddressLine1 + ' , ' + obj[i].AddressLine2 + ' , ' + obj[i].ZipCode + ' <br> <b> Phone number:</b> ' + obj[i].MobileNo+' </div> </div>');
                          
