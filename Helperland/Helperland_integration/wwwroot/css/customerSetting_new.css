@@ -14,12 +14,12 @@ a:hover {
 
 }
 
+/* ===================================Customer Header-footer start============================ */
 
 
 
 
 /* ---------------------------------------------------------------------------------- */
-
 
 
 .fixed-top {
@@ -40,6 +40,21 @@ a:hover {
     padding: 6px 0 8px !important;
 }
 
+.bookingbtn {
+    max-width: 111px;
+    height: 40px;
+    font-size: 17px;
+    padding: 6px 18px 11px !important;
+    margin-top: 14px;
+    margin-right: 34px;
+    color: #FFFFFF !important;
+    background-color: #29626D;
+    border-radius: 20px;
+    border: 1px solid #FFFFFF80;
+}
+
+
+
 .headerpart .nav-link-1 {
     color: #FFFFFF;
     margin-top: 14px;
@@ -59,9 +74,6 @@ a:hover {
     border-radius: 20px;
     color: #FFFFFF;
 }
-
-
-
 
 .nav-image1 {
     width: 27px;
@@ -117,7 +129,7 @@ a:hover {
     align-items: center;
     position: absolute;
     top: 18px;
-    right: 105px;
+    right: 93px;
 }
 
 .menu-toggler {
@@ -175,94 +187,7 @@ a:hover {
     font-weight: normal;
 }
 
-/* -------------------------------------------------------------------------------- */
-.services {
-    margin: 31px 0;
 
-}
-
-.table-part {
-    display: flex;
-    /* width: 845px; */
-}
-
-.left-menu {
-    background-color: #1D7A8C;
-    width: 262px;
-    margin-right: 31px;
-
-}
-
-.left-menu a {
-    font-size: 17px;
-    color: #ffffff;
-    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
-    padding: 17px 69px 22px 15px;
-    margin-bottom: 0;
-}
-
-.left-menu a:hover {
-
-    background-color: #146371;
-}
-
-.left-menu-service {
-    background-color: #146371;
-}
-
-
-.right-table {
-    color: #646464;
-    width: 845px;
-    /* margin-left: 31px; */
-}
-
-tr {
-    border: #e1e1e1 1px solid;
-}
-
-.right-table th {
-    color: #646464;
-    font-weight: bold;
-    background-color: #F9F9F9;
-}
-
-.table thead th {
-    vertical-align: text-top;
-}
-
-
-.service-id,
-.distance {
-    vertical-align: middle !important;
-}
-
-.right-table-button {
-    background-color: #FF6B6B;
-    color: #FFFFFF;
-    border: none;
-    width: 80px;
-    height: 34px;
-    border-radius: 34px;
-}
-
-.service-date {
-    font-weight: bold;
-}
-
-.service-date-time img,
-.customer-deails img {
-    margin-right: 7px;
-    /* padding-bottom: 2px; */
-}
-
-.service-date {
-    display: block;
-}
-
-.customer-name {
-    display: block;
-}
 
 /* -------------------------------------------------------------------------------- */
 .footernav {
@@ -344,13 +269,18 @@ tr {
     .collapse-menu-item {
         display: none;
     }
-    
-.headerpart .nav-link-1:hover,
-.headerpart .nav-link-2:hover {
-    border: 1px solid #FFFFFF80;
-    border-radius: 22px;
-    padding: 8px 12px;
-}
+
+    /* .bookingbtn:hover {
+        background-color: #fff !important;
+        color: #29626D !important;
+    } */
+
+    .headerpart .nav-link-1:hover,
+    .headerpart .nav-link-2:hover {
+        border: 1px solid #FFFFFF80;
+        border-radius: 22px;
+        padding: 8px 12px;
+    }
 }
 
 @media only screen and (max-width: 992px) {
@@ -382,6 +312,9 @@ tr {
 }
 
 @media screen and (max-width: 992px) {
+    .nav-item-1 {
+        display: none;
+    }
 
     .nav-image2,
     .nav-image3 {
@@ -493,14 +426,20 @@ tr {
         background-color: rgb(35, 160, 72);
     }
 
-    .service-date-time {
-        display: flex;
-
+    .service-date-time,
+    .sp-deails {
+        display: block;
+        margin: 0 auto;
     }
 
-    .service-date {
-        margin-right: 25px;
+    .page-hadling {
+        display: block;
     }
+
+    .cap-img {
+        margin-left: 0;
+    }
+
 }
 
 @media only screen and (max-width: 659px) {
@@ -547,4 +486,128 @@ tr {
     }
 }
 
+/* ===================================Customer Header-footer end============================ */
 
+
+
+/* ----------------------------------------------------------------------------------------- */
+
+.customer-main {
+    margin: 20px 0;
+    display: flex;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+
+.left-menu {
+    width: 298px;
+    height: 500px;
+    margin-right: 31px;
+    background-color: #146371;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+
+.customer-setting {
+    width: 100%;
+}
+
+
+
+
+/* ---------------------------------------customer-detail-form-------------------------------------- */
+.phone-num {
+    display: flex;
+}
+
+.country-code {
+    padding: 7px 0 0 10px !important;
+    color: #4f4f4f;
+    background-color: #c8c8c8;
+    border: 1px solid #c8c8c8;
+    width: 57px;
+    height: 38px;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.codenum {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.changeCusDetailForm {
+    color: #4f4f4f;
+}
+
+.changeCusDetailForm label {
+    margin-bottom: 2px;
+}
+
+.changeCusDetailForm .form-row {
+    margin-bottom: 20px;
+}
+
+.saveDetailbtn {
+    background-color: #146371;
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 25px;
+}
+
+.customer-setting .nav-pills .nav-link {
+    padding: 10px 60px;
+    border-bottom: #dbdedf 4px solid;
+}
+
+.customer-setting .nav-pills .nav-link.activeTab {
+    background-color: #ffffff !important;
+    color: #4f4f4f;
+    border-bottom: #146371 4px solid;
+}
+
+/* ---------------------------------customer-address-form-------------------------------- */
+.table td {
+    border: none;
+}
+
+tr {
+    border: #e1e1e1 1px solid;
+}
+
+.address-table {
+    color: #4f4f4f;
+}
+
+.addressEditbtn,
+.addressDeletebtn {
+    background-color: #ffffff;
+}
+
+.addNewAddress .btn,
+.edit-btn {
+    background-color: #146371;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+
+.edit-address-form label {
+    margin-bottom: 2px;
+}
+
+/* -----------------------------------customer-password-form------------------------------------------- */
+.password-change {
+    width: 400px;
+}
+
+.passwordbtn {
+    background-color: #146371;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+
+.password-form {
+    color: #4f4f4f;
+}

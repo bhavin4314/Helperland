@@ -39,5 +39,7 @@ namespace Helperland_integration.ViewModel
 
         public int AddressId { get; set; }
 
+        public int userId { get; set; }
+
     }
 }

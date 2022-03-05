@@ -35,13 +35,14 @@ namespace Helperland_integration.Repository
             //City city = _helperlandContext.Cities.Where(x => x.Id == addressViewModel.CityId).FirstOrDefault();
 
             UserAddress userAddress = new UserAddress();
-            userAddress.UserId = 24;
+            //userAddress.UserId = 24;
+            userAddress.UserId = addressViewModel.UserId;
             userAddress.AddressLine1 = addressViewModel.AddressLine1;
             userAddress.AddressLine2 = addressViewModel.AddressLine2;
             userAddress.City = addressViewModel.City;
             userAddress.PostalCode = addressViewModel.ZipCode;
             userAddress.Mobile = addressViewModel.MobileNo;
-            userAddress.Email = "shyam@gmail.com";
+            //userAddress.Email = "shyam@gmail.com";
             _helperlandContext.UserAddresses.Add(userAddress);
             _helperlandContext.SaveChanges();
             return true;
@@ -56,7 +57,7 @@ namespace Helperland_integration.Repository
                 foreach (var item in userAddress)
                 {
                     AddressViewModel addressViewModel = new AddressViewModel();
-                //addressViewModel.UserId = userID;
+                    //addressViewModel.UserId = userID;
                     addressViewModel.AddressId = item.AddressId;
                     addressViewModel.AddressLine1 = item.AddressLine2;
                     addressViewModel.AddressLine2 = item.AddressLine1;
@@ -72,7 +73,7 @@ namespace Helperland_integration.Repository
         {
 
             ServiceRequest serviceRequest = new ServiceRequest();
-            serviceRequest.UserId = 24;
+            serviceRequest.UserId = bookServiceViewModel.userId;
             serviceRequest.ServiceStartDate = Convert.ToDateTime(bookServiceViewModel.Date + " " + bookServiceViewModel.Time.ToString());
             serviceRequest.ServiceHours = bookServiceViewModel.ServiceHours;
             serviceRequest.ZipCode = bookServiceViewModel.Zipcode;

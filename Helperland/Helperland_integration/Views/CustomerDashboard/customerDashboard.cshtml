@@ -1,0 +1,127 @@
+﻿@{
+    Layout = "~/Views/Shared/_activeUser.cshtml";
+}
+@{
+    ViewBag.Title = "customer Dashboard";
+}
+
+
+<link rel="stylesheet" href="~/css/userDashboard_new.css">
+
+      <!-- ----------------------------welcome part start------------------------------------------- -->
+      <section class="welcome-part">
+        <h2 class="Welcome-name">Welcome,  <span style="color: #4f4f4f; font-weight: bold; padding-left: 10px;">   Gaurang!</span></h2>
+      </section>
+     
+      <!-- ----------------------------welcome part End----------------------------------- -->
+      
+      
+      
+      <!-- ----------------------------table part start---------------------------------- -->
+      
+      <section class="services">
+        <div class="container-fluid table-part">
+          <div class="left-menu">
+            <li class="nav-item"><a class="nav-link left-menu-link activeTab" style="padding-right: 200px;" id="customerDashboard-Tab" onclick="customerDashboard()">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link left-menu-link " id="customerHistory-Tab" onclick="customerHistory()">Service History</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link " id="" >Service Schedule</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link">Favourite Pros</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link">Invoices</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link">Notifications</a></li>
+       
+          </div>
+         
+          <div class="dashboardRight" id="customerDashboard">
+            <div class="right-table" >
+                <div class="table-name d-flex justify-content-between">
+                    <p class="table-name-info">My Current Bookings</p>
+                    <button class="btn export-btn" onclick="location.href='@Url.Action("Index","BookService")'">Book Now!</button>
+                </div>
+                <table class="table text-center" >
+                  <thead>
+                    <tr>
+                      <th scope="col" class="px-0">Service ID <img src="~/images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class="px-0">Service Details <img src="~/images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class="px-0">Service Provider <img src="~/images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class="px-0">Payment <img src="~/images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class="px-0">Actions <img src="~/images/sort.png" alt="" srcset=""></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     
+                    <tr>
+                      <td class="text-center">
+                        <p>123</p>
+                      </td>
+                        <td class="service-date-time px-0">
+                          <a href="" class="date-time"  data-toggle="modal" data-target="#customerServiceInfoModal">
+                            <span class="service-date"><img src="~/images/calendar2.png" alt="" srcset="">09/04/2018</span>
+                            <span class="service-time ml-2"><img src="~/images/layer-712.png" class="" alt="" srcset="">12:00 - 18:00</span>
+                          </a>
+                        </td>
+                        <td class="sp-deails px-0">
+                          <a href="" class="">
+                            <div class="d-flex">
+                                <div class="cap-img">  
+                                    <img class="" src="~/images/cap.png" alt="" srcset="">
+                                </div>
+                                <div class="name-rating">
+                                    <p class="sp-name">Lyum Watson</p>
+                                    <span class="all-star ">
+                                        <img src="~/images/star1.png" class="star" alt="">
+                                        <img src="~/images/star1.png" class="star" alt="">
+                                        <img src="~/images/star1.png" class="star" alt="">
+                                        <img src="~/images/star1.png" class="star" alt="">
+                                        <img src="~/images/star2.png" class="star" alt="">
+                                        <span >4 </span>
+                                    </span>
+                                   
+                                </div>
+                            </div>
+                          </a>
+                        </td>
+                        <td class="payment px-0">€63</td>
+                        <td class="dashboard-btn pl-0" style="margin-left: -20px;">
+                          <button class="btn dashboard-change-button" type="" data-toggle="modal" data-target="#serviceDateTimeModal">Change Date-Time</button>
+                          <button class="btn dashboard-cancel-button" type="" data-toggle="modal" data-target="#serviceCancelModal">Cancel</button>
+                        </td>
+                    </tr> 
+    
+    
+                  </tbody>
+                </table>
+                <!-- ------------------------pagination start----------------------------------- -->
+              <div class="page-hadling " >
+                <div class="pagination-spacing d-flex">
+                  <p class=" pagination-para pagination-spacing">show</p>
+                  <select class="form-group entry-selction pagination-spacing"  id="exampleFormControlSelect1">
+                      <option>10</option>
+                      <option>20</option>
+                      <option>30</option>
+                      <option>40</option>
+                      <option>50</option>
+                    </select>
+                    <span class="pagination-spacing pagination-para">entries</span>
+                    <p class=" pagination-para">Total Record: 55</p>
+                </div>
+                
+                <div class="ml-auto ">
+                    <ul class="pagination ">
+                        <li><a href=""><img src="~/images/left1.png" alt=""></a></li>
+                        <li><a href=""><img src="~/images/left2.png" alt=""></a></li>
+                        <li class="active-page"><a href="" >1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href=""><img src="~/images/left2.png" alt="" class="rotate-img"></a></li>
+                        <li><a href=""><img src="~/images/left1.png" alt="" class="rotate-img"></a></li>
+                    </ul>
+                </div>            
+            </div>
+    
+        <!------------------------------- pageination end---------------------------------------- -->
+    
+              </div>
+          </div>
+          </div>
+          </section>

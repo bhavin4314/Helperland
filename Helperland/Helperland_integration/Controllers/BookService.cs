@@ -20,16 +20,20 @@ namespace Helperland_integration.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult AddressView()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult AddressView()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public IActionResult CheckPincode(string pincode)
         {
-            if (pincode.Length != 6)
+            if(pincode == null)
+            {
+                return Json(new {pincodeEnter=true});
+            }
+            else if (pincode.Length != 6)
             {
                 return Json(new { pincodeError = true });
             }

@@ -1,6 +1,7 @@
 using Helperland_integration.Controllers;
 using Helperland_integration.Data;
 using Helperland_integration.Repository;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,10 @@ namespace Helperland_integration
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(15);
+            });
             services.AddControllersWithViews();
             services.AddDbContext<HelperlandContext>();
             services.AddScoped<UserRegistration>();
@@ -32,6 +37,8 @@ namespace Helperland_integration
             services.AddScoped<ContactRepository>();
             services.AddScoped<ForgotPassword>();
             services.AddScoped<BookingRepository>();
+            services.AddHttpContextAccessor();
+            services.AddDistributedMemoryCache();
 #if DEBUG
             services.AddRazorPages().AddRazorRuntimeCompilation();
 #endif       
@@ -52,7 +59,10 @@ namespace Helperland_integration
 
             app.UseRouting();
 
+
             app.UseAuthorization();
+
+            app.UseSession();
 
             //app.UseEndpoints(endpoints =>
             //{

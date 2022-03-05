@@ -4,7 +4,8 @@
 @{
     ViewBag.Title = "Book Service";
 }
-
+@using Microsoft.AspNetCore.Http  
+@inject IHttpContextAccessor HttpContextAccessor
 @model Helperland_integration.ViewModel.BookServiceViewModel
 
 
@@ -59,6 +60,7 @@
                       <p class="service-head font-weight-bold">When do you want your helper to be with you?</p>
                       
                         <div class="date-time">
+                            <input type="hidden" id="userId" asp-for="userId" value="@HttpContextAccessor.HttpContext.Session.GetInt32("userId")">
                             <input type="hidden" id="pincode" asp-for="Zipcode" value="">
                             <input class="form-input1" type="date" asp-for="Date" value="2022-01-01">
                             <select class="form-input2" id="" asp-for="Time" >
@@ -178,6 +180,7 @@
                     <button class="address-btn font-weight-bold">+ Add New Address</button>
                   </div>
                   <form class="address-form" method="post" >
+                        <input type="hidden" id="userIdAddresstTab" asp-for="userId" value="@HttpContextAccessor.HttpContext.Session.GetInt32("userId")">
                     <div>
                       <div class="form-row">
                         <div class="col">
@@ -394,6 +397,9 @@
                                if(res.pincodeError){
                                    $("#pincode-error").html("invalid pincode");
                                }
+                               else if(res.pincodeEnter){
+                                   $("#pincode-error").html("please enter pincode");
+                               }
                                else if(res.pinAvailable){
                                    console.log("available");
 
@@ -427,6 +433,7 @@
 
 
     $("#save-address").on("click", function () {
+        console.log("useer id here ..."+$("#userIdAddresstTab").val());
             var check = false;
             if ($("#addAddressLine1").val() == "") {
                 $("#errAddAddressLine1").text("Enter Street");
@@ -452,7 +459,9 @@
                 return;
             }
             var address = {};
-            address.userId = 24;
+            //address.userId = 24;
+            
+            address.userId = parseInt($("#userIdAddresstTab").val());
             address.addressLine1 = $("#addAddressLine1").val();
             address.addressLine2 = $("#addAddressLine2").val();
             //address.cityId = parseInt($("#addAddressCity").val());
@@ -494,7 +503,7 @@
               $.ajax({
                   type: "POST",
                   url: "@Url.Action("GetAddress", "BookService")",
-                  data: { "userID": 24 },
+                  data: { "userID": $("#userId").val() },
                   success: function (response) {
                       var obj = JSON.parse(response);
                       $("#showAddress").empty();

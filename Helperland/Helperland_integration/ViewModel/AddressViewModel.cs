@@ -8,7 +8,7 @@ namespace Helperland_integration.ViewModel
     {
         public int AddressId { get; set; }
         [JsonPropertyName("userId")]
-        public int? UserId { get; set; }
+        public int UserId { get; set; }
         [JsonPropertyName("addressLine1")]
         public string AddressLine1 { get; set; }
         [JsonPropertyName("addressLine2")]
@@ -19,5 +19,6 @@ namespace Helperland_integration.ViewModel
         public string MobileNo { get; set; }
         [JsonPropertyName("city")]
         public string City { get; set; }
+        
     }
 }

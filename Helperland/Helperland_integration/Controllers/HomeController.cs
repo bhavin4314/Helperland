@@ -1,6 +1,7 @@
 ﻿using Helperland_integration.Models;
 using Helperland_integration.Repository;
 using Helperland_integration.ViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -136,12 +137,19 @@ namespace Helperland_integration.Controllers
             if (ModelState.IsValid)
             {
                 bool isUserExist = _loginRepository.IsUserExist(loginViewModel);
-                bool isValidUser = _loginRepository.IsValidUser(loginViewModel);
+                //bool isValidUser = _loginRepository.IsValidUser(loginViewModel);
+                int userId = _loginRepository.IsValidUser(loginViewModel);
                 if (isUserExist)
                 {
-                    if (isValidUser)
+                    if (userId!=0)
                     {
-                        return RedirectToAction("index");
+                        User user = _loginRepository.GetUser(userId);
+                        HttpContext.Session.SetInt32("userId", user.UserId);
+                        HttpContext.Session.SetString("userName", user.FirstName);
+                        HttpContext.Session.SetInt32("userTypeId", user.UserTypeId);
+                        return RedirectToAction("customerDashboard","CustomerDashboard");
+                        
+
                     }
                     else
                     {
@@ -174,6 +182,14 @@ namespace Helperland_integration.Controllers
             return View("index");
 
         }
+
+
+        public IActionResult logout()
+        {
+            HttpContext.Session.Clear();       
+            return View("index");   
+        }
+
         [HttpPost]
         public IActionResult forgotPassword(ForgotPasswordmodel forgotPasswordmodel)
         {
@@ -201,12 +217,11 @@ namespace Helperland_integration.Controllers
         [Route("Home/ResetPassword/{userId:int}")]
         public IActionResult ResetPassword(int userId)
             {
-                ViewBag.id = userId;    
-                return View();
+            ViewBag.id = userId;
+            return View();
             }
 
-        [HttpPost]
-        
+        [HttpPost] 
         public IActionResult ResetPassword(ResetPasswordModel resetPasswordModel)
             {
                 if (ModelState.IsValid)
@@ -221,6 +236,8 @@ namespace Helperland_integration.Controllers
             }
                 return View("resetPassword");
             }
+
+
             [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
             public IActionResult Error()
             {

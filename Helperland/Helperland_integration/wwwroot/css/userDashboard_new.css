@@ -199,7 +199,7 @@ a:hover {
 }
 
 .export-btn {
-    max-width: 111px;
+    /* max-width: 111px; */
     height: 40px;
     font-size: 17px;
     padding: 6px 18px 11px !important;
@@ -215,22 +215,34 @@ a:hover {
 
 .left-menu {
     background-color: #1D7A8C;
-    width: 262px;
+    /* width: 262px !important; */
     margin-right: 31px;
 
 }
 
-.left-menu a {
+.left-menu-link {
     font-size: 17px;
-    color: #ffffff;
-    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+    color: #ffffff !important;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2) !important;
     padding: 17px 69px 22px 15px;
     margin-bottom: 0;
+
 }
 
-.left-menu a:hover {
-
+.left-menu .nav-link:hover {
+    color: #ffffff;
     background-color: #146371;
+    border: none !important;
+}
+
+.left-menu .nav-link.activeTab {
+    color: #ffffff;
+    background-color: #146371 !important;
+    border: none !important;
+}
+
+.left-menu .nav-link:focus {
+    border: none !important;
 }
 
 .left-menu-service {
@@ -238,16 +250,28 @@ a:hover {
 }
 
 
+.left-menu .nav-link.active {
+    color: #ffffff;
+    background-color: #146371;
+}
+
+/* ------------------------------------------------------------------------------------------- */
 .right-table {
     color: #646464;
-    width: 845px;
     /* margin-left: 31px; */
+}
+
+.right-table .table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table td {
+    border: none;
 }
 
 tr {
     border: #e1e1e1 1px solid;
-
-
 }
 
 th {
@@ -309,7 +333,7 @@ td {
     margin-left: 12px;
 }
 
-.customer-name {
+.sp-name {
     margin-bottom: 0;
 }
 
@@ -348,23 +372,51 @@ td {
 }
 
 
-.status button:focus {
-    outline: none !important;
-}
 
-.right-table-button {
-    background-color: #6da9b5;
+
+.dashboard-change-button,
+.rescheduleBtnModal,
+.updateBtnModal,
+.cancelBtnModal {
+    background-color: #29626D;
     color: #FFFFFF;
     border: none;
-    width: 80px;
-    height: 34px;
-    border-radius: 34px;
-    margin: 0 auto;
-    display: block;
+    padding: 10px 10px;
+    border-radius: 30px;
+
 }
 
-.right-table-button:hover {
+.dashboard-cancel-button,
+.cancelBtnModalMain {
+    background-color: #ff6b6b;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 30px;
+    margin-left: 10px;
+    height: 40px;
+}
+
+.dashboard-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .right-table-button:hover {
     background-color: rgb(35, 160, 72);
+} */
+
+/* -------------------------------------------------------------------------------- */
+.history-table .service-date-time {
+    padding-top: 20px;
+}
+
+.rate-sp-button {
+    background-color: #ff6b6b;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 30px;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -404,6 +456,19 @@ td {
 
 .pagination-para {
     padding-top: 5px;
+}
+
+/* ---------------------------------modal----------------------------------------- */
+.servicePrice {
+    color: #146371;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#customerServiceInfoModal,
+#serviceDateTimeModal,
+#serviceCancelModal {
+    color: #4f4f4f;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -644,7 +709,7 @@ td {
     }
 
     .service-date-time,
-    .customer-deails {
+    .sp-deails {
         display: block;
         margin: 0 auto;
     }
@@ -702,4 +767,3 @@ td {
         margin: 0 auto;
     }
 }
-

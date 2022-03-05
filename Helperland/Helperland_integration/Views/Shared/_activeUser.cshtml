@@ -52,7 +52,7 @@
                               <li class="nav-item"><a href="" class="nav-link">My Ratings</a></li>
                               <li class="nav-item"><a href="" class="nav-link">Block Customer</a></li>
                               <li class="nav-item"><a href="" class="nav-link">My Settings</a></li>
-                              <li class="nav-item"><a href="" class="nav-link">Logout</a></li>
+                              <li class="nav-item"><a class="nav-link" asp-action="logout" asp-controller="Home">Logout</a></li>
                             <hr>
                             </span>
                             
@@ -73,9 +73,9 @@
                               <ul class="dropdown-menu dropdown-menu-right">
                                 <li class="list-item1"><a href="" disabled>Welcome, <br><span class="font-weight-bold">Sandip Patel</span></a></li>
                                 <hr>
-                                <li class="dropdown-item" type="button">My Dashboard</li>
-                                <li class="dropdown-item" type="button">My Settings</li>
-                                <li class="dropdown-item" type="button">Logout</li>
+                                 <li class="dropdown-item" ><a >My Dashboard</a></li>
+                                <li class="dropdown-item" ><a>My Settings</a></li>
+                                <li class="dropdown-item" ><a asp-action="logout" asp-controller="Home">Logout</a></li>
                               </ul>
                             </li>
                             
