@@ -53,8 +53,89 @@ $(document).ready(function(){
 
 
 
+
+
+
+
+
+    //customer-dashboard part
+    $(".rescheduleBtnModal").click(function () {
+        $("#customerServiceInfoModal").modal("hide");
+    });
+    $(".cancelBtnModalMain").click(function () {
+        $("#customerServiceInfoModal").modal("hide");
+    });
+
+    //customer details part
+    $("#customer-settings").click(function () {
+        console.log("setting clicked");
+        $("#customerDashboard").hide();
+        $("#customerHistory").hide();
+        $("#customerHistory-Tab").removeClass("activeTab");
+        $("#customerDashboard-Tab").removeClass("activeTab");
+        $("#customerDetailsRight").load(`/CustomerDashboard/customerDetails`);
+    });
+        
+
     
 });
 
 
+function customerDashboard() {
+    $("#customerDashboard").css("display", "block");
+    $("#customerHistory").css("display", "none");
+    $(".customer-setting").hide();
+    $("#customerDashboard-Tab").addClass("activeTab");
+    $("#customerHistory-Tab").removeClass("activeTab");
+    
+}
 
+function customerHistory() {
+    $("#customerDashboard").hide();
+    $("#customerHistory").show();
+    $(".customer-setting").hide();
+    $("#customerHistory-Tab").addClass("activeTab");
+    $("#customerDashboard-Tab").removeClass("activeTab");
+    console.log("customerhistory in");
+    $("#service-history-table").load(`/CustomerDashboard/customerServiceHistory`);
+}
+
+function customerDetails() {
+    $("#customerAddress").hide();
+    $("#customerPassword").hide();
+    $("#customerDetails").show();
+    $("#customerDetails-tab").addClass("activeTab");
+    $("#customerAddress-tab").removeClass("activeTab");
+    $("#customerPassword-tab").removeClass("activeTab");
+}
+
+function customerAddress() {
+    $("#customerDetails").hide().removeClass("activeTab");
+    $("#customerPassword").hide();
+    $("#customerAddress").show();
+    $("#customerAddress-tab").addClass("activeTab");
+    $("#customerDetails-tab").removeClass("activeTab");
+    $("#customerPassword-tab").removeClass("activeTab");
+    $("#customerAddress").load(`/CustomerDashboard/customerAddress`);
+}
+
+function customerPassword() {
+    $("#customerDetails").hide();
+    $("#customerAddress").hide();
+    $("#customerPassword").show();
+    $("#customerPassword-tab").addClass("activeTab");
+    $("#customerDetails-tab").removeClass("activeTab");
+    $("#customerAddress-tab").removeClass("activeTab");
+    $("#customerPassword").load(`/CustomerDashboard/customerPassword`);
+}
+
+
+function addEditAddress() {
+    $("#EditAddressModal").load(`/CustomerDashboard/addOrEditAddress`);
+    //$("#EditAddressModal").modal('show');
+}
+
+//function addAddressClose() {
+//    console.log("close");
+//    $("#EditAddressModal").modal("hide");
+//}

@@ -467,10 +467,12 @@ a:hover {
     top: 18px;
 }
     /* ---------------------------------------------------------------------------------------- */
-    .payment-part {
-        box-shadow: 0px 8px 10px rgba(209, 207, 207, 0.548), -10px 8px 15px rgba(209, 207, 207, 0.548), 10px 8px 15px rgba(209, 207, 207, 0.548);
-        height: 550px;
-    }
+.payment-part {
+    box-shadow: 0px 8px 10px rgba(209, 207, 207, 0.548), -10px 8px 15px rgba(209, 207, 207, 0.548), 10px 8px 15px rgba(209, 207, 207, 0.548);
+    /*min-height: 477px;*/
+    height: auto;
+    position: sticky!important;
+}
 
 .payment-part hr {
     margin-top: 10px;
@@ -586,6 +588,8 @@ a:hover {
     display: flex;
     justify-content: center !important;
     align-items: center;
+    position: relative;
+    overflow: hidden !important;
 }
 
 .typepara1 {
@@ -597,11 +601,32 @@ a:hover {
     padding-top: 10px;
     /* margin: 17px 0 6px; */
 }
-
-.advice-area {
-    width: 100%;
-    height: 100px;
+.typeimg img {
+    position: absolute;
+    left:11px;
+    /*height:70px;*/
+    width:168px;
 }
+
+.typeimg img:hover {
+   cursor: pointer;
+}
+
+.typeimg.selected {
+    border: 3px solid #1D7A8C;
+}
+
+.typeimg.selected img {
+     position:absolute;
+     left: -75px;
+     width: 168px;
+}
+
+
+    .advice-area {
+        width: 100%;
+        height: 100px;
+    }
 
 .service-head {
     color: #646464;

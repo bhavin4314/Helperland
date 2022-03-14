@@ -4,13 +4,14 @@
 @{
     ViewBag.Title = "customer Dashboard";
 }
-
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 
 <link rel="stylesheet" href="~/css/userDashboard_new.css">
 
       <!-- ----------------------------welcome part start------------------------------------------- -->
       <section class="welcome-part">
-        <h2 class="Welcome-name">Welcome,  <span style="color: #4f4f4f; font-weight: bold; padding-left: 10px;">   Gaurang!</span></h2>
+        <h2 class="Welcome-name">Welcome,  <span style="color: #4f4f4f; font-weight: bold; padding-left: 10px;">   @HttpContextAccessor.HttpContext.Session.GetString("userName")!</span></h2>
       </section>
      
       <!-- ----------------------------welcome part End----------------------------------- -->
@@ -121,7 +122,60 @@
     
         <!------------------------------- pageination end---------------------------------------- -->
     
+
+
               </div>
           </div>
+
+
+          @*-------------------------------------customerHistory start-------------------------------------------------------------*@
+
+          <div class="historyRight" id="customerHistory" style="display: none;">
+              <div id="service-history-table"></div>
+          </div>
+
+          @*-------------------------------------customerDetails start-------------------------------------------------------------*@
+
+          <div class="" id="customerDetailsRight" style="width:100%;">
+           
+          </div>
+          
+
           </div>
           </section>
+
+          @section scripts{
+              <script>
+                  jQueryAjaxPost = form => {
+    //console.log("method call");
+    try {
+        $.ajax({
+            type: 'POST',
+            url: form.action,
+            data: new FormData(form),
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                if (res.detailsUpdate) {
+                    $("#detail-update-alert").show();
+                }
+                 else if (res.passwordUpdate) {
+                    $("#password-update-alert").show();
+                }
+                 else if (res.passworNotUpdate) {
+                    $("#password-notupdate-alert").show();
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+    catch (e) {
+        console.log(e);
+    }
+
+    return false;
+};
+              </script>
+          }

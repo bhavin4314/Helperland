@@ -37,6 +37,7 @@ namespace Helperland_integration
             services.AddScoped<ContactRepository>();
             services.AddScoped<ForgotPassword>();
             services.AddScoped<BookingRepository>();
+            services.AddScoped<CustomerRepository>();
             services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();
 #if DEBUG

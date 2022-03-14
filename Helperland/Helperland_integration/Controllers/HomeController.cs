@@ -97,7 +97,7 @@ namespace Helperland_integration.Controllers
                 return View();
             }
         }
-
+    
         public IActionResult HelperRegistration(bool isSuccess = false, bool isExistEmail = false)
         {
             ViewBag.IsSuccess = isSuccess;

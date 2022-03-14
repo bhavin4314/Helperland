@@ -17,14 +17,11 @@ namespace Helperland_integration.Controllers
         }
         public IActionResult Index()
         {
+
             return View();
         }
 
-        //[HttpGet]
-        //public IActionResult AddressView()
-        //{
-        //    return View();
-        //}
+     
 
         [HttpPost]
         public IActionResult CheckPincode(string pincode)
@@ -95,8 +92,11 @@ namespace Helperland_integration.Controllers
                 Mobile = userAddress.Mobile,
                 Email = userAddress.Email,
             };
+           
             var add=_bookingRepository.saveServiceAddress(requestAddress);
+            bool addES=_bookingRepository.addExtraService(bookServiceViewModel,serviceId);
             return Json(new { finalBooking = true });
+        
         }
 
     }

@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+@model Helperland_integration.ViewModel.AddressViewModel
+
+   <!-- Modal -->
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="">Edit Address</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form class="edit-address-form" method="post" asp-action="addOrEditAddress" asp-controller="CustomerDashboard" onsubmit="">
+                          <div>
+                            <div class="form-row mb-3">
+                              <div class="col">
+                                <label>Street</label>
+                                <input asp-for="AddressLine2" class="form-control" id="editAddressLine1"  placeholder="Street Name">
+                                 <span class="text-danger" id="erreditAddressLine1"></span>
+                              </div>
+                              <div class="col">
+                                <label>House number</label>
+                                <input asp-for="AddressLine1" class="form-control" id="editressLine2" placeholder="House number">
+                                 <span class="text-danger" id="erreditAddressLine2"></span>
+                              </div>
+                            </div>
+                            <div class="form-row mb-3">
+                              <div class="col">
+                                <label>Pincode</label>
+                                <input asp-for="ZipCode" class="form-control" id="editpincode" placeholder="Pincode">
+                                <span class="text-danger" id="errpincode"></span>
+                              </div>
+                              <div class="col">
+                                <label>Location</label>
+                                <input asp-for="City" class="form-control" id="editCity" placeholder="City name">
+                                <span class="text-danger" id="erreditCity"></span>
+                              </div>
+                            </div>
+                            <div class="form-row mb-3">
+                              <div class="col">
+                                <label>Phone number</label>
+                                <input asp-for="MobileNo" class="form-control" id="editAddressPhoneNumber" placeholder="Phone number">
+                                <span class="text-danger" id="erreditAddressPhoneNumber"></span>
+                              </div>
+                            </div>
+                            <button class="edit-btn" id="edit-address" type="submit">Save</button>
+                            
+                          </div>
+                        </form>
+                      </div>
+                     
+                    </div>
+                  </div>
+
+
+
+
+                    <!-- ---------------------dashboard-serviceCancelModal part start------------------- -->
+
+
+      <!-- Modal -->
+@*      <div class="modal fade" id="serviceCancelModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="">Cancel Service Request</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form >
+                <label>Why do you want to cancel the service request</label>
+                <textarea id="" name="" rows="4" cols="57"></textarea>
+                <button class="btn cancelBtnModal mt-3" style="width: 100%;">Cancel now</button>
+              </form>
+            </div>
+         
+          </div>
+        </div>
+      </div>*@
+
+      <!-- ---------------------dashboard-serviceCancelModal part End------------------- -->
+
+
+                     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>   

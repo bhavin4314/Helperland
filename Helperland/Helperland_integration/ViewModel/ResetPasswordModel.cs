@@ -5,6 +5,10 @@ namespace Helperland_integration.ViewModel
 {
     public class ResetPasswordModel
     {
+        [Required(ErrorMessage = "Enter current password")]
+        [DataType(DataType.Password)]
+        public string CurrentPassword { get; set; }
+
         [Required(ErrorMessage = "Enter password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

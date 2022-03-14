@@ -18,9 +18,9 @@ namespace Helperland_integration.Repository
         public bool IsServiceAvailable(string Pincode)
         {
             Zipcode zipcode = _helperlandContext.Zipcodes.Where(x => x.ZipcodeValue == Pincode).FirstOrDefault();
-            if (zipcode == null) 
+            if (zipcode == null)
             {
-                return false;    
+                return false;
             }
             else
             {
@@ -46,40 +46,52 @@ namespace Helperland_integration.Repository
             _helperlandContext.UserAddresses.Add(userAddress);
             _helperlandContext.SaveChanges();
             return true;
-          
+
         }
 
         public List<AddressViewModel> GetAddress(int userID)
         {
-       
-                List<AddressViewModel> addresses = new List<AddressViewModel>();
-                List<UserAddress> userAddress = _helperlandContext.UserAddresses.Where(x => x.UserId == userID).ToList();
-                foreach (var item in userAddress)
-                {
-                    AddressViewModel addressViewModel = new AddressViewModel();
-                    //addressViewModel.UserId = userID;
-                    addressViewModel.AddressId = item.AddressId;
-                    addressViewModel.AddressLine1 = item.AddressLine2;
-                    addressViewModel.AddressLine2 = item.AddressLine1;
-                    addressViewModel.ZipCode = item.PostalCode;
-                    addressViewModel.MobileNo = item.Mobile;
-                    addresses.Add(addressViewModel);
-                }
-                return addresses;
+
+            List<AddressViewModel> addresses = new List<AddressViewModel>();
+            List<UserAddress> userAddress = _helperlandContext.UserAddresses.Where(x => x.UserId == userID).ToList();
+            foreach (var item in userAddress)
+            {
+                AddressViewModel addressViewModel = new AddressViewModel();
+                //addressViewModel.UserId = userID;
+                addressViewModel.AddressId = item.AddressId;
+                addressViewModel.AddressLine1 = item.AddressLine2;
+                addressViewModel.AddressLine2 = item.AddressLine1;
+                addressViewModel.ZipCode = item.PostalCode;
+                addressViewModel.MobileNo = item.Mobile;
+                addresses.Add(addressViewModel);
+            }
+            return addresses;
 
         }
 
         public int addServiceRequest(BookServiceViewModel bookServiceViewModel)
         {
+            int ES = 0;
+            ES = bookServiceViewModel.ExtraService1 ? ES + 1 : ES + 0;
+            ES = bookServiceViewModel.ExtraService2 ? ES + 1 : ES + 0;
+            ES = bookServiceViewModel.ExtraService3 ? ES + 1 : ES + 0;
+            ES = bookServiceViewModel.ExtraService4 ? ES + 1 : ES + 0;
+            ES = bookServiceViewModel.ExtraService5 ? ES + 1 : ES + 0;
 
             ServiceRequest serviceRequest = new ServiceRequest();
             serviceRequest.UserId = bookServiceViewModel.userId;
+
             serviceRequest.ServiceStartDate = Convert.ToDateTime(bookServiceViewModel.Date + " " + bookServiceViewModel.Time.ToString());
             serviceRequest.ServiceHours = bookServiceViewModel.ServiceHours;
             serviceRequest.ZipCode = bookServiceViewModel.Zipcode;
             serviceRequest.Comments = bookServiceViewModel.Comments;
             serviceRequest.HasPets = bookServiceViewModel.HasPets;
             serviceRequest.CreatedDate = DateTime.Now;
+            serviceRequest.ServiceHours = bookServiceViewModel.ServiceHours;
+            serviceRequest.ExtraHours = ES * 0.5;
+            serviceRequest.ServiceHourlyRate = 18;
+            serviceRequest.SubTotal = Convert.ToDecimal((bookServiceViewModel.ServiceHours + (ES * 0.5)) * 18);
+            serviceRequest.TotalCost = Convert.ToDecimal((bookServiceViewModel.ServiceHours + (ES * 0.5)) * 18);
             _helperlandContext.ServiceRequests.Add(serviceRequest);
             _helperlandContext.SaveChanges();
             return serviceRequest.ServiceRequestId;
@@ -99,5 +111,35 @@ namespace Helperland_integration.Repository
             //return requestAddress.ServiceRequestId;
         }
 
+        public bool addExtraService(BookServiceViewModel bookServiceViewModel,int id)
+        {
+    
+          
+            if (bookServiceViewModel.ExtraService1)
+            {
+                _helperlandContext.ServiceRequestExtras.Add(new ServiceRequestExtra() { ServiceRequestId=id,ServiceExtraId = 1 });
+            }
+            if (bookServiceViewModel.ExtraService2)
+            {
+                _helperlandContext.ServiceRequestExtras.Add(new ServiceRequestExtra() { ServiceRequestId = id, ServiceExtraId = 2 });
+            }
+            if (bookServiceViewModel.ExtraService3)
+            {
+                _helperlandContext.ServiceRequestExtras.Add(new ServiceRequestExtra() { ServiceRequestId = id, ServiceExtraId = 3 });
+            }
+            if (bookServiceViewModel.ExtraService4)
+            {
+                _helperlandContext.ServiceRequestExtras.Add(new ServiceRequestExtra() { ServiceRequestId = id, ServiceExtraId = 4 });
+
+            }
+            if (bookServiceViewModel.ExtraService5)
+            {
+                _helperlandContext.ServiceRequestExtras.Add(new ServiceRequestExtra() { ServiceRequestId = id, ServiceExtraId = 5 });
+                //_helperlandContext.SaveChanges();
+            }
+            _helperlandContext.SaveChanges();
+
+            return true;
+        }
     }
 }

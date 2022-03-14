@@ -6,9 +6,11 @@
     "\\Helperland_integration\\Repository",
     "\\Helperland_integration\\Views",
     "\\Helperland_integration\\Views\\BookService",
+    "\\Helperland_integration\\Views\\CustomerDashboard",
+    "\\Helperland_integration\\Views\\Shared",
     "\\Helperland_integration\\wwwroot",
     "\\Helperland_integration\\wwwroot\\js"
   ],
-  "SelectedNode": "\\Helperland_integration\\Controllers\\HomeController.cs",
+  "SelectedNode": "\\Helperland_integration\\Controllers\\BookService.cs",
   "PreviewInSolutionExplorer": false
 }

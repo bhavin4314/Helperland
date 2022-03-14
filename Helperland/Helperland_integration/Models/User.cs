@@ -24,19 +24,21 @@ namespace Helperland_integration.Models
 
         [Key]
         public int UserId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Enter first name")]
         [StringLength(100)]
         public string FirstName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Enter last name")]
         [StringLength(100)]
         public string LastName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Enter e-mail")]
         [StringLength(100)]
         public string Email { get; set; }
         [StringLength(100)]
         public string Password { get; set; }
-        [Required]
-        [StringLength(20)]
+        //[StringLength(20)]
+        [Required(ErrorMessage = "Enter mobile number")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^(\d{10})$", ErrorMessage = "Not a valid phone number")]
         public string Mobile { get; set; }
         public int UserTypeId { get; set; }
         public int? Gender { get; set; }

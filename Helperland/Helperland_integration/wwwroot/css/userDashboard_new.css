@@ -214,7 +214,7 @@ a:hover {
 }
 
 .left-menu {
-    background-color: #1D7A8C;
+    height:100%;
     /* width: 262px !important; */
     margin-right: 31px;
 
@@ -226,7 +226,7 @@ a:hover {
     border-bottom: 1px solid rgb(255, 255, 255, 0.2) !important;
     padding: 17px 69px 22px 15px;
     margin-bottom: 0;
-
+    background-color: #1D7A8C;
 }
 
 .left-menu .nav-link:hover {

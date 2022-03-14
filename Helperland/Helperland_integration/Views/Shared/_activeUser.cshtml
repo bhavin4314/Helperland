@@ -1,6 +1,10 @@
 ﻿@{
     Layout = null;
 }
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +45,7 @@
                 <div class=" navbar-collapse main-menu d-xl-flex justify-content-end" id="navbarSupportedContent active" >
                     <ul class="navbar-nav  headernavbar mx-left" >
                             <span class="collapse-menu-item">
-                              <p>Welcome,<br><span class="font-weight-bold">Kavan Patel</span></p>
+                              <p>Welcome,<br><span class="font-weight-bold">@HttpContextAccessor.HttpContext.Session.GetString("userName")</span></p>
                               <hr>
                               <li class="nav-item"><a href="" class="nav-link">Overview</a></li>
                               <li class="nav-item"><a href="" class="nav-link">Dashboard</a></li>
@@ -71,10 +75,10 @@
                                 <img src="~/images/forma-1-copy@2x.png" class="nav-image3" alt="" srcset="">
                               </a>
                               <ul class="dropdown-menu dropdown-menu-right">
-                                <li class="list-item1"><a href="" disabled>Welcome, <br><span class="font-weight-bold">Sandip Patel</span></a></li>
+                                <li class="list-item1"><a href="" disabled>Welcome, <br><span class="font-weight-bold">@HttpContextAccessor.HttpContext.Session.GetString("userName")</span></a></li>
                                 <hr>
                                  <li class="dropdown-item" ><a >My Dashboard</a></li>
-                                <li class="dropdown-item" ><a>My Settings</a></li>
+                                <li class="dropdown-item" ><a id="customer-settings">My Settings</a></li>
                                 <li class="dropdown-item" ><a asp-action="logout" asp-controller="Home">Logout</a></li>
                               </ul>
                             </li>
@@ -94,6 +98,8 @@
         </div>
       </header>
       <!-- ----------------------------header End------------------------------------------- -->
+
+     
       @RenderBody()
 
           <!-------------------------------footernav start------------------------------------------- -->
@@ -142,13 +148,14 @@
     <!-- ----------------------------footernav End------------------------------------------- -->
    
    
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
     <script src="~/js/script.js"></script>
-    
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
     @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>*@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -157,5 +164,47 @@
      
   
      @RenderSection("scripts", required: false)
+
+
+
+ @*   @if (ViewBag.isUpdated == true)
+    {
+        <script>
+            $(window).on('load', function () {
+                $("#customerDashboard").hide();
+                $("#customerHistory").hide();
+                $("#customerHistory-Tab").removeClass("activeTab");
+                $("#customerDashboard-Tab").removeClass("activeTab");
+               
+                
+                $("#customerDetailsRight").load('@Url.Action("customerDetails","CustomerDashboard")');
+                 $("#update-alert").show();
+                alert("Your details successfully updated.");
+            });
+            
+        </script>
+       
+    }*@
+
+     @if (ViewBag.isPasswordUpdated == true)
+     {
+        <script>
+            console.log("inner");
+            $(window).on('load', function () {
+                console.log("inner");
+                $("#customerDashboard").hide();
+                $("#customerHistory").hide();
+                $("#customerHistory-Tab").removeClass("activeTab");
+                $("#customerDashboard-Tab").removeClass("activeTab");
+                $("#update-alert").show();
+                
+                $("#customerDetailsRight").load('@Url.Action("customerPassword","CustomerDashboard")');
+                alert("Your password successfully updated.");
+            });
+            
+        </script>
+       
+    }
+
 </body>
 </html>

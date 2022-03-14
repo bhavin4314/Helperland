@@ -62,8 +62,8 @@
                         <div class="date-time">
                             <input type="hidden" id="userId" asp-for="userId" value="@HttpContextAccessor.HttpContext.Session.GetInt32("userId")">
                             <input type="hidden" id="pincode" asp-for="Zipcode" value="">
-                            <input class="form-input1" type="date" asp-for="Date" value="2022-01-01">
-                            <select class="form-input2" id="" asp-for="Time" >
+                            <input class="form-input1" type="date" asp-for="Date" value="2022-01-01" onchange="setSchedule()"> 
+                            <select class="form-input2" asp-for="Time" onchange="setSchedule()">
                             <option value="8:00" >8:00</option>
                             <option value="8:30">8:30</option>
                             <option value="9:00">9:00</option>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="hour-part">
                       <p class="service-head font-weight-bold">How long do you need your helper?</p>
-                        <select class="form-input2" id="" asp-for="ServiceHours" name="hour">
+                        <select class="form-input2" asp-for="ServiceHours" onchange="changeCost()">
                           <option value="3" selected>3.0 Hrs</option>
                           <option value="3.5">3.5 Hrs</option>
                           <option value="4">4.0 Hrs</option>
@@ -115,44 +115,69 @@
                   <div class="add-service">
                     <p class="service-head font-weight-bold">additional services</p>
                     <div class="kindofservice text-center">
+                      
                       <div class="types">
-                        <div class="typeimg">
-                          <img src="~/images/3.png" alt="img">
-                        </div>
-                        <p class="typepara1" >Inside cabinets</p>
+                        <label for="ExtraService1">
+                          <div class="typeimg" data-val="0" onclick="add_extra_service(this);">
+                            <img src="~/images/extra-service-inside-cabinet.png" alt="img">
+                          </div>
+                          <p class="typepara1" >Inside cabinets</p>
+                        </label>
                       </div>
+
                       <div class="types">
-                        <div class="typeimg">
-                          <img src="~/images/5.png" alt="img">
-                        </div>
-                        <p class="typepara1" >Inside fridge</p>
+                        <label for="ExtraService2">
+                          <div class="typeimg" data-val="1" onclick="add_extra_service(this);">
+                            <img src="~/images/extra-service-inside-fridge.png" alt="img">
+                          </div>
+                          <p class="typepara1" >Inside fridge</p>
+                        </label>
                       </div>
+
                       <div class="types">
-                        <div class="typeimg">
-                          <img src="~/images/4.png" alt="img">
-                        </div>
-                        <p class="typepara1" >Inside oven</p>
+                        <label for="ExtraService3">
+                          <div class="typeimg" data-val="2" onclick="add_extra_service(this);">
+                            <img src="~/images/extra-service-inside-oven.png" alt="img">
+                          </div>
+                          <p class="typepara1" >Inside oven</p>
+                        </label>
                       </div>
+
                       <div class="types">
-                        <div class="typeimg">
-                          <img src="~/images/2.png" alt="img">
-                        </div>
-                        <p class="typepara1" >Laundry wash & dry</p>
+                        <label for="ExtraService4">
+                          <div class="typeimg" data-val="3" onclick="add_extra_service(this);">
+                            <img src="~/images/extra-service-inside-laundry.png" alt="img">
+                          </div>
+                          <p class="typepara1" >Laundry wash & dry</p>
+                        </label>
                       </div>
+
                       <div class="types">
-                        <div class="typeimg">
-                          <img src="~/images/1.png" alt="img">
-                        </div>
-                        <p class="typepara1" >Interior windows</p>
+                        <label for="ExtraService5">
+                          <div class="typeimg" data-val="4" onclick="add_extra_service(this);">
+                            <img src="~/images/extra-service-interior-windows.png" alt="img">
+                          </div>
+                          <p class="typepara1" >Interior windows</p>
+                        </label>
                       </div>
-                      </div>
+                     
+                    </div>
+
+                    <div class="d-none">
+                                <input type="checkbox" asp-for="ExtraService1" />
+                                <input type="checkbox" asp-for="ExtraService2" />
+                                <input type="checkbox" asp-for="ExtraService3" />
+                                <input type="checkbox" asp-for="ExtraService4" />
+                                <input type="checkbox" asp-for="ExtraService5" />
+                    </div>
+
                   </div>
                   <hr class="my-5">
 
                   <div class="advice">
                     <p class="service-head font-weight-bold">Do you want to tell your helper something?</p>
                       <textarea class="advice-area pl-2 mb-2" id="" name="" placeholder="Do you want tell something?"></textarea>
-                      <input type="checkbox" asp-for="HasPets" id="" name="" value="">
+                      <input type="checkbox" asp-for="HasPets" >
                       <label for=""> I have pets at home</label><br>
                      
                       
@@ -291,37 +316,45 @@
               <div class="payment-body">
                 
                 <div class="body1">
-                  <p>23/02/2022 08:00</p>
+                  <p id="scheduleDateTime"></p>
                   <p>length of time	</p>
                   <span class="d-flex justify-content-between">
                     <p>Basic</p>
-                    <p>0 Std.</p>
+                    <p id="basic-hours">3 hrs.</p>
                   </span>
                   <hr>
                   <span class="d-flex justify-content-between body1-total" >
                     <p>total service time	</p>
-                    <p>3 Std.</p>
+                    <p id="total-time">3 hrs.</p>
                   </span>
                 </div>
 
                 <hr>
-                <div class="body2">
+                <div class="body2 small-title fw-normal font-weight-bold" id="extra" style="display:none;">Extra</div>
+                <div class="body2" id="extra-service">
+                    <div id="es0" class="" style="display:none;"><span>Inside cabinets</span><span style="float:right;">30 Mins</span></div>
+                    <div id="es1" style="display:none;" class=""><span>Inside fridge</span><span style="float:right;">30 Mins</span></div>
+                    <div id="es2" style="display:none;" class=""><span>Inside oven</span><span style="float:right;">30 Mins</span></div>
+                    <div id="es3" style="display:none;" class=""><span>Laundry wash & dry</span><span style="float:right;">30 Mins</span></div>
+                    <div id="es4" style="display:none;" class=""><span>Interio window</span><span style="float:right;">30 Mins</span></div>
+                </div>
+                @*<div class="body2">
                   <span class="d-flex justify-content-between">
                     <p>Per cleaning	</p>
-                    <p class="font-weight-bold">0,00 €</p>
+                    <p class="font-weight-bold" >0,00 €</p>
                   </span>
                 </div>
-                <hr>
+                <hr>*@
 
                 <div class="body3">
                   <span class="d-flex justify-content-between price">
                     <p class="price-head">total price</p>
-                    <p class="price-rate">0,00 €</p>
+                    <p class="price-rate total-amount" >54 $</p>
                   </span>
                   <p>According to $ 19 UStG no sales tax will be charged.</p>
                   <span class="d-flex justify-content-between effective-price" >
                     <p>Effective price*</p>
-                    <p>0,00 €</p>
+                    <p class="total-amount">54 $</p>
                   </span>
                   <p><span style="color: red;">*</span>Save 20% according to $ 35a Income Tax Act (EStG).</p>
                   
@@ -404,7 +437,7 @@
                                    console.log("available");
 
                                    $("#pincode").val(res.zipcode);
-;                                   document.getElementsByClassName("tab2")[0].click();
+                                   document.getElementsByClassName("tab2")[0].click();
                                      
                                    console.log("clicking");
                                }
@@ -434,7 +467,7 @@
 
     $("#save-address").on("click", function () {
         console.log("useer id here ..."+$("#userIdAddresstTab").val());
-            var check = false;
+        var check=false;
             if ($("#addAddressLine1").val() == "") {
                 $("#errAddAddressLine1").text("Enter Street");
                 check = true;
@@ -455,11 +488,10 @@
                 $("#errAddAddressPhoneNumber").text("Enter Phone number");
                 check = true;
             }
-            if (check) {
+              if (check) {
                 return;
             }
             var address = {};
-            //address.userId = 24;
             
             address.userId = parseInt($("#userIdAddresstTab").val());
             address.addressLine1 = $("#addAddressLine1").val();
@@ -520,6 +552,81 @@
                     }
               });
         }
+
+
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+        $("#Date").attr('min', today);
+        document.getElementById("Date").valueAsDate = new Date();
+
+        function setSchedule(){
+                let date = new Date($("#Date").val());
+                var dd = String(date.getDate()).padStart(2, '0');
+                var mm = String(date.getMonth() + 1).padStart(2, '0');
+                var yyyy = date.getFullYear();
+                date = dd + '/' + mm + '/' + yyyy;
+                let time = $("#Time").val();
+                $("#scheduleDateTime").html(date + " " + time);
+            }
+
+
+           var extraCharge = 0.00;
+           var extraTime = 0;
+           var extraService = [];
+           var extraAdd = 0;
+           for (let i = 0; i < 5; i++) {
+                extraService[i] = 0;
+           }
+
+
+        function changeCost(){
+             var basicHours = Math.abs($("#ServiceHours").val());
+             console.log(basicHours);
+             $("#basic-hours").html(basicHours + " Hrs");
+             basicCost = $("#ServiceHours").val() * 18.00;
+             $(".total-amount").html(basicCost + extraCharge + " $");
+             $("#total-time").html(basicHours + extraTime + " Hrs");
+        }
+
+
+
+        add_extra_service = ele => {
+            console.log(ele);    
+            $(ele).toggleClass("selected");
+            let id = $(ele).attr("data-val");
+            console.log("es id is : "+id);
+            AddExtraService(ele);
+        }
+
+        function AddExtraService(obj) {
+                let id = $(obj).attr("data-val");
+                console.log("id num ser:"+id);
+                if (extraService[id] == 0) {
+                    extraAdd++;
+                    if (extraAdd == 1) {
+                        $("#extra").css("display", "block");
+                    }
+                    extraService[id] = 1;
+                    extraCharge = extraCharge + 9.00;
+                    extraTime = extraTime + 0.5;
+                    $("#es" + id).css("display", "block");
+                }
+                else {
+                    extraAdd--;
+                    if (extraAdd == 0) {
+                        $("#extra").css("display", "none");
+                    }
+                    extraService[id] = 0;
+                    extraCharge = extraCharge - 9.00;
+                    extraTime = extraTime - 0.5;
+                    $("#es" + id).css("display", "none");
+                }
+                changeCost();
+            }
+
     </script>
     }
      
