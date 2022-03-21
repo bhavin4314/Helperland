@@ -27,17 +27,17 @@
                         <div class="address">
                           
                           <p>
-                            <span class="font-weight-bold">Address : </span>@address.AddressLine1, @address.AddressLine2, @address.City-@address.PostalCode.
+                            <span class="font-weight-bold">Address : </span>@address.AddressLine2, @address.AddressLine1, @address.City-@address.PostalCode.
                           </p>
                           <p><span class="font-weight-bold">Phone number : </span>@address.Mobile</p>
                         </div>
                       </td>
 
-                      <td>
+                      <td class="d-flex justify-content-center">
                         <div class="address-img">
                           <p style="display:none;"></p>
-                          <button type="button" class="btn addressEditbtn" data-toggle="modal" onclick="addEditAddress()" data-target="#EditAddressModal"><img src="~/images/edit-icon.png"></button>
-                          <button type="button" class="btn addressDeletebtn" data-toggle="modal" data-target="#serviceCancelModal" ><img src="~/images/delete-icon.png"></button>
+                          <button type="button" class="btn addressEditbtn" data-toggle="modal" onclick="addEditAddress(@address.AddressId)" data-target="#EditAddressModal"><img src="~/images/edit-icon.png"></button>
+                          <button type="button" class="btn addressDeletebtn" data-toggle="modal" onclick="deleteAddress(@address.AddressId)" data-target="#serviceCancelModal" ><img src="~/images/delete-icon.png"></button>
                         </div>
                       </td>
                 </tr>
@@ -56,10 +56,12 @@
                 {
                     <div class="text-danger">You have not added any address yet, You can add new by clicking below button</div>
                 }
+               
 
+             
 
                 <div class="addNewAddress">
-                  <button class="btn" data-toggle="modal" data-target="#EditAddressModal" onclick="addEditAddress()">Add New Address</button>
+                  <button class="btn" data-toggle="modal" data-target="#EditAddressModal" onclick="addEditAddress(0)">Add New Address</button>
                 </div>
 
 
@@ -69,3 +71,5 @@
 
         </div>
 
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

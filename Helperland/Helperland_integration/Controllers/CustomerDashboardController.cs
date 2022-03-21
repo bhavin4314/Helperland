@@ -15,15 +15,62 @@ namespace Helperland_integration.Controllers
         }
 
 
-        public IActionResult customerDashboard(bool isUpdated = false, bool isPasswordUpdated = false)
+        public IActionResult customerDashboard(bool isServiceCancel=false,bool isUpdated = false, bool isPasswordUpdated = false,bool isReschedule=false)
         {
             ViewBag.IsUpdated = isUpdated;
             ViewBag.IsPasswordUpdated = isPasswordUpdated;
-            return View();
+            ViewBag.IsReschedule = isReschedule;
+            ViewBag.IsServiceCancel = isServiceCancel;
+
+            int userId = (int)HttpContext.Session.GetInt32("userId");
+            var service = _customerRepository.GetService(userId);
+            return View(service);
         }
+        [HttpGet]
+        [Route("CustomerDashboard/serviceDetails/{serviceId}")]
+        public IActionResult serviceDetails(int serviceId)
+        {
+            ServiceRequest serviceRequest = _customerRepository.GetServiceDetails(serviceId);
+            return View(serviceRequest);
+        }
+
+        [HttpGet]
+        [Route("CustomerDashboard/rescheduleService/{serviceId}")]
+        public IActionResult rescheduleService(int serviceId)
+        {
+            BookServiceViewModel bookServiceViewModel = _customerRepository.getserviceDateTime(serviceId);
+            return View(bookServiceViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult rescheduleService(BookServiceViewModel bookServiceViewModel)
+        {
+            bool update = _customerRepository.updateDateTime(bookServiceViewModel);
+            //return Json(new { reScheduleDone = true });
+            return RedirectToAction(nameof(customerDashboard),new { isReschedule = true } );
+
+        }
+
+        [HttpGet]
+        [Route("CustomerDashboard/cancelService/{serviceId}")]
+        public IActionResult cancelService(int serviceId)
+        {
+            ServiceRequest serviceRequest = _customerRepository.GetServiceDetails(serviceId);
+            return View(serviceRequest);
+        }
+
+        [HttpPost]
+        public IActionResult cancelService(ServiceRequest serviceRequest)
+        {
+            bool cancel = _customerRepository.cancelServiceRequest(serviceRequest);
+            return RedirectToAction(nameof(customerDashboard), new { isServiceCancel = true });
+        }
+
         public IActionResult customerServiceHistory()
         {
-            return View();
+            int userId = (int)HttpContext.Session.GetInt32("userId");
+            var service = _customerRepository.GetServiceCancelComplete(userId);
+            return View(service);
         }
         public IActionResult customerDetails()
         {
@@ -42,12 +89,7 @@ namespace Helperland_integration.Controllers
             //ModelState.AddModelError("", "Your details successfully updated.");
             return Json(new { detailsUpdate = true });
         }
-        public IActionResult customerAddress()
-        {
-            int userId = (int)HttpContext.Session.GetInt32("userId");
-            var addresses = _customerRepository.GetAddress(userId);
-            return View(addresses);
-        }
+        
         public IActionResult customerPassword()
         {
             
@@ -61,26 +103,96 @@ namespace Helperland_integration.Controllers
             bool update = _customerRepository.passwordUpdate(resetPasswordModel, userId);
             if (update)
             {
-                //ModelState.AddModelError("", "Your password successfully updated.");
                 return Json(new { passwordUpdate = true });
-                //return RedirectToAction("customerDashboard", new { isPasswordUpdated = true });
 
             }
             else
             {
-                //ModelState.AddModelError("", "Your password successfully not updated.");
                 return Json(new { passworNotUpdate = true });
-                //return RedirectToAction("customerDashboard");
             }
            
         }
-        //[HttpGet]
-        //[Route("CustomerDashboard/addOrEditAddress/{addressId}")]
-        public IActionResult addOrEditAddress()
+
+        public IActionResult customerAddress()
         {
-            //int id = (int)HttpContext.Session.GetInt32("userId");
-            return View();
+            int userId = (int)HttpContext.Session.GetInt32("userId");
+            var addresses = _customerRepository.GetAddress(userId);
+            return View(addresses);
         }
 
+        //public IActionResult addNewAddress()
+        //{
+        //    return View("addOrEditAddress");
+        //}
+        //[HttpPost]
+        //public IActionResult addNewAddress(AddressViewModel addressViewModel)
+        //{
+        //    int id = (int)HttpContext.Session.GetInt32("userId");
+        //    if(ModelState.IsValid)
+        //    {
+        //        bool add = _customerRepository.addNewAddress(addressViewModel, id);
+        //        //return RedirectToAction("customerAddress");
+        //        return Json(new { addAddress = true });
+        //    }
+        //    else
+        //    {
+        //        return View();
+        //    }
+            
+        //} 
+
+
+        [HttpGet]
+        [Route("CustomerDashboard/addOrEditAddress/{addressId}")]
+        public IActionResult addOrEditAddress(int addressId)
+        {
+            int addId = addressId;
+            int id = (int)HttpContext.Session.GetInt32("userId");
+
+            if(addId== 0)
+            {
+                UserAddressViewModel userAddressViewModel = new UserAddressViewModel();
+                return View(userAddressViewModel);
+            }
+            else
+            {
+                UserAddressViewModel userAddress = _customerRepository.GetSingleAddress(addId);
+                return View(userAddress);
+            }
+           
+        }
+        [HttpPost]
+        public IActionResult addOrEditAddress(AddressViewModel addressViewModel)
+        {
+            //int addId = addressId;
+            int id = (int)HttpContext.Session.GetInt32("userId");
+            
+            if(addressViewModel.AddressId==0)
+            {
+                if (ModelState.IsValid)
+                {
+                    bool add = _customerRepository.addNewAddress(addressViewModel, id);
+                    //return RedirectToAction("customerAddress");
+                    return Json(new { addAddress = true });
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    bool update = _customerRepository.updateAddress(addressViewModel, id);
+                    return Json(new { updateAddress = true });
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            
+        }
     }
 }

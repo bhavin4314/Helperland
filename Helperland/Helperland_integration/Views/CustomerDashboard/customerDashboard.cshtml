@@ -6,6 +6,7 @@
 }
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
+@model IEnumerable<ServiceRequest>
 
 <link rel="stylesheet" href="~/css/userDashboard_new.css">
 
@@ -15,8 +16,26 @@
       </section>
      
       <!-- ----------------------------welcome part End----------------------------------- -->
-      
-      
+    @if(ViewBag.IsReschedule == true)
+    {
+     <div class="alert alert-success alert-dismissible fade show" id="service-cancel-alert" style="" role="alert">
+        <strong>Your service request date-time has been successfully updated.</strong> 
+        @*<div asp-validation-summary="ModelOnly" style="list-style-type:none;"></div>*@
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>   
+    }
+      @if(ViewBag.IsServiceCancel == true)
+    {
+     <div class="alert alert-success alert-dismissible fade show" id="service-cancel-alert" style="" role="alert">
+        <strong>Your service request has been successfully cancelled.</strong> 
+        @*<div asp-validation-summary="ModelOnly" style="list-style-type:none;"></div>*@
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>   
+    }
       
       <!-- ----------------------------table part start---------------------------------- -->
       
@@ -49,17 +68,24 @@
                     </tr>
                   </thead>
                   <tbody>
-                     
-                    <tr>
+                      
+                     @foreach(ServiceRequest serviceRequest in Model)
+                     {
+                         @if(@serviceRequest.Status!=2)
+                         {
+                              <tr>
                       <td class="text-center">
-                        <p>123</p>
+                        <a onclick="displayServiceDetails(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#customerServiceInfoModal" style=" cursor: pointer; ">@serviceRequest.ServiceRequestId</a>
                       </td>
                         <td class="service-date-time px-0">
-                          <a href="" class="date-time"  data-toggle="modal" data-target="#customerServiceInfoModal">
-                            <span class="service-date"><img src="~/images/calendar2.png" alt="" srcset="">09/04/2018</span>
-                            <span class="service-time ml-2"><img src="~/images/layer-712.png" class="" alt="" srcset="">12:00 - 18:00</span>
+                          <a class="date-time" onclick="displayServiceDetails(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#customerServiceInfoModal" style=" cursor: pointer; ">
+                              <div class="d-none">@String.Format("{0:yyyy/MM/dd}", serviceRequest.ServiceStartDate) @Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay</div>
+                            <span class="service-date"><img src="~/images/calendar2.png" alt="" srcset="">@String.Format("{0:dd/MM/yyyy}", serviceRequest.ServiceStartDate)</span>
+                            <span class="service-time ml-2"><img src="~/images/layer-712.png" class="" alt="" srcset="">@(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay).Substring(0,5)) - @(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate.AddHours(Convert.ToDouble(serviceRequest.ServiceHours + serviceRequest.ExtraHours))).TimeOfDay).Substring(0,5))</span>
                           </a>
                         </td>
+                        @if(serviceRequest.ServiceProvider != null)
+                        {
                         <td class="sp-deails px-0">
                           <a href="" class="">
                             <div class="d-flex">
@@ -67,7 +93,7 @@
                                     <img class="" src="~/images/cap.png" alt="" srcset="">
                                 </div>
                                 <div class="name-rating">
-                                    <p class="sp-name">Lyum Watson</p>
+                                    <p class="sp-name">@serviceRequest.ServiceProvider.FirstName + " "+ @serviceRequest.ServiceProvider.LastName</p>
                                     <span class="all-star ">
                                         <img src="~/images/star1.png" class="star" alt="">
                                         <img src="~/images/star1.png" class="star" alt="">
@@ -81,14 +107,25 @@
                             </div>
                           </a>
                         </td>
-                        <td class="payment px-0">€63</td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+
+                        <td class="payment px-0">@serviceRequest.TotalCost</td>
                         <td class="dashboard-btn pl-0" style="margin-left: -20px;">
-                          <button class="btn dashboard-change-button" type="" data-toggle="modal" data-target="#serviceDateTimeModal">Change Date-Time</button>
-                          <button class="btn dashboard-cancel-button" type="" data-toggle="modal" data-target="#serviceCancelModal">Cancel</button>
+                          <button class="btn dashboard-change-button" type="button" onclick="reschedule(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#serviceDateTimeModal">Change Date-Time</button>
+                          <button class="btn dashboard-cancel-button" type="button" onclick="cancelService(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#serviceCancelModal">Cancel</button>
                         </td>
                     </tr> 
+                         }
+                    
+
+                     }
+                    
     
-    
+                    
                   </tbody>
                 </table>
                 <!-- ------------------------pagination start----------------------------------- -->
@@ -144,38 +181,88 @@
           </div>
           </section>
 
+
+
+
+
+
+        <!-- ---------- -------dashboard-serviceDetailModal part start-------------------- -->
+      
+
+      <!-- Modal -->
+      <div class="modal" id="customerServiceInfoModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+
+      </div>
+
+      <!-- ---------------------dashboard-serviceDetailModal part End------------------- -->
+
+      <!-- ---------------------dashboard-serviceDateTimeModal part start------------------- -->
+      
+      <div class="modal " id="serviceDateTimeModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      
+      </div>
+     
+      <!-- ---------------------dashboard-serviceDateTimeModal part End------------------- -->
+
+
+        <!-- ---------------------dashboard-serviceCancelModal part start------------------- -->
+
+
+      <!-- Modal -->
+      <div class="modal" id="serviceCancelModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  
+      </div>
+
+      <!-- ---------------------dashboard-serviceCancelModal part End------------------- -->
+
+
+
+
           @section scripts{
               <script>
                   jQueryAjaxPost = form => {
-    //console.log("method call");
-    try {
-        $.ajax({
-            type: 'POST',
-            url: form.action,
-            data: new FormData(form),
-            contentType: false,
-            processData: false,
-            success: function (res) {
-                if (res.detailsUpdate) {
-                    $("#detail-update-alert").show();
-                }
-                 else if (res.passwordUpdate) {
-                    $("#password-update-alert").show();
-                }
-                 else if (res.passworNotUpdate) {
-                    $("#password-notupdate-alert").show();
-                }
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        });
-    }
-    catch (e) {
-        console.log(e);
-    }
+                    //console.log("method call");
+                    try {
+                        $.ajax({
+                            type: 'POST',
+                            url: form.action,
+                            data: new FormData(form),
+                            contentType: false,
+                            processData: false,
+                            success: function (res) {
+                                if (res.detailsUpdate) {
+                                    $("#detail-update-alert").show();
+                                }
+                                 else if (res.passwordUpdate) {
+                                    $("#password-update-alert").show();
+                                }
+                                 else if (res.passworNotUpdate) {
+                                    $("#password-notupdate-alert").show();
+                                }
+                                else if(res.addAddress){
+                                     $("#EditAddressModal").modal("hide");
+                                     $("#customerAddress").load(`/CustomerDashboard/customerAddress`);
+                                }
+                                else if(res.updateAddress){
+                                     $("#EditAddressModal").modal("hide");
+                                     $("#customerAddress").load(`/CustomerDashboard/customerAddress`);
+                                }
 
-    return false;
-};
+                                
+                               
+                            },
+                            error: function (err) {
+                                console.log(err);
+                            }
+                        });
+                    }
+                    catch (e) {
+                        console.log(e);
+                    }
+
+                    return false;
+                };
+
+                
               </script>
           }

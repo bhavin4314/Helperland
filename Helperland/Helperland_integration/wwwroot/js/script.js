@@ -130,12 +130,37 @@ function customerPassword() {
 }
 
 
-function addEditAddress() {
-    $("#EditAddressModal").load(`/CustomerDashboard/addOrEditAddress`);
+
+function addEditAddress(addressId) {
+    console.log(addressId);
+    //var id = addressId;
+    $("#EditAddressModal").load(`/CustomerDashboard/addOrEditAddress/` + addressId);
     //$("#EditAddressModal").modal('show');
 }
 
-//function addAddressClose() {
-//    console.log("close");
-//    $("#EditAddressModal").modal("hide");
-//}
+
+function displayServiceDetails(serviceId)
+{
+
+    console.log(serviceId);
+    $("#customerServiceInfoModal").load(`/CustomerDashboard/serviceDetails/` + serviceId);
+}
+
+
+
+function reschedule(serviceId) {
+    console.log(serviceId);
+    
+    $("#serviceDateTimeModal").load(`/CustomerDashboard/rescheduleService/` + serviceId);
+    $("#customerServiceInfoModal").modal("hide");
+}
+
+function cancelService(serviceId) {
+    console.log(serviceId);
+    $("#serviceCancelModal").load(`/CustomerDashboard/cancelService/` + serviceId);
+    $("#customerServiceInfoModal").modal("hide");
+}
+
+function deleteAddress(AddressId) {
+    $("#customerAddress").load(`/CustomerDashboard/customerAddress` + AddressId);
+}

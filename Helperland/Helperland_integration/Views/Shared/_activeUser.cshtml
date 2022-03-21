@@ -55,7 +55,7 @@
                               <li class="nav-item"><a href="" class="nav-link">Service History</a></li>
                               <li class="nav-item"><a href="" class="nav-link">My Ratings</a></li>
                               <li class="nav-item"><a href="" class="nav-link">Block Customer</a></li>
-                              <li class="nav-item"><a href="" class="nav-link">My Settings</a></li>
+                              <li class="nav-item"><a href="" class="nav-link" >My Settings</a></li>
                               <li class="nav-item"><a class="nav-link" asp-action="logout" asp-controller="Home">Logout</a></li>
                             <hr>
                             </span>
@@ -77,7 +77,7 @@
                               <ul class="dropdown-menu dropdown-menu-right">
                                 <li class="list-item1"><a href="" disabled>Welcome, <br><span class="font-weight-bold">@HttpContextAccessor.HttpContext.Session.GetString("userName")</span></a></li>
                                 <hr>
-                                 <li class="dropdown-item" ><a >My Dashboard</a></li>
+                                 <li class="dropdown-item" ><a asp-action="customerDashboard" asp-controller="CustomerDashboard">My Dashboard</a></li>
                                 <li class="dropdown-item" ><a id="customer-settings">My Settings</a></li>
                                 <li class="dropdown-item" ><a asp-action="logout" asp-controller="Home">Logout</a></li>
                               </ul>

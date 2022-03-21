@@ -2,8 +2,7 @@
 @{
     Layout = null;
 }
-@model Helperland_integration.ViewModel.AddressViewModel
-
+@model Helperland_integration.ViewModel.UserAddressViewModel
    <!-- Modal -->
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -14,37 +13,42 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form class="edit-address-form" method="post" asp-action="addOrEditAddress" asp-controller="CustomerDashboard" onsubmit="">
-                          <div>
+                        <input type="hidden" asp-for="AddressId"/>
+
+          
+            
+            <form class="edit-address-form" asp-action="addOrEditAddress" asp-controller="CustomerDashboard" onsubmit="return jQueryAjaxPost(this);">
+                          <input type="hidden" asp-for="AddressId" />
+                            <div>
                             <div class="form-row mb-3">
                               <div class="col">
-                                <label>Street</label>
+                                <label for="AddressLine2">Street</label>
                                 <input asp-for="AddressLine2" class="form-control" id="editAddressLine1"  placeholder="Street Name">
-                                 <span class="text-danger" id="erreditAddressLine1"></span>
+                                 <span class="text-danger" asp-validation-for="AddressLine2"></span>
                               </div>
                               <div class="col">
-                                <label>House number</label>
+                                <label for="AddressLine1">House number</label>
                                 <input asp-for="AddressLine1" class="form-control" id="editressLine2" placeholder="House number">
-                                 <span class="text-danger" id="erreditAddressLine2"></span>
+                                 <span class="text-danger" asp-validation-for="AddressLine1"></span>
                               </div>
                             </div>
                             <div class="form-row mb-3">
                               <div class="col">
-                                <label>Pincode</label>
+                                <label for="ZipCode">Pincode</label>
                                 <input asp-for="ZipCode" class="form-control" id="editpincode" placeholder="Pincode">
-                                <span class="text-danger" id="errpincode"></span>
+                                <span class="text-danger" asp-validation-for="ZipCode"></span>
                               </div>
                               <div class="col">
-                                <label>Location</label>
+                                <label for="city">Location</label>
                                 <input asp-for="City" class="form-control" id="editCity" placeholder="City name">
-                                <span class="text-danger" id="erreditCity"></span>
+                                <span class="text-danger" asp-validation-for="City"></span>
                               </div>
                             </div>
                             <div class="form-row mb-3">
                               <div class="col">
-                                <label>Phone number</label>
+                                <label for="MobileNo">Phone number</label>
                                 <input asp-for="MobileNo" class="form-control" id="editAddressPhoneNumber" placeholder="Phone number">
-                                <span class="text-danger" id="erreditAddressPhoneNumber"></span>
+                                <span class="text-danger" asp-validation-for="MobileNo"></span>
                               </div>
                             </div>
                             <button class="edit-btn" id="edit-address" type="submit">Save</button>
@@ -56,7 +60,8 @@
                     </div>
                   </div>
 
-
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 
 
                     <!-- ---------------------dashboard-serviceCancelModal part start------------------- -->
@@ -87,5 +92,3 @@
       <!-- ---------------------dashboard-serviceCancelModal part End------------------- -->
 
 
-                     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>   
