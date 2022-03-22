@@ -45,7 +45,7 @@
                         <input type="text" class="form-control" id="pincode-text" name="pincode" placeholder="Postal code">
                         
                       </div>
-                      <button id="pincode-btn" type="submit" class="btn check-btn mb-2">Check Availability</button>
+                      <button id="pincode-btn" type="submit" class="btn check-btn mb-2" style="cursor:pointer">Check Availability</button>
                     </form>
                     <span id="pincode-error" class="text-danger"></span>
                 </div>
@@ -185,7 +185,7 @@
                   <hr class="my-4">
                   <input type="hidden" asp-for="AddressId" value="" />
                   <div class="button">
-                    <button type="button" id="btnServiceDetails" class="next-btn float-right">Continue</button>
+                    <button type="button" id="btnServiceDetails" class="next-btn float-right" style="cursor:pointer">Continue</button>
                   </div>
                   </form>
                 </div>
@@ -202,7 +202,7 @@
 
                 <p>Please enter your address so that your helper can find you.</p>
                   <div>
-                    <button class="address-btn font-weight-bold">+ Add New Address</button>
+                    <button class="address-btn font-weight-bold" style="cursor:pointer">+ Add New Address</button>
                   </div>
                   <form class="address-form" method="post" >
                         <input type="hidden" id="userIdAddresstTab" asp-for="userId" value="@HttpContextAccessor.HttpContext.Session.GetInt32("userId")">
@@ -222,7 +222,7 @@
                       <div class="form-row">
                         <div class="col">
                           <label>Pincode</label>
-                          <input class="form-control" id="pincodeAddress" placeholder="Pincode">
+                          <input class="form-control" id="pincodeAddress" placeholder="Pincode" disabled>
                           <span class="text-danger" id="errpincode"></span>
                         </div>
                         <div class="col">
@@ -238,21 +238,21 @@
                           <span class="text-danger" id="errAddAddressPhoneNumber"></span>
                         </div>
                       </div>
-                      <button class="save-btn" id="save-address" type="button">Save</button>
-                      <button class="discard-btn" type="button">Discard</button>
+                      <button class="save-btn" id="save-address" type="button" style="cursor:pointer">Save</button>
+                      <button class="discard-btn" type="button" style="cursor:pointer">Discard</button>
                       
                     </div>
                   </form>
                   
                   <div class="form-check">
-                    <input type="checkbox" class="bill-checkbox mr-2 " name="" id="">
+                    <input type="checkbox" class="bill-checkbox mr-2 " name="" id="" style="cursor:pointer">
                     <label for="">My billing address differs from the given address.</label>
                   </div>
 
                   <hr>
 
                   <div class="button">
-                    <button type="button" class="next-btn float-right" id="tab3-continue-btn">Continue</button>
+                    <button type="button" class="next-btn float-right" id="tab3-continue-btn" style="cursor:pointer">Continue</button>
                   </div>
 
                 </div>  
@@ -270,7 +270,7 @@
                     <label for="">Discount code (optional)</label>
                     <br>
                     <input type="text" class="form-control" style="width: 200px;display: inline;"placeholder="Discount code">
-                    <button class="promo-btn" type="submit">Use</button>
+                    <button class="promo-btn" type="submit" style="cursor:pointer">Use</button>
                   </form>
                   <hr>
                   <div class="form-check">
@@ -278,7 +278,7 @@
                     <label for="" class="payment-tab-label">I accept the terms and conditions , the cancellation policy and the data protection regulations . I confirm that Helperland will start executing the contract before the end of the cancellation period and that I will lose my right of cancellation as a consumer once the contract has been fully performed.</label>
                     <hr>
                     <div class="button">
-                      <button type="submit" class="next-btn float-right" id="final-bookbtn">Book with Cost</button>
+                      <button type="submit" class="next-btn float-right" id="final-bookbtn" style="cursor:pointer">Book with Cost</button>
                     </div>
 
                     <div id="booking-message" style="display:none"> 

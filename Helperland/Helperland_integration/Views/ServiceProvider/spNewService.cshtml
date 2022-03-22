@@ -2,7 +2,7 @@
     Layout = "~/Views/Shared/_activeUser.cshtml";
 }
 @{
-    ViewBag.Title = "customer Dashboard";
+    ViewBag.Title = "SP Dashboard";
 }
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
@@ -16,36 +16,21 @@
       </section>
      
       <!-- ----------------------------welcome part End----------------------------------- -->
-    @if(ViewBag.IsReschedule == true)
-    {
-     <div class="alert alert-success alert-dismissible fade show" id="service-cancel-alert" style="" role="alert">
-        <strong>Your service request date-time has been successfully updated.</strong> 
-        @*<div asp-validation-summary="ModelOnly" style="list-style-type:none;"></div>*@
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>   
-    }
-      @if(ViewBag.IsServiceCancel == true)
-    {
-     <div class="alert alert-success alert-dismissible fade show" id="service-cancel-alert" style="" role="alert">
-        <strong>Your service request has been successfully cancelled.</strong> 
-        @*<div asp-validation-summary="ModelOnly" style="list-style-type:none;"></div>*@
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>   
-    }
+ 
+   
       
       <!-- ----------------------------table part start---------------------------------- -->
       
       <section class="services">
         <div class="container-fluid table-part">
           <div class="left-menu">
-            <li class="nav-item"><a class="nav-link left-menu-link activeTab" style="padding-right: 200px;" id="customerDashboard-Tab" onclick="customerDashboard()">Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link left-menu-link " id="customerHistory-Tab" onclick="customerHistory()">Service History</a></li>
-            <li class="nav-item"><a href="" class="nav-link left-menu-link " id="" >Service Schedule</a></li>
-            <li class="nav-item"><a href="" class="nav-link left-menu-link">Favourite Pros</a></li>
+            <li class="nav-item"><a class="nav-link left-menu-link activeTab" style="padding-right: 200px;" id="customerDashboard-Tab" >Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link left-menu-link " id="customerHistory-Tab" >New Service Request</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link " id="" >Upcoming Service</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link">Service Schedule</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link">Service History</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link">My Ratings</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link">Block Customer</a></li>
             <li class="nav-item"><a href="" class="nav-link left-menu-link">Invoices</a></li>
             <li class="nav-item"><a href="" class="nav-link left-menu-link">Notifications</a></li>
        
@@ -53,17 +38,15 @@
          
           <div class="dashboardRight" id="customerDashboard">
             <div class="right-table" >
-                <div class="table-name d-flex justify-content-between">
-                    <p class="table-name-info">My Current Bookings</p>
-                    <button class="btn export-btn" onclick="location.href='@Url.Action("Index","BookService")'">Book Now!</button>
-                </div>
+              
                 <table class="table text-center" >
                   <thead>
                     <tr>
                       <th scope="col" class="px-0">Service ID <img src="~/images/sort.png" alt="" srcset=""></th>
                       <th scope="col" class="px-0">Service Details <img src="~/images/sort.png" alt="" srcset=""></th>
-                      <th scope="col" class="px-0">Service Provider <img src="~/images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class="px-0">Customer Details <img src="~/images/sort.png" alt="" srcset=""></th>
                       <th scope="col" class="px-0">Payment <img src="~/images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class="px-0">Time Conflict <img src="~/images/sort.png" alt="" srcset=""></th>
                       <th scope="col" class="px-0">Actions <img src="~/images/sort.png" alt="" srcset=""></th>
                     </tr>
                   </thead>
@@ -71,8 +54,8 @@
                       
                      @foreach(ServiceRequest serviceRequest in Model)
                      {
-                         @*@if(@serviceRequest.Status!=2)
-                         {*@
+                         @if(@serviceRequest.Status!=2)
+                         {
                               <tr>
                       <td class="text-center">
                         <a onclick="displayServiceDetails(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#customerServiceInfoModal" style=" cursor: pointer; ">@serviceRequest.ServiceRequestId</a>
@@ -84,45 +67,17 @@
                             <span class="service-time ml-2"><img src="~/images/layer-712.png" class="" alt="" srcset="">@(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay).Substring(0,5)) - @(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate.AddHours(Convert.ToDouble(serviceRequest.ServiceHours + serviceRequest.ExtraHours))).TimeOfDay).Substring(0,5))</span>
                           </a>
                         </td>
-                        @if(serviceRequest.ServiceProvider != null)
-                        {
-                        <td class="sp-deails px-0">
-                          <a href="" class="">
-                            <div class="d-flex">
-                                <div class="cap-img">  
-                                    <img class="" src="~/images/cap.png" alt="" srcset="">
-                                </div>
-                                <div class="name-rating">
-                                    <p class="sp-name">@serviceRequest.ServiceProvider.FirstName + " "+ @serviceRequest.ServiceProvider.LastName</p>
-                                    <span class="all-star ">
-                                        <img src="~/images/star1.png" class="star" alt="">
-                                        <img src="~/images/star1.png" class="star" alt="">
-                                        <img src="~/images/star1.png" class="star" alt="">
-                                        <img src="~/images/star1.png" class="star" alt="">
-                                        <img src="~/images/star2.png" class="star" alt="">
-                                        <span >4 </span>
-                                    </span>
-                                   
-                                </div>
-                            </div>
-                          </a>
-                        </td>
-                        }
-                        else
-                        {
-                            <td></td>
-                        }
-
+                       
                         <td class="payment px-0">@serviceRequest.TotalCost</td>
+                        <td></td>
                         <td class="dashboard-btn pl-0" style="margin-left: -20px;">
-                          <button class="btn dashboard-change-button" type="button" onclick="reschedule(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#serviceDateTimeModal">Change Date-Time</button>
-                          <button class="btn dashboard-cancel-button" type="button" onclick="cancelService(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#serviceCancelModal">Cancel</button>
+                          <button class="btn dashboard-change-button" type="button" >Accept</button>
                         </td>
                     </tr> 
                          }
                     
 
-                     @*}*@
+                     }
                     
     
                     
@@ -246,12 +201,6 @@
                                 else if(res.updateAddress){
                                      $("#EditAddressModal").modal("hide");
                                      $("#customerAddress").load(`/CustomerDashboard/customerAddress`);
-                                }
-                                else if(res.addressDeleted){
-                                    $("#addressDeleteModal").modal("hide");
-                                    //$("#address-delete-alert").show();
-                                    $("#customerAddress").load(`/CustomerDashboard/customerAddress`);
-                                    
                                 }
 
                                 

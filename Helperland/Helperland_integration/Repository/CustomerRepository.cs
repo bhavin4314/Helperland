@@ -20,7 +20,7 @@ namespace Helperland_integration.Repository
 
         public IEnumerable<ServiceRequest> GetService(int id)
         {
-            return _helperlandContext.ServiceRequests.Where(x => x.UserId == id).ToList();
+            return _helperlandContext.ServiceRequests.Where(x => x.UserId == id && x.Status==1).ToList();
         }
        
         public ServiceRequest GetServiceDetails(int serviceId)
@@ -90,16 +90,16 @@ namespace Helperland_integration.Repository
             return userAddressViewModel;
         }
 
-        public bool addNewAddress(AddressViewModel addressViewModel,int id)
+        public bool addNewAddress(UserAddressViewModel useraddressViewModel,int id)
         {
         
             UserAddress userAddress = new UserAddress();
             userAddress.UserId = id;
-            userAddress.AddressLine1 = addressViewModel.AddressLine2;
-            userAddress.AddressLine2 = addressViewModel.AddressLine1;
-            userAddress.City = addressViewModel.City;
-            userAddress.PostalCode = addressViewModel.ZipCode;
-            userAddress.Mobile = addressViewModel.MobileNo;
+            userAddress.AddressLine1 = useraddressViewModel.AddressLine2;
+            userAddress.AddressLine2 = useraddressViewModel.AddressLine1;
+            userAddress.City = useraddressViewModel.City;
+            userAddress.PostalCode = useraddressViewModel.ZipCode;
+            userAddress.Mobile = useraddressViewModel.MobileNo;
             //userAddress.Email = "shyam@gmail.com";
             _helperlandContext.UserAddresses.Add(userAddress);
             _helperlandContext.SaveChanges();
@@ -107,15 +107,15 @@ namespace Helperland_integration.Repository
 
         }
 
-        public bool updateAddress(AddressViewModel addressViewModel,int id)
+        public bool updateAddress(UserAddressViewModel useraddressViewModel, int id)
         {
-            UserAddress userAddress = _helperlandContext.UserAddresses.Where(x => x.AddressId == addressViewModel.AddressId).FirstOrDefault();
+            UserAddress userAddress = _helperlandContext.UserAddresses.Where(x => x.AddressId == useraddressViewModel.AddressId).FirstOrDefault();
             userAddress.UserId = id;
-            userAddress.AddressLine1 = addressViewModel.AddressLine2;
-            userAddress.AddressLine2 = addressViewModel.AddressLine1;
-            userAddress.City = addressViewModel.City;
-            userAddress.PostalCode = addressViewModel.ZipCode;
-            userAddress.Mobile = addressViewModel.MobileNo;
+            userAddress.AddressLine1 = useraddressViewModel.AddressLine2;
+            userAddress.AddressLine2 = useraddressViewModel.AddressLine1;
+            userAddress.City = useraddressViewModel.City;
+            userAddress.PostalCode = useraddressViewModel.ZipCode;
+            userAddress.Mobile = useraddressViewModel.MobileNo;
             _helperlandContext.UserAddresses.Update(userAddress);
             _helperlandContext.SaveChanges();
             return true;
@@ -153,6 +153,14 @@ namespace Helperland_integration.Repository
         public IEnumerable<ServiceRequest> GetServiceCancelComplete(int id)
         {
             return _helperlandContext.ServiceRequests.Where(x => x.UserId == id && x.Status == 2).ToList();
+        }
+
+        public bool deleteCutomerAddress(UserAddressViewModel userAddressViewModel)
+        {
+            UserAddress userAddress = _helperlandContext.UserAddresses.Where(x => x.AddressId == userAddressViewModel.AddressId).FirstOrDefault();
+            _helperlandContext.UserAddresses.Remove(userAddress);
+            _helperlandContext.SaveChanges();
+            return true;
         }
     }
 }

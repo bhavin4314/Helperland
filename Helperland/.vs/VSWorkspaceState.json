@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Helperland_integration",
-    "\\Helperland_integration\\Controllers",
     "\\Helperland_integration\\Repository",
+    "\\Helperland_integration\\ViewModel",
     "\\Helperland_integration\\Views",
     "\\Helperland_integration\\Views\\BookService",
     "\\Helperland_integration\\Views\\CustomerDashboard",
@@ -11,6 +11,6 @@
     "\\Helperland_integration\\wwwroot",
     "\\Helperland_integration\\wwwroot\\js"
   ],
-  "SelectedNode": "\\Helperland_integration\\Views\\CustomerDashboard\\customerDashboard.cshtml",
+  "SelectedNode": "\\Helperland_integration\\ViewModel\\BookServiceViewModel.cs",
   "PreviewInSolutionExplorer": false
 }

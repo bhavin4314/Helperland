@@ -9,6 +9,15 @@
     Layout = null;
     int i = 1;
 }
+@*
+ <div class="alert alert-success alert-dismissible fade show" id="address-delete-alert" style="display:none" role="alert">
+                <strong>Your address successfully deleted.</strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+  </div>*@
+
+
 
 <div class="right-table address-table ">
                 <table class="table " >
@@ -37,7 +46,7 @@
                         <div class="address-img">
                           <p style="display:none;"></p>
                           <button type="button" class="btn addressEditbtn" data-toggle="modal" onclick="addEditAddress(@address.AddressId)" data-target="#EditAddressModal"><img src="~/images/edit-icon.png"></button>
-                          <button type="button" class="btn addressDeletebtn" data-toggle="modal" onclick="deleteAddress(@address.AddressId)" data-target="#serviceCancelModal" ><img src="~/images/delete-icon.png"></button>
+                          <button type="button" class="btn addressDeletebtn" data-toggle="modal" onclick="deleteAddress(@address.AddressId)" data-target="#addressDeleteModal" ><img src="~/images/delete-icon.png"></button>
                         </div>
                       </td>
                 </tr>
@@ -70,6 +79,20 @@
                  </div>
 
         </div>
+
+
+        <!-- ---------------------dashboard-AddressdeleteModal part start------------------- -->
+
+
+      <!-- Modal -->
+      <div class="modal " id="addressDeleteModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+       
+      </div>
+
+      <!-- ---------------------dashboard-AddressdeleteModal part End------------------- -->
+
+
+
 
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

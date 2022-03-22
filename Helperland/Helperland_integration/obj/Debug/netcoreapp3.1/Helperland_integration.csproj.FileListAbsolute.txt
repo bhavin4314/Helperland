@@ -554,3 +554,5 @@ H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integr
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\CustomerDashboard\serviceDetails.cshtml.g.cs
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\CustomerDashboard\rescheduleService.cshtml.g.cs
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\CustomerDashboard\cancelService.cshtml.g.cs
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\spNewService.cshtml.g.cs
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\CustomerDashboard\deleteAddress.cshtml.g.cs

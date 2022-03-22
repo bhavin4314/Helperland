@@ -69,7 +69,7 @@ namespace Helperland_integration.Repository
 
         }
 
-        public int addServiceRequest(BookServiceViewModel bookServiceViewModel)
+        public int addNewServiceRequest(BookServiceViewModel bookServiceViewModel)
         {
             int ES = 0;
             ES = bookServiceViewModel.ExtraService1 ? ES + 1 : ES + 0;
@@ -78,20 +78,37 @@ namespace Helperland_integration.Repository
             ES = bookServiceViewModel.ExtraService4 ? ES + 1 : ES + 0;
             ES = bookServiceViewModel.ExtraService5 ? ES + 1 : ES + 0;
 
-            ServiceRequest serviceRequest = new ServiceRequest();
-            serviceRequest.UserId = bookServiceViewModel.userId;
+            ServiceRequest serviceRequest = new ServiceRequest()
+            {
+                UserId = bookServiceViewModel.userId,
 
-            serviceRequest.ServiceStartDate = Convert.ToDateTime(bookServiceViewModel.Date + " " + bookServiceViewModel.Time.ToString());
-            serviceRequest.ServiceHours = bookServiceViewModel.ServiceHours;
-            serviceRequest.ZipCode = bookServiceViewModel.Zipcode;
-            serviceRequest.Comments = bookServiceViewModel.Comments;
-            serviceRequest.HasPets = bookServiceViewModel.HasPets;
-            serviceRequest.CreatedDate = DateTime.Now;
-            serviceRequest.ServiceHours = bookServiceViewModel.ServiceHours;
-            serviceRequest.ExtraHours = ES * 0.5;
-            serviceRequest.ServiceHourlyRate = 18;
-            serviceRequest.SubTotal = Convert.ToDecimal((bookServiceViewModel.ServiceHours + (ES * 0.5)) * 18);
-            serviceRequest.TotalCost = Convert.ToDecimal((bookServiceViewModel.ServiceHours + (ES * 0.5)) * 18);
+                ServiceStartDate = Convert.ToDateTime(bookServiceViewModel.Date + " " + bookServiceViewModel.Time.ToString()),
+                ServiceHours = bookServiceViewModel.ServiceHours,
+                ZipCode = bookServiceViewModel.Zipcode,
+                Comments = bookServiceViewModel.Comments,
+                HasPets = bookServiceViewModel.HasPets,
+                CreatedDate = DateTime.Now,
+                
+                Status = 1,
+                ExtraHours = ES * 0.5,
+                ServiceHourlyRate = 18,
+                SubTotal = Convert.ToDecimal((bookServiceViewModel.ServiceHours + (ES * 0.5)) * 18),
+                TotalCost = Convert.ToDecimal((bookServiceViewModel.ServiceHours + (ES * 0.5)) * 18)
+            };
+            //serviceRequest.UserId = bookServiceViewModel.userId;
+            
+            //serviceRequest.ServiceStartDate = Convert.ToDateTime(bookServiceViewModel.Date + " " + bookServiceViewModel.Time.ToString());
+            //serviceRequest.ServiceHours = bookServiceViewModel.ServiceHours;
+            //serviceRequest.ZipCode = bookServiceViewModel.Zipcode;
+            //serviceRequest.Comments = bookServiceViewModel.Comments;
+            //serviceRequest.HasPets = bookServiceViewModel.HasPets;
+            //serviceRequest.CreatedDate = DateTime.Now;
+            //serviceRequest.ServiceHours = bookServiceViewModel.ServiceHours;
+            //serviceRequest.Status = 1;
+            //serviceRequest.ExtraHours = ES * 0.5;
+            //serviceRequest.ServiceHourlyRate = 18;
+            //serviceRequest.SubTotal = Convert.ToDecimal((bookServiceViewModel.ServiceHours + (ES * 0.5)) * 18);
+            //serviceRequest.TotalCost = Convert.ToDecimal((bookServiceViewModel.ServiceHours + (ES * 0.5)) * 18);
             _helperlandContext.ServiceRequests.Add(serviceRequest);
             _helperlandContext.SaveChanges();
             return serviceRequest.ServiceRequestId;

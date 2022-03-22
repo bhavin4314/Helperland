@@ -162,5 +162,5 @@ function cancelService(serviceId) {
 }
 
 function deleteAddress(AddressId) {
-    $("#customerAddress").load(`/CustomerDashboard/customerAddress` + AddressId);
+    $("#addressDeleteModal").load(`/CustomerDashboard/deleteAddress/` + AddressId);
 }

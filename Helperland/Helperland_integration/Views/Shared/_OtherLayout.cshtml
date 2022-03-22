@@ -82,8 +82,9 @@
             
   
             <div class="collapse navbar-collapse main-menu d-xl-flex justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav  headernavbar mx-left">
-                        <button class="btn bookingbtn" onclick="location.href='@Url.Action("Index","BookService")'">Book now</button>
+                <ul class="navbar-nav headernavbar mx-left">
+                        @*<button class="btn bookingbtn" onclick="location.href='@Url.Action("Index","BookService")'">Book now</button>*@
+                        <button class="btn bookingbtn" data-toggle="modal" data-target=".bd-login-modal-sm">Book now</button>
                         <button class="btn pricebtn ml-3" onclick="location.href='@Url.Action("prices","Home")'">Prices & services</button>
                         <li class="nav-item ml-3"><a class="nav-link" href="#">Warranty</a></li>
                         <li class="nav-item mx-4"><a class="nav-link" href="#">Blog</a></li>

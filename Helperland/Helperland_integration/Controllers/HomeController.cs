@@ -147,8 +147,20 @@ namespace Helperland_integration.Controllers
                         HttpContext.Session.SetInt32("userId", user.UserId);
                         HttpContext.Session.SetString("userName", user.FirstName);
                         HttpContext.Session.SetInt32("userTypeId", user.UserTypeId);
-                        return RedirectToAction("customerDashboard","CustomerDashboard");
+
+                        if(user.UserTypeId==1)
+                        {
+                            return RedirectToAction("customerDashboard", "CustomerDashboard");
+                        }
                         
+                        //else if(user.UserTypeId==2)
+                        //{
+                        //    return RedirectToAction("spNewService", "ServiceProvider");
+                        //}
+                        else
+                        {
+                            return RedirectToAction("index", "Home");
+                        }
 
                     }
                     else

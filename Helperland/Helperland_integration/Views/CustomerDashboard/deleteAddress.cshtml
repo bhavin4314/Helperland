@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+@model Helperland_integration.ViewModel.UserAddressViewModel
+ <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="">Delete Address Request</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form asp-action="deleteAddress" asp-controller="CustomerDashboard" onsubmit="return jQueryAjaxPost(this);">
+                <input type="hidden" asp-for="AddressId"/>
+                <P>Are You Sure want to delete address permenantly ?
+                <button class="btn cancelBtnModal mt-3" style="width: 100%;" type="submit">Delete now</button>
+              </form>
+            </div>
+         
+          </div>
+        </div>

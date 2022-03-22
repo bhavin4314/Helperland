@@ -80,7 +80,7 @@ namespace Helperland_integration.Controllers
         [HttpPost]
         public IActionResult AddServiceRequest(BookServiceViewModel bookServiceViewModel)
         {
-            int serviceId = _bookingRepository.addServiceRequest(bookServiceViewModel);
+            int serviceId = _bookingRepository.addNewServiceRequest(bookServiceViewModel);
             UserAddress userAddress = _bookingRepository.getAddressForStore(bookServiceViewModel.AddressId);
             ServiceRequestAddress requestAddress = new ServiceRequestAddress()
             {
