@@ -164,3 +164,68 @@ function cancelService(serviceId) {
 function deleteAddress(AddressId) {
     $("#addressDeleteModal").load(`/CustomerDashboard/deleteAddress/` + AddressId);
 }
+
+
+//---------------------------Service Provider----------------------------------
+
+function newService() {
+    $("#newService").show();
+    $("#upcomingService").hide();
+    $("#serviceHistory").hide();
+    $("#blockCustomer").hide();
+    $("#newService-tab").addClass("activeTab");
+    $("#upcomingService-tab").removeClass("activeTab");
+    $("#serviceHistory-tab").removeClass("activeTab");
+    $("#blockCustomer-tab").removeClass("activeTab");
+}
+
+function upcomingService() {
+    $("#newService").hide();
+    $("#upcomingService").show();
+    $("#serviceHistory").hide();
+    $("#blockCustomer").hide();
+    $("#newService-tab").removeClass("activeTab");
+    $("#upcomingService-tab").addClass("activeTab");
+    $("#serviceHistory-tab").removeClass("activeTab");
+    $("#blockCustomer-tab").removeClass("activeTab");
+
+    $("#upcomingService").load(`/ServiceProvider/upcomingService`);
+}
+
+function serviceHistory() {
+    $("#newService").hide();
+    $("#upcomingService").hide();
+    $("#serviceHistory").show();
+    $("#blockCustomer").hide();
+    $("#newService-tab").removeClass("activeTab");
+    $("#upcomingService-tab").removeClass("activeTab");
+    $("#serviceHistory-tab").addClass("activeTab");
+    $("#blockCustomer-tab").removeClass("activeTab");
+
+    $("#serviceHistory").load(`/ServiceProvider/serviceHistory`);
+}
+
+function blockCustomer() {
+    $("#newService").hide();
+    $("#upcomingService").hide();
+    $("#serviceHistory").hide();
+    $("#blockCustomer").show();
+    $("#newService-tab").removeClass("activeTab");
+    $("#upcomingService-tab").removeClass("activeTab");
+    $("#serviceHistory-tab").removeClass("activeTab");
+    $("#blockCustomer-tab").addClass("activeTab");
+
+    $("#blockCustomer").load(`/ServiceProvider/blockCustomer`);
+}
+
+
+
+function acceptRequest(serviceId) {
+
+    $("#customerServiceDetailModal").load("/ServiceProvider/serviceDetailsModal/" + serviceId);
+}
+
+function cancelServiceSp(serviceId) {
+    $("#customerServiceDetailModal").hide();
+    $("#serviceCancelModal").load(`/ServiceProvider/cancelServiceBySp/` + serviceId);
+}

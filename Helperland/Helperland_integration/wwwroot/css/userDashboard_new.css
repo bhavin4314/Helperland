@@ -227,6 +227,7 @@ a:hover {
     padding: 17px 69px 22px 15px;
     margin-bottom: 0;
     background-color: #1D7A8C;
+    cursor:pointer;
 }
 
 .left-menu .nav-link:hover {
@@ -418,11 +419,16 @@ td {
     padding: 5px 10px;
     border-radius: 30px;
 }
-
+.acceptBtn {
+    background-color: #5cb85c;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 30px;
+}
 /* -------------------------------------------------------------------------------- */
 .page-hadling {
     display: flex;
-
 }
 
 .entry-selction {

@@ -1,0 +1,119 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model Helperland_integration.Models.ServiceRequest
+
+        <div class="modal-dialog" id="serviceReqInfo" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="">Servicedetails</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="serviceTiming">
+                <p class="font-weight-bold">
+                   @String.Format("{0:dd/MM/yyyy}", Model.ServiceStartDate) @(Convert.ToString(Convert.ToDateTime(Model.ServiceStartDate).TimeOfDay).Substring(0,5))-@(Convert.ToString(Convert.ToDateTime(Model.ServiceStartDate.AddHours(Convert.ToDouble(Model.ServiceHours + Model.ExtraHours))).TimeOfDay).Substring(0,5)) 
+               </p>
+                <p><span class="font-weight-bold">Duration : </span>@String.Format(Convert.ToString(Model.ServiceHours + Model.ExtraHours))<span> Hours</span></p>
+              </div>
+              <hr>
+              <div class="serviceDetails">
+                <p><span class="font-weight-bold">Service Id : </span>@Model.ServiceRequestId</p>
+                <p><span class="font-weight-bold">Extras : </span></p>
+
+                @foreach(ServiceRequestExtra serviceRequestExtra in Model.ServiceRequestExtras)
+                {
+                   @if (serviceRequestExtra.ServiceExtraId == 1)
+                    {
+                        <span>Inside cabinets</span><br />
+                    }
+                    else if (serviceRequestExtra.ServiceExtraId == 2)
+                    {
+                        <span>Inside fridge</span><br />
+                    }
+                    else if (serviceRequestExtra.ServiceExtraId == 3)
+                    {
+                        <span>Inside oven</span><br />
+                    }
+                    else if (serviceRequestExtra.ServiceExtraId == 4)
+                    {
+                        <span>Laundry wash & dry</span><br />
+                    }
+                    else if (serviceRequestExtra.ServiceExtraId == 5)
+                    {
+                        <span>Interior window</span>
+                    }
+
+                }
+
+                <p><span class="font-weight-bold">Net Amount : </span><span class="servicePrice">@Model.TotalCost</span></p>
+              </div>
+              <hr>
+              @foreach(ServiceRequestAddress address in Model.ServiceRequestAddresses)
+            {
+            <div class="serviceAddress">
+                <p><span class="font-weight-bold">Service Address : </span>@address.AddressLine2, @address.AddressLine1, @address.City - @address.PostalCode</p>
+            </div>    
+            }
+            
+              <div>
+                <p><span class="font-weight-bold">Phone : </span>@Model.User.Mobile</p>
+                <p><span class="font-weight-bold">Email : </span>@Model.User.Email</p>
+              </div>
+              <hr>
+
+              @if(Model.HasPets)
+              {
+                <div class="serviceComments d-flex">
+                    <img src="~/images/included.png" class="mr-2" width="25px" height="25px">
+                    <p>I have pets at home</p>
+                </div>
+              }
+              else
+              {
+                <div class="serviceComments d-flex" >
+                    <img src="~/images/not-included.png" class="mr-2" width="25px" height="25px">
+                    <p class="">I dont have pets at home</p>
+                </div>
+              }
+          
+            </div>
+        
+            @if(@Model.Status==1)
+            {
+              <div class="modal-footer justify-content-start" id="detail-footer">
+                  <form asp-action="serviceAccept" asp-controller="ServiceProvider" method="post">
+                      <input type="hidden" name="serviceId" value="@Model.ServiceRequestId"/>
+                      <button type="submit" class="btn acceptBtn" style="background-color: #ff6b6b;">Accept</button>
+                  </form>
+              </div>
+            }
+            else if(@Model.Status==4)
+            {
+                <div class="modal-footer justify-content-start" id="detail-footer">
+                    <form asp-controller="ServiceProvider" asp-action="completeService" method="post">
+                      <input type="hidden" name="serviceId" value="@Model.ServiceRequestId"/>
+                      <button type="button" class="btn acceptBtn" onclick="cancelServiceSp(@Model.ServiceRequestId)" data-toggle="modal" data-target="#serviceCancelModal" style="background-color: #ff6b6b;">Cancel</button>
+                      @if(Model.ServiceStartDate.AddHours(Convert.ToDouble(Model.ServiceHours + Model.ExtraHours)) < DateTime.Now)
+                      {
+
+                        <button class="btn acceptBtn" type="submit" style="background-color: #67b644;">Complete</button>          
+                      }
+                    </form>
+                </div>
+        }
+
+        
+        
+          </div>
+        </div>
+@if (Model.Status == 2 || Model.Status==3)
+{
+    <script>
+     $("#detail-footer").hide();
+ </script>
+} 

@@ -20,7 +20,9 @@ namespace Helperland_integration.Repository
 
         public IEnumerable<ServiceRequest> GetService(int id)
         {
-            return _helperlandContext.ServiceRequests.Where(x => x.UserId == id && x.Status==1).ToList();
+            return _helperlandContext.ServiceRequests
+                .Include(service => service.ServiceProvider)
+                .Where(x => x.UserId == id &&( x.Status==1 || x.Status==4)).ToList();
         }
        
         public ServiceRequest GetServiceDetails(int serviceId)

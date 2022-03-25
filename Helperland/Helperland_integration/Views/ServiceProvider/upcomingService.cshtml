@@ -1,71 +1,18 @@
-﻿@{
-    Layout = "~/Views/Shared/_activeUser.cshtml";
-}
+﻿
 @{
-    ViewBag.Title = "SP Dashboard";
+    Layout=null;
 }
-@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewBag.Title = "Upcoming service";
+}
 @model IEnumerable<ServiceRequest>
 
 <link rel="stylesheet" href="~/css/userDashboard_new.css">
 
-      <!-- ----------------------------welcome part start------------------------------------------- -->
-      <section class="welcome-part">
-        <h2 class="Welcome-name">Welcome,  <span style="color: #4f4f4f; font-weight: bold; padding-left: 10px;">   @HttpContextAccessor.HttpContext.Session.GetString("userName")!</span></h2>
-      </section>
-     
-      <!-- ----------------------------welcome part End----------------------------------- -->
- 
-   @if(ViewBag.IsServiceAccepted == true)
-    {
-     <div class="alert alert-success alert-dismissible fade show" id="service-cancel-alert" style="" role="alert">
-        <strong>Service Request successfully accepted.</strong> 
-        @*<div asp-validation-summary="ModelOnly" style="list-style-type:none;"></div>*@
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>   
-    }
-    @if(ViewBag.IsServiceCancel==true)
-    {
-     <div class="alert alert-success alert-dismissible fade show" id="service-cancel-alert" style="" role="alert">
-        <strong>Service Request successfully cancelled.</strong> 
-        @*<div asp-validation-summary="ModelOnly" style="list-style-type:none;"></div>*@
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>   
-    
-    }
-    @if(ViewBag.IsCompleted==true)
-    {
-     <div class="alert alert-success alert-dismissible fade show" id="service-cancel-alert" style="" role="alert">
-        <strong>Service Request successfully completed.</strong> 
-        @*<div asp-validation-summary="ModelOnly" style="list-style-type:none;"></div>*@
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>   
-    
-    }
-
+      
       <!-- ----------------------------table part start---------------------------------- -->
       
-      <section class="services">
-        <div class="container-fluid table-part">
-          <div class="left-menu">
-            <li class="nav-item"><a class="nav-link left-menu-link " style="padding-right: 200px;"  >Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link left-menu-link activeTab" id="newService-tab" onclick="newService()" >New Service Request</a></li>
-            <li class="nav-item"><a class="nav-link left-menu-link " id="upcomingService-tab" onclick="upcomingService()" >Upcoming Service</a></li>
-            <li class="nav-item"><a class="nav-link left-menu-link">Service Schedule</a></li>
-            <li class="nav-item"><a class="nav-link left-menu-link" id="serviceHistory-tab" onclick="serviceHistory()">Service History</a></li>
-            <li class="nav-item"><a class="nav-link left-menu-link">My Ratings</a></li>
-            <li class="nav-item"><a class="nav-link left-menu-link" id="blockCustomer-tab" onclick="blockCustomer()">Block Customer</a></li>
-            <li class="nav-item"><a class="nav-link left-menu-link">Invoices</a></li>
-            <li class="nav-item"><a class="nav-link left-menu-link">Notifications</a></li>
-       
-          </div>
          
           <div class="dashboardRight" id="newService">
             <div class="right-table" >
@@ -110,9 +57,13 @@
                         <td class="payment px-0">@serviceRequest.TotalCost</td>
                         <td></td>
                         <td class="dashboard-btn d-flex justify-content-center" style="margin-left: -20px;">
-                         <form asp-action="serviceAccept" asp-controller="ServiceProvider" method="post">
+                         <form asp-controller="ServiceProvider" asp-action="completeService" method="post">
                              <input type="hidden" name="serviceId" value="@serviceRequest.ServiceRequestId"/>
-                             <button class="btn dashboard-change-button" type="submit" >Accept</button>
+                             <button type="button" onclick="cancelServiceSp(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#serviceCancelModal" class="btn dashboard-change-button" style="background-color: #ff6b6b;" >Cancel</button>
+                             @if(@serviceRequest.ServiceStartDate.AddHours(Convert.ToDouble(serviceRequest.ServiceHours + serviceRequest.ExtraHours))<DateTime.Now)
+                             {
+                             <button class="btn dashboard-change-button" type="submit" style="background-color: #67b644;">Complete</button>          
+                             }
                          </form>
                           
                         </td>
@@ -163,29 +114,24 @@
           </div>
 
 
-          <div id="upcomingService" style="display: none;">
-
-          </div>
-
-          <div id="serviceHistory" style="display: none;">
-
-          </div>
-
-          <div id="blockCustomer" style="display: none;">
-
-          </div>
-            
-          @*-------------------------------------customerDetails start-------------------------------------------------------------*@
-
-          <div class="" id="customerDetailsRight" style="width:100%;">
-           
-          </div>
+     
+        
+          
           
 
+
+            <!-- ---------------------dashboard-serviceCancelModal part start------------------- -->
+
+
+      <!-- Modal -->
+      <div class="modal" id="serviceCancelModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+ 
+         
           </div>
-          </section>
+       @* </div>  
+      </div>*@
 
-
+      <!-- ---------------------dashboard-serviceCancelModal part End------------------- -->
 
 
 
@@ -201,39 +147,8 @@
       <!-- ---------------------dashboard-serviceDetailModal part End------------------- -->
 
     
-  
 
 
 
-          @section scripts{
-              <script>
-                  jQueryAjaxPost = form => {
-                    //console.log("method call");
-                    try {
-                        $.ajax({
-                            type: 'POST',
-                            url: form.action,
-                            data: new FormData(form),
-                            contentType: false,
-                            processData: false,
-                            success: function (res) {
-                               
 
-                                
-                               
-                            },
-                            error: function (err) {
-                                console.log(err);
-                            }
-                        });
-                    }
-                    catch (e) {
-                        console.log(e);
-                    }
-
-                    return false;
-                };
-
-                
-              </script>
-          }
+          

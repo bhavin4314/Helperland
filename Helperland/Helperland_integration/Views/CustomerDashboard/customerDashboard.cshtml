@@ -84,7 +84,7 @@
                             <span class="service-time ml-2"><img src="~/images/layer-712.png" class="" alt="" srcset="">@(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay).Substring(0,5)) - @(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate.AddHours(Convert.ToDouble(serviceRequest.ServiceHours + serviceRequest.ExtraHours))).TimeOfDay).Substring(0,5))</span>
                           </a>
                         </td>
-                        @if(serviceRequest.ServiceProvider != null)
+                        @if(serviceRequest.ServiceProviderId != null)
                         {
                         <td class="sp-deails px-0">
                           <a href="" class="">
@@ -93,7 +93,7 @@
                                     <img class="" src="~/images/cap.png" alt="" srcset="">
                                 </div>
                                 <div class="name-rating">
-                                    <p class="sp-name">@serviceRequest.ServiceProvider.FirstName + " "+ @serviceRequest.ServiceProvider.LastName</p>
+                                    <p class="sp-name">@serviceRequest.ServiceProvider.FirstName @serviceRequest.ServiceProvider.LastName</p>
                                     <span class="all-star ">
                                         <img src="~/images/star1.png" class="star" alt="">
                                         <img src="~/images/star1.png" class="star" alt="">

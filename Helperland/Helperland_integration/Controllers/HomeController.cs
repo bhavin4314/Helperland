@@ -152,11 +152,11 @@ namespace Helperland_integration.Controllers
                         {
                             return RedirectToAction("customerDashboard", "CustomerDashboard");
                         }
-                        
-                        //else if(user.UserTypeId==2)
-                        //{
-                        //    return RedirectToAction("spNewService", "ServiceProvider");
-                        //}
+
+                        else if (user.UserTypeId == 2)
+                        {
+                            return RedirectToAction("spNewService", "ServiceProvider");
+                        }
                         else
                         {
                             return RedirectToAction("index", "Home");

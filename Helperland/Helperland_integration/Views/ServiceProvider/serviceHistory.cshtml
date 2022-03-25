@@ -1,0 +1,135 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+@{
+    Layout=null;
+}
+
+@{
+    ViewBag.Title = "Service History";
+}
+@model IEnumerable<ServiceRequest>
+
+<link rel="stylesheet" href="~/css/userDashboard_new.css">
+
+      
+      <!-- ----------------------------table part start---------------------------------- -->
+      
+         
+          <div class="dashboardRight" id="newService">
+            <div class="right-table" >
+              
+                <table class="table text-center" >
+                  <thead>
+                    <tr class="">
+                      <th scope="col" class=" text-xl-left">Service ID <img src="~/images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class=" text-xl-left">Service Details <img src="~/images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class=" text-xl-left">Customer Details <img src="~/images/sort.png" alt="" srcset=""></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      
+                     @foreach(ServiceRequest serviceRequest in Model)
+                     {
+                     <tr>
+                      <td class="text-center text-xl-left">
+                        <a onclick="acceptRequest(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#customerServiceDetailModal" style=" cursor: pointer; ">@serviceRequest.ServiceRequestId</a>
+                      </td>
+                        <td class="service-date-time px-0 text-xl-left">
+                          <a class="date-time" onclick="acceptRequest(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#customerServiceDetailModal" style=" cursor: pointer; ">
+                              <div class="d-none">@String.Format("{0:yyyy/MM/dd}", serviceRequest.ServiceStartDate) @Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay</div>
+                            <span class="service-date"><img src="~/images/calendar2.png" alt="" srcset="">@String.Format("{0:dd/MM/yyyy}", serviceRequest.ServiceStartDate)</span>
+                            <span class="service-time ml-2"><img src="~/images/layer-712.png" class="" alt="" srcset="">@(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay).Substring(0,5)) - @(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate.AddHours(Convert.ToDouble(serviceRequest.ServiceHours + serviceRequest.ExtraHours))).TimeOfDay).Substring(0,5))</span>
+                          </a>
+                        </td>
+
+                        <td class="text-xl-left" >
+                            <p class="mb-0 pl-2">@serviceRequest.User.FirstName @serviceRequest.User.LastName</p>
+                            @foreach(ServiceRequestAddress address in serviceRequest.ServiceRequestAddresses)
+                            {
+                            <p class="mb-0"><img src="~/images/layer-15.png" class="" style="margin-left:-15px; margin-right:4px">@address.AddressLine2, @address.AddressLine1</p>
+                            <p class="mb-0 pl-2">@address.City - @address.PostalCode</p>            
+                            }
+                            
+                        </td>
+                       
+                      
+                    </tr> 
+                         
+                    
+
+                     }
+                    
+    
+                    
+                  </tbody>
+                </table>
+                <!-- ------------------------pagination start----------------------------------- -->
+              <div class="page-hadling " >
+                <div class="pagination-spacing d-flex">
+                  <p class=" pagination-para pagination-spacing">show</p>
+                  <select class="form-group entry-selction pagination-spacing"  id="exampleFormControlSelect1">
+                      <option>10</option>
+                      <option>20</option>
+                      <option>30</option>
+                      <option>40</option>
+                      <option>50</option>
+                    </select>
+                    <span class="pagination-spacing pagination-para">entries</span>
+                    <p class=" pagination-para">Total Record: 55</p>
+                </div>
+                
+                <div class="ml-auto ">
+                    <ul class="pagination ">
+                        <li><a href=""><img src="~/images/left1.png" alt=""></a></li>
+                        <li><a href=""><img src="~/images/left2.png" alt=""></a></li>
+                        <li class="active-page"><a href="" >1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href=""><img src="~/images/left2.png" alt="" class="rotate-img"></a></li>
+                        <li><a href=""><img src="~/images/left1.png" alt="" class="rotate-img"></a></li>
+                    </ul>
+                </div>            
+            </div>
+    
+        <!------------------------------- pageination end---------------------------------------- -->
+    
+
+
+              </div>
+          </div>
+
+
+     
+        
+          
+          
+
+
+
+
+      <!-- ---------------------dashboard-serviceCancelModal part End------------------- -->
+
+
+
+
+        <!-- ---------- -------dashboard-serviceDetailModal part start-------------------- -->
+      
+
+      <!-- Modal -->
+      <div class="modal" id="customerServiceDetailModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+
+      </div>
+
+      <!-- ---------------------dashboard-serviceDetailModal part End------------------- -->
+
+    
+
+
+
+
+          
