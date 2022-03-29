@@ -1,5 +1,6 @@
 ﻿using Helperland_integration.Data;
 using Helperland_integration.Models;
+using Helperland_integration.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -78,5 +79,92 @@ namespace Helperland_integration.Repository
                 .Include(service => service.ServiceRequestAddresses)
                 .Where(x => x.Status == 3 && x.ServiceProviderId == userId).ToList();
         }
+
+        public spDetailsViewModel getHelperDetails(int userId)
+        {
+            User user = _helperlandContext.Users.Where(x => x.UserId == userId).FirstOrDefault();
+            UserAddress userAddress = _helperlandContext.UserAddresses.Where(y => y.UserId == userId).FirstOrDefault();
+            spDetailsViewModel spDetails = new spDetailsViewModel()
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                MobileNo = user.Mobile,
+                DateOfBirth = user.DateOfBirth,
+                NationalityId = user.NationalityId ,
+                Gender = user.Gender ?? 0,
+                Avatar = user.UserProfilePicture
+            };
+
+            if(userAddress != null)
+            {
+                spDetails.AddressLine1 = userAddress.AddressLine1;
+                spDetails.AddressLine2 = userAddress.AddressLine2;
+                spDetails.ZipCode = userAddress.PostalCode;
+                spDetails.City = userAddress.City;
+            }
+
+            return spDetails;    
+        }
+
+        public bool spDetailUpdate(spDetailsViewModel spDetails,int userId)
+        {
+            User user = _helperlandContext.Users.Where(x => x.UserId == userId).FirstOrDefault();
+            UserAddress userAddress = _helperlandContext.UserAddresses.Where(y => y.UserId == userId).FirstOrDefault();
+            user.FirstName=spDetails.FirstName;
+            user.LastName=spDetails.LastName;
+            user.Email=spDetails.Email;
+            user.Mobile = spDetails.MobileNo;
+            user.DateOfBirth=spDetails.DateOfBirth;
+            user.NationalityId=spDetails.NationalityId;
+            user.Gender = spDetails.Gender;
+            user.UserProfilePicture = spDetails.Avatar;
+            user.ModifiedDate=DateTime.Now;
+            _helperlandContext.Users.Update(user);
+            //_helperlandContext.SaveChanges();
+
+            if(userAddress!=null)
+            {
+                userAddress.UserId = userId;
+                userAddress.AddressLine1=spDetails.AddressLine1;
+                userAddress.AddressLine2=spDetails.AddressLine2;
+                userAddress.PostalCode = spDetails.ZipCode;
+                userAddress.City = spDetails.City;
+                _helperlandContext.Update(userAddress);
+                //_helperlandContext.SaveChanges();
+            }
+            else
+            {
+                UserAddress userAddress1 = new UserAddress();
+                userAddress1.UserId = userId;
+                userAddress1.AddressLine1 = spDetails.AddressLine1;
+                userAddress1.AddressLine2 = spDetails.AddressLine2;
+                userAddress1.PostalCode = spDetails.ZipCode;
+                userAddress1.City = spDetails.City;
+                _helperlandContext.Add(userAddress1);
+                
+            }
+            _helperlandContext.SaveChanges();
+            return true;
+        }
+
+        public bool passwordUpdate(ResetPasswordModel resetPasswordModel, int? id)
+        {
+            User user = _helperlandContext.Users.Where(x => x.UserId == id).FirstOrDefault();
+            if (user.Password != resetPasswordModel.CurrentPassword)
+            {
+                return false;
+            }
+            else
+            {
+                user.Password = resetPasswordModel.Password;
+                _helperlandContext.Users.Update(user);
+                _helperlandContext.SaveChanges();
+                return true;
+            }
+
+        }
+
+      
     }
 }

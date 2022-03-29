@@ -1,7 +1,9 @@
 ﻿using Helperland_integration.Models;
 using Helperland_integration.Repository;
+using Helperland_integration.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Helperland_integration.Controllers
 {
@@ -81,5 +83,61 @@ namespace Helperland_integration.Controllers
         {
             return View();
         }
+        
+        [HttpGet]
+        public IActionResult spDetails()
+        {
+            int userId = (int) HttpContext.Session.GetInt32("userId");
+            spDetailsViewModel spDetails = _helperRepository.getHelperDetails(userId);
+            return View(spDetails);
+        }
+        [HttpPost]
+        public IActionResult spDetails(spDetailsViewModel spDetails)
+        {
+            int userId = (int)HttpContext.Session.GetInt32("userId");
+            if (ModelState.IsValid)
+            {
+                bool update = _helperRepository.spDetailUpdate(spDetails,userId);
+                return Json(new { spDetailsUpdate = true });
+            }
+            else
+            {
+                return View();
+            }
+            
+        }
+
+
+        public IActionResult spPassword()
+        {
+            return View();
+        }
+     
+        [HttpPost]
+        public IActionResult spPassword(ResetPasswordModel resetPasswordModel)
+        {
+            int? userId = HttpContext.Session.GetInt32("userId");
+            if (ModelState.IsValid)
+            {
+
+                bool update = _helperRepository.passwordUpdate(resetPasswordModel, userId);
+                if (update)
+                {
+                    return Json(new { passwordUpdate = true });
+
+                }
+                else
+                {
+                    return Json(new { passworNotUpdate = true });
+                }
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
+
     }
 }

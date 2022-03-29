@@ -65,7 +65,7 @@ namespace Helperland_integration.Controllers
             bool cancel = _customerRepository.cancelServiceRequest(serviceRequest);
             return RedirectToAction(nameof(customerDashboard), new { isServiceCancel = true });
         }
-
+    
         public IActionResult customerServiceHistory()
         {
             int userId = (int)HttpContext.Session.GetInt32("userId");
@@ -206,5 +206,29 @@ namespace Helperland_integration.Controllers
             bool delete = _customerRepository.deleteCutomerAddress(userAddressViewModel);
             return Json(new { addressDeleted = true });
         }
+
+        public IActionResult RateSP([Bind("ServiceId", "SPId", "OnTimeArrival", "Friendly", "QualityOfService", "Comment")] RatingViewModel ratingViewModel)
+        {
+            int userId = (int)HttpContext.Session.GetInt32("userId");
+            Rating rating = new Rating()
+            {
+                ServiceRequestId = ratingViewModel.ServiceId,
+                RatingDate = ratingViewModel.RatingDate,
+                RatingFrom = userId,
+                RatingTo = ratingViewModel.SPId,
+                Comments = ratingViewModel.Comment,
+                OnTimeArrival = ratingViewModel.OnTimeArrival,
+                Friendly = ratingViewModel.Friendly,
+                QualityOfService = ratingViewModel.QualityOfService,
+                Ratings = (ratingViewModel.QualityOfService + ratingViewModel.Friendly + ratingViewModel.OnTimeArrival) / 3
+            };
+
+            bool ratingDone = _customerRepository.AddRating(rating);
+            if (ratingDone)
+                return Json(new { ratingSuccess = true });
+            else
+                return Json(false);
+        }
+
     }
 }

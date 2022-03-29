@@ -605,3 +605,8 @@ tr {
 .password-form {
     color: #4f4f4f;
 }
+
+.selected-avatar{
+    border:2px solid #1D7A8C;
+    border-radius:50%;
+}

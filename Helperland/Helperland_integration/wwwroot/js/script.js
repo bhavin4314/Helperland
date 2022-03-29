@@ -67,14 +67,14 @@ $(document).ready(function(){
     });
 
     //customer details part
-    $("#customer-settings").click(function () {
-        console.log("setting clicked");
-        $("#customerDashboard").hide();
-        $("#customerHistory").hide();
-        $("#customerHistory-Tab").removeClass("activeTab");
-        $("#customerDashboard-Tab").removeClass("activeTab");
-        $("#customerDetailsRight").load(`/CustomerDashboard/customerDetails`);
-    });
+    //$("#customer-settings").click(function () {
+    //    console.log("setting clicked");
+    //    $("#customerDashboard").hide();
+    //    $("#customerHistory").hide();
+    //    $("#customerHistory-Tab").removeClass("activeTab");
+    //    $("#customerDashboard-Tab").removeClass("activeTab");
+    //    $("#customerDetailsRight").load(`/CustomerDashboard/customerDetails`);
+    //});
         
 
     
@@ -98,6 +98,14 @@ function customerHistory() {
     $("#customerDashboard-Tab").removeClass("activeTab");
     console.log("customerhistory in");
     $("#service-history-table").load(`/CustomerDashboard/customerServiceHistory`);
+}
+function customerSetting() {
+    console.log("setting clicked");
+    $("#customerDashboard").hide();
+    $("#customerHistory").hide();
+    $("#customerHistory-Tab").removeClass("activeTab");
+    $("#customerDashboard-Tab").removeClass("activeTab");
+    $("#customerDetailsRight").load(`/CustomerDashboard/customerDetails`);
 }
 
 function customerDetails() {
@@ -128,7 +136,6 @@ function customerPassword() {
     $("#customerAddress-tab").removeClass("activeTab");
     $("#customerPassword").load(`/CustomerDashboard/customerPassword`);
 }
-
 
 
 function addEditAddress(addressId) {
@@ -218,7 +225,17 @@ function blockCustomer() {
     $("#blockCustomer").load(`/ServiceProvider/blockCustomer`);
 }
 
-
+function spSetting() {
+    $("#newService").hide();
+    $("#upcomingService").hide();
+    $("#serviceHistory").hide();
+    $("#blockCustomer").hide();
+    $("#newService-tab").removeClass("activeTab");
+    $("#upcomingService-tab").removeClass("activeTab");
+    $("#serviceHistory-tab").removeClass("activeTab");
+    $("#blockCustomer-tab").removeClass("activeTab");
+    $("#spDetailsRight").load(`/ServiceProvider/spDetails`);
+}
 
 function acceptRequest(serviceId) {
 
@@ -229,3 +246,18 @@ function cancelServiceSp(serviceId) {
     $("#customerServiceDetailModal").hide();
     $("#serviceCancelModal").load(`/ServiceProvider/cancelServiceBySp/` + serviceId);
 }
+
+function spDetails() {
+    $("#spDetails").show();
+    $("#spPassword").hide();
+    $("#spPassword-tab").removeClass("activeTab");
+    $("#spDetails-tab").addClass("activeTab");
+}
+function spPassword() {
+    $("#spDetails").hide();
+    $("#spPassword").show();
+    $("#spPassword-tab").addClass("activeTab");
+    $("#spDetails-tab").removeClass("activeTab");
+    $("#spPassword").load(`/ServiceProvider/spPassword`);
+}
+

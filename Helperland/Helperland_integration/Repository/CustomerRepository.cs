@@ -22,6 +22,7 @@ namespace Helperland_integration.Repository
         {
             return _helperlandContext.ServiceRequests
                 .Include(service => service.ServiceProvider)
+                .ThenInclude(sp => sp.RatingRatingToNavigations).AsSplitQuery()
                 .Where(x => x.UserId == id &&( x.Status==1 || x.Status==4)).ToList();
         }
        
@@ -154,7 +155,10 @@ namespace Helperland_integration.Repository
 
         public IEnumerable<ServiceRequest> GetServiceCancelComplete(int id)
         {
-            return _helperlandContext.ServiceRequests.Where(x => x.UserId == id && x.Status == 2).ToList();
+            return _helperlandContext.ServiceRequests
+                .Include(service => service.ServiceProvider)
+                .ThenInclude(sp => sp.RatingRatingToNavigations).AsSplitQuery()
+                .Where(x => x.UserId == id && (x.Status == 2 || x.Status==3)).ToList();
         }
 
         public bool deleteCutomerAddress(UserAddressViewModel userAddressViewModel)
@@ -163,6 +167,16 @@ namespace Helperland_integration.Repository
             _helperlandContext.UserAddresses.Remove(userAddress);
             _helperlandContext.SaveChanges();
             return true;
+        }
+
+        public bool AddRating(Rating rating)
+        {
+            _helperlandContext.Ratings.Add(rating);
+            _helperlandContext.SaveChanges();
+            if (rating.RatingId != 0)
+                return true;
+            else
+                return false;
         }
     }
 }

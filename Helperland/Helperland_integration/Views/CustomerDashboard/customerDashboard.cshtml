@@ -84,8 +84,20 @@
                             <span class="service-time ml-2"><img src="~/images/layer-712.png" class="" alt="" srcset="">@(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay).Substring(0,5)) - @(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate.AddHours(Convert.ToDouble(serviceRequest.ServiceHours + serviceRequest.ExtraHours))).TimeOfDay).Substring(0,5))</span>
                           </a>
                         </td>
-                        @if(serviceRequest.ServiceProviderId != null)
+                       @if(serviceRequest.ServiceProvider != null)
                         {
+                            var rateList = serviceRequest.ServiceProvider.RatingRatingToNavigations.Where(x => x.RatingTo == serviceRequest.ServiceProviderId);
+                            decimal spRate;
+                            if (rateList.Count() > 0)
+                            {
+                                spRate = rateList.Average(t => t.Ratings);
+                            }
+                            else
+                            {
+                                spRate = 0;
+                            }
+                            int i = 0;
+
                         <td class="sp-deails px-0">
                           <a href="" class="">
                             <div class="d-flex">
@@ -94,14 +106,16 @@
                                 </div>
                                 <div class="name-rating">
                                     <p class="sp-name">@serviceRequest.ServiceProvider.FirstName @serviceRequest.ServiceProvider.LastName</p>
-                                    <span class="all-star ">
-                                        <img src="~/images/star1.png" class="star" alt="">
-                                        <img src="~/images/star1.png" class="star" alt="">
-                                        <img src="~/images/star1.png" class="star" alt="">
-                                        <img src="~/images/star1.png" class="star" alt="">
+                                    
+                                    @for (i = 0; i < @Math.Round(spRate); i++)
+                                    {
+                                           <img src="~/images/star1.png" class="star" alt="">
+                                    }
+                                    @while (i != 5)
+                                    {
                                         <img src="~/images/star2.png" class="star" alt="">
-                                        <span >4 </span>
-                                    </span>
+                                        i++;
+                                    }
                                    
                                 </div>
                             </div>
@@ -253,7 +267,12 @@
                                     $("#customerAddress").load(`/CustomerDashboard/customerAddress`);
                                     
                                 }
-
+                                else if(res.ratingSuccess){
+                                    $("#rateSpModal").modal("hide");
+                                    $("#rating-update-alert").show();
+                                    alert("done");
+                                    //$("#serviceHistory").load(`/ServiceProvider/serviceHistory`);
+                                }
                                 
                                
                             },
@@ -269,6 +288,7 @@
                     return false;
                 };
 
-                
+         
+
               </script>
           }

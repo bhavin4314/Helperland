@@ -5,7 +5,6 @@
 @inject IHttpContextAccessor HttpContextAccessor
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-   
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -77,8 +76,17 @@
                               <ul class="dropdown-menu dropdown-menu-right">
                                 <li class="list-item1"><a href="" disabled>Welcome, <br><span class="font-weight-bold">@HttpContextAccessor.HttpContext.Session.GetString("userName")</span></a></li>
                                 <hr>
-                                 <li class="dropdown-item" ><a asp-action="customerDashboard" asp-controller="CustomerDashboard">My Dashboard</a></li>
-                                <li class="dropdown-item" ><a id="customer-settings">My Settings</a></li>
+                                @if(@HttpContextAccessor.HttpContext.Session.GetInt32("userTypeId")==1)
+                                {
+                                <li class="dropdown-item" ><a asp-action="customerDashboard" asp-controller="CustomerDashboard">My Dashboard</a></li>
+                                <li class="dropdown-item" ><a id="customer-settings" onclick="customerSetting()">My Settings</a></li>     
+                                }
+                                else if(@HttpContextAccessor.HttpContext.Session.GetInt32("userTypeId")==2)
+                                {
+                                <li class="dropdown-item" ><a asp-action="spNewService" asp-controller="ServiceProvider">My Dashboard</a></li>
+                                <li class="dropdown-item" ><a id="customer-settings" onclick="spSetting()">My Settings</a></li>
+                                }
+                               
                                 <li class="dropdown-item" ><a asp-action="logout" asp-controller="Home">Logout</a></li>
                               </ul>
                             </li>

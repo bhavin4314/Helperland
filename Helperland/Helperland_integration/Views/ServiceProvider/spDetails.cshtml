@@ -1,0 +1,211 @@
+﻿@{
+    ViewBag.Title = "sp Details";
+}
+@{
+    Layout = null;
+}
+@model Helperland_integration.ViewModel.spDetailsViewModel
+<link rel="stylesheet" href="~/css/customerSetting_new.css">
+       <div class="customer-setting">
+       
+          <ul class="nav nav-pills mb-3" >
+            <li class="nav-item">
+              <a class="nav-link activeTab" id="spDetails-tab" onclick="spDetails()">My Details</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" id="spPassword-tab" onclick="spPassword()">Change Password</a>
+            </li>
+          </ul>
+          
+           <div class="alert alert-success alert-dismissible fade show" id="detail-update-alert" style="display:none" role="alert">
+                <strong>Your details successfully updated.</strong> 
+                @*<div asp-validation-summary="ModelOnly" style="list-style-type:none;"></div>*@
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+           </div>
+            
+            <div class="" id="spDetails" >
+              <form class="changeCusDetailForm" asp-action="spDetails" asp-controller="ServiceProvider" onsubmit="return jQueryAjaxPost(this);">
+                <p class="font-weight-bold">Basic Details</p>
+                    <hr class="my-3" style="max-width:1000px">
+                    <div class="float-right" style="position:relative;top:-70px">
+                        @*<img src="~/images/avatar-male.png" alt="">*@
+                        <img src="@(Model.Avatar != null ? "/images/" + Model.Avatar : "/images/avatar-car.png")" alt="">
+                    </div>
+                   
+                
+                <div class="form-row">
+                  <div class="col-lg-4 col-md-4 col-sm-6">
+                    <label for="">First Name</label>
+                    <input asp-for="FirstName" class="form-control" placeholder="First name">
+                    <span asp-validation-for="FirstName" class="text-danger"></span>  
+                </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6">
+                    <label for="">Last Name</label>
+                    <input asp-for="LastName" class="form-control" placeholder="Last name">
+                    <span asp-validation-for="LastName" class="text-danger"></span>  
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6">
+                    <label for="">E-mail Address</label>
+                    <input asp-for="Email" class="form-control" placeholder="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>  
+                  </div>
+                </div>
+                
+                <div class="form-row">
+                  <div class="col-lg-4 col-md-4 col-sm-6">
+                    <label for="">Mobile Number</label>
+                    <div class="phone-num">
+                      <span class="country-code">+91</span>
+                      <input asp-for="MobileNo" class="form-control codenum" placeholder="Mobile Number">
+                      <span asp-validation-for="MobileNo" class="text-danger"></span>  
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6">
+                    <label for="">Date of Birth</label>
+                    <input type="date" asp-for="DateOfBirth" class="form-control" placeholder="DOB">
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6">
+                    <label for="">Nationality</label>
+                    <select class="form-control" asp-for="NationalityId">
+                        if(Model.NationalityId==null)
+                        {
+                            <option value="none" selected disabled hidden>Nationality</option>
+                        }
+                      <option value="1">Indian</option>
+                      <option value="2">German</option>
+                    </select> 
+                  </div>
+                </div>
+
+                <div>
+                  <p class="mb-2">Gender</p>
+                  <input type="radio" name="Gender" value="1" id="male" >
+                  <label class="pr-3" >Male</label>
+                  <input type="radio" name="Gender" value="2" id="female">
+                  <label class="pr-3">Female</label>
+                  <input type="radio">
+                  <label class="pr-3" name="Gender" value="3" id="not-to-say">Rather Not to say</label>
+                </div>
+
+                <hr>  
+                <p>Select avatar</p>
+                <div class="avtar d-flex flex-wrap">
+                  <label for="avatar1" id="avatar1" class="round mr-3" onclick="selectAvtar(this)">
+                    <img src="~/images/avatar-car.png" alt="">
+                  </label>
+                  <label for="avatar2" class="round mr-3" onclick="selectAvtar(this)">
+                    <img src="~/images/avatar-female.png" alt="">
+                  </label>
+                  <label for="avatar3" class="round mr-3" onclick="selectAvtar(this)">
+                    <img src="~/images/avatar-hat.png" alt="">
+                  </label>
+                  <label for="avatar4" class="round mr-3" onclick="selectAvtar(this)">
+                    <img src="~/images/avatar-iron.png" alt="">
+                  </label>
+                  <label for="avatar5" class="round mr-3" onclick="selectAvtar(this)">
+                    <img src="~/images/avatar-male.png" alt="">
+                  </label>
+                  <label for="avatar6" class="round mr-3" onclick="selectAvtar(this)">
+                    <img src="~/images/avatar-ship.png" alt="">
+                  </label>
+                </div>
+                <div class="d-none" id="radio-avatar">
+                  <input type="radio" name="avatar" value="avatar-car.png" id="avatar1" />
+                  <input type="radio" name="avatar" value="avatar-female.png" id="avatar2" />
+                  <input type="radio" name="avatar" value="avatar-hat.png" id="avatar3" />
+                  <input type="radio" name="avatar" value="avatar-iron.png" id="avatar4" />
+                  <input type="radio" name="avatar" value="avatar-male.png" id="avatar5" />
+                  <input type="radio" name="avatar" value="avatar-ship.png" id="avatar5" />
+              </div>
+                
+              <div class="sp-address mt-4">
+                <p class="font-weight-bold">My Address</p>
+                <hr class="my-3">
+                <input type="hidden" />
+                <div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <label for="">Street Name</label>
+                            <input asp-for="AddressLine1" class="form-control" id="editAddressLine1" placeholder="Street Name">
+                            <span asp-validation-for="AddressLine1" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label for="">House number</label>
+                            <input asp-for="AddressLine2" class="form-control" id="editressLine2" placeholder="House number">
+                            <span asp-validation-for="AddressLine2" class="text-danger" ></span>
+                        </div>
+                        <div class="col">
+                            <label for="">Pincode</label>
+                            <input asp-for="ZipCode" class="form-control" id="editpincode" placeholder="Pincode">
+                            <span asp-validation-for="ZipCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col-xl-4">
+                            <label for="">Location</label>
+                            <input asp-for="City" class="form-control" id="editCity" placeholder="City name">
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <hr class="mt-4"/>        
+                    <button class="edit-btn" id="edit-address" type="submit" style="cursor:pointer">Save</button>
+                                  
+            </div>               
+              </div>
+
+              </form>
+            </div>
+
+            
+            
+            <div class="" style="display: none;" id="spPassword" >
+            </div>
+          
+
+        </div>
+
+        <script>
+            function selectAvtar(ele)
+            {
+                
+                $(ele).toggleClass("selected-avatar");
+            }
+
+            
+            function setGender()
+            {
+                if ('@(Convert.ToInt32(@Model.Gender))' != 0) {
+                    console.log('@Model.Gender');
+                    console.log('@Model.Avatar');
+                    $(`input:radio[name=Gender]`).filter(`[value="@Model.Gender"]`).attr("checked", true);
+                }
+                if ('@Model.Avatar' != null) {
+                    console.log('@Model.Avatar');
+                    //if("@Model.Avatar"=="avatar-car.png"){
+                    //    $("#avatar1").addClass("selected-avatar");
+                    //}
+                    //else if("@Model.Avatar"=="avatar-female.png"){
+                    //    $("#avatar2").addClass("selected-avatar");
+                    //}
+                    //else if("@Model.Avatar"=="avatar-hat.png"){
+                    //    $("#avatar3").addClass("selected-avatar");
+                    //}
+                    //else if("@Model.Avatar"=="avatar-iron.png"){
+                    //    $("#avatar4").addClass("selected-avatar");
+                    //}
+                    //else if("@Model.Avatar"=="avatar-male.png"){
+                    //    $("#avatar5").addClass("selected-avatar");
+                    //}
+                    //else if("@Model.Avatar"=="avatar-ship.png"){
+                    //    $("#avatar6").addClass("selected-avatar");
+                    //}
+                    $("#radio-avatar [value='@Model.Avatar']").attr("checked", true).addClass("selected-avatar");
+                }
+            }
+            setGender()
+        </script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>

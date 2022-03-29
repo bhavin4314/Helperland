@@ -177,7 +177,7 @@
             
           @*-------------------------------------customerDetails start-------------------------------------------------------------*@
 
-          <div class="" id="customerDetailsRight" style="width:100%;">
+          <div class="" id="spDetailsRight" style="width:100%;">
            
           </div>
           
@@ -218,8 +218,17 @@
                             processData: false,
                             success: function (res) {
                                
-
-                                
+                                if (res.spDetailsUpdate) {
+                                    $("#detail-update-alert").show();
+                                }
+                                 else if (res.passwordUpdate) {
+                                    $("#password-update-alert").show();
+                                }
+                                 else if (res.passworNotUpdate) {
+                                     
+                                    $("#password-notupdate-alert").show();
+                                }
+                               
                                
                             },
                             error: function (err) {
