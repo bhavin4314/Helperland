@@ -79,10 +79,6 @@ namespace Helperland_integration.Controllers
             var serviceHistorySp = _helperRepository.getServiceHistory(userId);
             return View(serviceHistorySp);
         }
-        public IActionResult blockCustomer()
-        {
-            return View();
-        }
         
         [HttpGet]
         public IActionResult spDetails()
@@ -137,7 +133,17 @@ namespace Helperland_integration.Controllers
             }
         }
 
+        public IActionResult myRatingSP()
+        {
+            int userId = (int)HttpContext.Session.GetInt32("userId");
+            var ratingList = _helperRepository.SpRatings(userId);
+            return View(ratingList);
+        }
 
-
+        public IActionResult blockCustomer()
+        {
+            int userId = (int)HttpContext.Session.GetInt32("userId");
+            return View();
+        }
     }
 }

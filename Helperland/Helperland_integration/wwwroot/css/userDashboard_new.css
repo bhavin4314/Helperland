@@ -773,3 +773,51 @@ td {
         margin: 0 auto;
     }
 }
+
+
+/*--------------------------rating-------------------------------*/
+
+.rating {
+    position: absolute;
+    display: inline;
+    left: 50%;
+    transform: rotateY(180deg);
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    display:;
+    cursor: pointer;
+    width: 20px;
+}
+
+    .rating label::before {
+        content: '\f005';
+        font-family: fontAwesome;
+        position: absolute;
+        top: 0;
+        font-size: 16px;
+        color: #B0C9CE;
+        transition: .3s linear;
+    }
+
+    .rating label::after {
+        content: '\f005';
+        font-family: fontAwesome;
+        position: absolute;
+        font-size: 16px;
+        color: #ecb91c;
+        top: 0;
+        opacity: 0;
+        transition: .3s linear;
+        text-shadow: 0 2px 5px rgba(0,0,0,.2);
+    }
+
+    .rating label:hover::after,
+    .rating label:hover ~ label::after,
+    .rating input:checked ~ label::after {
+        opacity: 1;
+    }

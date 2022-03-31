@@ -180,10 +180,13 @@ function newService() {
     $("#upcomingService").hide();
     $("#serviceHistory").hide();
     $("#blockCustomer").hide();
+    $("#myRatings").hide();
     $("#newService-tab").addClass("activeTab");
     $("#upcomingService-tab").removeClass("activeTab");
     $("#serviceHistory-tab").removeClass("activeTab");
     $("#blockCustomer-tab").removeClass("activeTab");
+    $("#myRatings-tab").removeClass("activeTab");
+    $("#spDetailsRight").hide();
 }
 
 function upcomingService() {
@@ -191,11 +194,13 @@ function upcomingService() {
     $("#upcomingService").show();
     $("#serviceHistory").hide();
     $("#blockCustomer").hide();
+    $("#myRatings").hide();
     $("#newService-tab").removeClass("activeTab");
     $("#upcomingService-tab").addClass("activeTab");
     $("#serviceHistory-tab").removeClass("activeTab");
     $("#blockCustomer-tab").removeClass("activeTab");
-
+    $("#myRatings-tab").removeClass("activeTab");
+    $("#spDetailsRight").hide();
     $("#upcomingService").load(`/ServiceProvider/upcomingService`);
 }
 
@@ -204,11 +209,13 @@ function serviceHistory() {
     $("#upcomingService").hide();
     $("#serviceHistory").show();
     $("#blockCustomer").hide();
+    $("#myRatings").hide();
     $("#newService-tab").removeClass("activeTab");
     $("#upcomingService-tab").removeClass("activeTab");
     $("#serviceHistory-tab").addClass("activeTab");
     $("#blockCustomer-tab").removeClass("activeTab");
-
+    $("#myRatings-tab").removeClass("activeTab");
+    $("#spDetailsRight").hide();
     $("#serviceHistory").load(`/ServiceProvider/serviceHistory`);
 }
 
@@ -217,12 +224,29 @@ function blockCustomer() {
     $("#upcomingService").hide();
     $("#serviceHistory").hide();
     $("#blockCustomer").show();
+    $("#myRatings").hide();
     $("#newService-tab").removeClass("activeTab");
     $("#upcomingService-tab").removeClass("activeTab");
     $("#serviceHistory-tab").removeClass("activeTab");
     $("#blockCustomer-tab").addClass("activeTab");
-
+    $("#myRatings-tab").removeClass("activeTab");
+    $("#spDetailsRight").hide();
     $("#blockCustomer").load(`/ServiceProvider/blockCustomer`);
+}
+
+function myRating() {
+    $("#newService").hide();
+    $("#upcomingService").hide();
+    $("#serviceHistory").hide();
+    $("#blockCustomer").hide();
+    $("#myRatings").show();
+    $("#newService-tab").removeClass("activeTab");
+    $("#upcomingService-tab").removeClass("activeTab");
+    $("#serviceHistory-tab").removeClass("activeTab");
+    $("#blockCustomer-tab").remove("activeTab");
+    $("#myRatings-tab").addClass("activeTab");
+    $("#spDetailsRight").hide();
+    $("#myRatings").html("loading....").load(`/ServiceProvider/myRatingSP`);
 }
 
 function spSetting() {
@@ -230,10 +254,13 @@ function spSetting() {
     $("#upcomingService").hide();
     $("#serviceHistory").hide();
     $("#blockCustomer").hide();
+    $("#myRatings").hide();
     $("#newService-tab").removeClass("activeTab");
     $("#upcomingService-tab").removeClass("activeTab");
     $("#serviceHistory-tab").removeClass("activeTab");
     $("#blockCustomer-tab").removeClass("activeTab");
+    $("#myRatings-tab").removeClass("activeTab");
+    $("#spDetailsRight").show();
     $("#spDetailsRight").load(`/ServiceProvider/spDetails`);
 }
 
@@ -261,3 +288,29 @@ function spPassword() {
     $("#spPassword").load(`/ServiceProvider/spPassword`);
 }
 
+// Admin
+function editModalBtn(serviceId) {
+    $("#editServiceModal").load("/Admin/editServiceRequest/" + serviceId);
+}
+
+function allService() {
+    console.log("tab1");
+    $("#adminTab1").addClass("adminActiveTab");
+    $("#adminTab2").removeClass("adminActiveTab");
+}
+function userManagement() {
+    console.log("tab2");
+    $("#adminTab1").removeClass("adminActiveTab");
+    $("#adminTab2").addClass("adminActiveTab");
+
+}
+//function adminServiceList() {
+//    $("#adminService").show();
+//    $("#management").hide();
+//}
+
+//function userManagement() {
+//    $("#adminService").show();
+//    $("#management").hide();
+//    $("#management").load(`/Admin/UserManagement`);
+//}

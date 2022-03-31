@@ -157,6 +157,10 @@ namespace Helperland_integration.Controllers
                         {
                             return RedirectToAction("spNewService", "ServiceProvider");
                         }
+                        else if (user.UserTypeId == 3)
+                        {
+                            return RedirectToAction("adminAllService", "Admin");
+                        }
                         else
                         {
                             return RedirectToAction("index", "Home");

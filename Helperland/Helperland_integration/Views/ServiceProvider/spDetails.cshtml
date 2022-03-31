@@ -93,22 +93,22 @@
                 <hr>  
                 <p>Select avatar</p>
                 <div class="avtar d-flex flex-wrap">
-                  <label for="avatar1" id="avatar1" class="round mr-3" onclick="selectAvtar(this)">
+                  <label for="avatar1" class="round1 mr-3" onclick="selectAvtar(this)">
                     <img src="~/images/avatar-car.png" alt="">
                   </label>
-                  <label for="avatar2" class="round mr-3" onclick="selectAvtar(this)">
+                  <label for="avatar2" class="round2 mr-3" onclick="selectAvtar(this)">
                     <img src="~/images/avatar-female.png" alt="">
                   </label>
-                  <label for="avatar3" class="round mr-3" onclick="selectAvtar(this)">
+                  <label for="avatar3" class="round3 mr-3" onclick="selectAvtar(this)">
                     <img src="~/images/avatar-hat.png" alt="">
                   </label>
-                  <label for="avatar4" class="round mr-3" onclick="selectAvtar(this)">
+                  <label for="avatar4" class="round4 mr-3" onclick="selectAvtar(this)">
                     <img src="~/images/avatar-iron.png" alt="">
                   </label>
-                  <label for="avatar5" class="round mr-3" onclick="selectAvtar(this)">
+                  <label for="avatar5" class="round5 mr-3" onclick="selectAvtar(this)">
                     <img src="~/images/avatar-male.png" alt="">
                   </label>
-                  <label for="avatar6" class="round mr-3" onclick="selectAvtar(this)">
+                  <label for="avatar6" class="round6 mr-3" onclick="selectAvtar(this)">
                     <img src="~/images/avatar-ship.png" alt="">
                   </label>
                 </div>
@@ -170,7 +170,12 @@
         <script>
             function selectAvtar(ele)
             {
-                
+                $(".round1").removeClass("selected-avatar");   
+                $(".round2").removeClass("selected-avatar");
+                $(".round3").removeClass("selected-avatar");
+                $(".round4").removeClass("selected-avatar");
+                $(".round5").removeClass("selected-avatar");
+                $(".round6").removeClass("selected-avatar");
                 $(ele).toggleClass("selected-avatar");
             }
 
@@ -184,25 +189,25 @@
                 }
                 if ('@Model.Avatar' != null) {
                     console.log('@Model.Avatar');
-                    //if("@Model.Avatar"=="avatar-car.png"){
-                    //    $("#avatar1").addClass("selected-avatar");
-                    //}
-                    //else if("@Model.Avatar"=="avatar-female.png"){
-                    //    $("#avatar2").addClass("selected-avatar");
-                    //}
-                    //else if("@Model.Avatar"=="avatar-hat.png"){
-                    //    $("#avatar3").addClass("selected-avatar");
-                    //}
-                    //else if("@Model.Avatar"=="avatar-iron.png"){
-                    //    $("#avatar4").addClass("selected-avatar");
-                    //}
-                    //else if("@Model.Avatar"=="avatar-male.png"){
-                    //    $("#avatar5").addClass("selected-avatar");
-                    //}
-                    //else if("@Model.Avatar"=="avatar-ship.png"){
-                    //    $("#avatar6").addClass("selected-avatar");
-                    //}
-                    $("#radio-avatar [value='@Model.Avatar']").attr("checked", true).addClass("selected-avatar");
+                    if("@Model.Avatar"=="avatar-car.png"){
+                        $(".round1").addClass("selected-avatar");
+                    }
+                    else if("@Model.Avatar"=="avatar-female.png"){
+                        $(".round2").addClass("selected-avatar");
+                    }
+                    else if("@Model.Avatar"=="avatar-hat.png"){
+                        $(".round3").addClass("selected-avatar");
+                    }
+                    else if("@Model.Avatar"=="avatar-iron.png"){
+                        $(".round4").addClass("selected-avatar");
+                    }
+                    else if("@Model.Avatar"=="avatar-male.png"){
+                        $(".round5").addClass("selected-avatar");
+                    }
+                    else if("@Model.Avatar"=="avatar-ship.png"){
+                        $(".round6").addClass("selected-avatar");
+                    }
+                    //$("#radio-avatar [value='@Model.Avatar']").attr("checked", true).addClass("selected-avatar");
                 }
             }
             setGender()

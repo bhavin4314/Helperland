@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/bookService.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ----------------------------header start------------------------------------------- -->
+    <header class="headerpart fixed-top">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand logo" href="index.html">
+                    <img class="logo" src="images/logo-small.png" alt="logo">
+                </a>
+                <div class="notification-part ml-auto">
+                  
+                  <div class="line1"></div>
+                  <img src="images/icon-notification.png" class="nav-image1" alt="" srcset="">
+                  <div class="notification-number-mobile">2</div>
+                  <div class="line2"></div>
+                </div>
+              <!-- Mobile Menu -->
+              <button class="menu-toggler"  >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </button>
+              <!-- Mobile Menu -->
+      
+                <div class=" navbar-collapse main-menu d-xl-flex justify-content-end" id="navbarSupportedContent active" >
+                    <ul class="navbar-nav  headernavbar mx-left" >
+                            <span class="collapse-menu-item">
+                              <p>Welcome,<br><span class="font-weight-bold">Kavan Patel</span></p>
+                              <hr>
+                              <li class="nav-item"><a href="" class="nav-link">Overview</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Dashboard</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">New Service Requests</a></li>
+                              <li><a href="" class="nav-link left-menu-service">Upcoming Services</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Service Schedule</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Service History</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">My Ratings</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Block Customer</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">My Settings</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Logout</a></li>
+                            <hr>
+                            </span>
+                            
+                            <li class="nav-item "><a class="nav-link nav-link-1" href="#">Prices & services</a></li>
+                            <li class="nav-item "><a class="nav-link nav-link-1" href="#">Warranty</a></li>
+                            <li class="nav-item "><a class="nav-link nav-link-1" href="#">Blog</a></li>
+                            <li class="nav-item "><a class="nav-link nav-link-2" href="#">Contact</a></li>
+                            <div class="line1"></div>
+                            <img src="images/icon-notification.png" class="nav-image1" alt="" srcset="">
+                            <div class="notification-number">2</div>
+                            <div class="line2"></div>
+                            
+                            <li class="nav-item dropdown-list">
+                              <a class="nav-link " id="navbar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="images/user.png" class="nav-image2" alt="" srcset="">
+                                <img src="images/forma-1-copy@2x.png" class="nav-image3" alt="" srcset="">
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="list-item1"><a href="" disabled>Welcome, <br><span class="font-weight-bold">Sandip Patel</span></a></li>
+                                <hr>
+                                <li class="dropdown-item" type="button">My Dashboard</li>
+                                <li class="dropdown-item" type="button">My Settings</li>
+                                <li class="dropdown-item" type="button">Logout</li>
+                              </ul>
+                            </li>
+                            
+                            <span class="collapse-menu-item">
+                              <hr>
+                              <div class="d-flex justify-content-center mobile-icon">
+                                <a href=""><img src="images/instagram-mobile-menu.png" class="mx-3" alt="" srcset=""></a>
+                                <a href=""><img src="images/facebook-mobile-menu.png" class="mx-3" alt="" srcset=""></a>
+                                
+                              </div>
+                              
+                            </span>
+                    </ul>
+                </div>
+        </nav>
+        </div>
+      </header>
+      <!-- ----------------------------header End------------------------------------------- -->
+     
+     
+  <!-- ----------------------------welcome part start------------------------------------------- -->
+  <section class="container book-service-part">
+    <h2 class="service-head-name text-center"> Book your cleaning service  </h2>
+    <div class="design text-center">
+      <div class="seprator-left "></div>
+        <img src="images/forma-1-copy-5.png" alt="">
+      <div class="seprator-right"></div>
+    </div>
+
+    <div class="book-service-main">
+     
+      <div class="service-step-part" id="service-booking">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item tabs">
+            <a class="nav-link active nav-pill-head tab1 py-0" id="pills-Service-tab" data-toggle="pill" href="#pills-Service" role="tab" aria-controls="pills-Service" aria-selected="true"><span><img class="tabimg mr-1" src="~/images/book-now-step1-icon.png" alt="img" /></span><span>Setup Service</span></a>
+          </li>
+          <li class="nav-item tabs">
+            <a class="nav-link nav-pill-head tab2 py-0" id="pills-Schedule-tab" data-toggle="pill" href="#pills-Schedule" role="tab" aria-controls="pills-Schedule" aria-selected="false"><img class="tabimg mr-1" src="~/images/book-now-step2-icon.png" alt="img" /><span>Schedule & Plan</span></a>
+          </li>
+          <li class="nav-item tabs">
+            <a class="nav-link nav-pill-head tab3 py-0" id="pills-Details-tab" data-toggle="pill" href="#pills-Details" role="tab" aria-controls="pills-Details" aria-selected="false"><img class="tabimg mr-1" src="~/images/book-now-step3-icon.png" alt="img" /><span>Your Details</span></a>
+          </li>
+          <li class="nav-item tabs">
+            <a class="nav-link nav-pill-head tab4 py-0" id="pills-Payment-tab" data-toggle="pill" href="#pills-Payment" role="tab" aria-controls="pills-Payment" aria-selected="false"><img class="tabimg mr-1" src="~/images/book-now-step4-icon.png" alt="img" /><span>Make Payment</span></a>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+         
+          <div class="tab-pane fade show active" id="pills-Service" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div id="service-pincode">
+                <p class="pincode-check-head">Please enter your zip code:</p>
+                <form asp-controller="BookService" asp-action="CheckPincode" class="form-inline" onsubmit="return jQueryAjaxPost(this);">
+                  <div class="form-group mx-sm-3 mb-2">
+                    <input type="text" class="form-control" id="pincode-text" name="pincode" placeholder="Postal code">
+                    <span id="pincode-error" class="text-danger"></span>
+                  </div>
+                  <button id="pincode-btn" type="submit" class="btn check-btn mb-2">Check Availability</button>
+                </form>
+            </div>
+           
+          </div>
+          
+          <div class="tab-pane fade" id="pills-Schedule" role="tabpanel" aria-labelledby="pills-profile-tab">
+             <form class="" asp-action="AddServiceRequest" asp-controller="BookService">
+              <div class="service-schedule">
+             
+              <div class="service-details">
+                  <p class="service-head font-weight-bold">When do you want your helper to be with you?</p>
+                  
+                    <div class="date-time">
+                        <input type="hidden" id="pincode" asp-for="Zipcode" value="">
+                        <input class="form-input1" type="date" asp-for="Date" value="2022-01-01">
+                        <select class="form-input2" id="" asp-for="Time" name="time">
+                        <option value="8" selected>8:00</option>
+                        <option value="8.5">8:30</option>
+                        <option value="9">9:00</option>
+                        <option value="9.5">9:30</option>
+                        <option value="10">10:00</option>
+                        <option value="10.5">10:30</option>
+                        <option value="11">11:00</option>
+                        <option value="11.5">11:30</option>
+                        <option value="12">12:00</option>
+                        <option value="12.5">12:30</option>
+                        <option value="13">13:00</option>
+                        <option value="13.5">13:30</option>
+                        <option value="14">14:00</option>
+                        <option value="14.5">14:30</option>
+                        <option value="15">15:00</option>
+                        <option value="15.5">15:30</option>
+                        <option value="16">16:00</option>
+                        <option value="16.5">16:30</option>
+                        <option value="17">17:00</option>
+                        <option value="17.5">17:30</option>
+                        <option value="18">18:00</option>
+                        <option value="18.5">18:30</option>
+                        </select>
+                  </div>
+                
+                </div>
+                <div class="hour-part">
+                  <p class="service-head font-weight-bold">How long do you need your helper?</p>
+                    <select class="form-input2" id="" asp-for="ServiceHours" name="hour">
+                      <option value="3" selected>3.0 Hrs</option>
+                      <option value="3.5">3.5 Hrs</option>
+                      <option value="4">4.0 Hrs</option>
+                      <option value="4.5">4.5 Hrs</option>
+                      <option value="5">5.0 Hrs</option>
+                      <option value="5.5">5.5 Hrs</option>
+                      <option value="6">6.0 Hrs</option>
+                      <option value="6.5">6.5 Hrs</option>
+                      <option value="7">7.0 Hrs</option>
+                      <option value="7.5">7.5 Hrs</option>
+                      <option value="8">8.0 Hrs</option>
+                      <option value="8.5">8.5 Hrs</option>
+                      <option value="9">9.0 Hrs</option>
+                      <option value="9.5">9.5 Hrs</option>
+                    </select>
+                </div>
+              </div>
+              
+              <hr class="my-5">
+              <div class="add-service">
+                <p class="service-head font-weight-bold">additional services</p>
+                <div class="kindofservice text-center">
+                  <div class="types">
+                    <div class="typeimg">
+                      <img src="images/3.png" alt="img">
+                    </div>
+                    <p class="typepara1" >Inside cabinets</p>
+                  </div>
+                  <div class="types">
+                    <div class="typeimg">
+                      <img src="images/5.png" alt="img">
+                    </div>
+                    <p class="typepara1" >Inside fridge</p>
+                  </div>
+                  <div class="types">
+                    <div class="typeimg">
+                      <img src="images/4.png" alt="img">
+                    </div>
+                    <p class="typepara1" >Inside oven</p>
+                  </div>
+                  <div class="types">
+                    <div class="typeimg">
+                      <img src="images/2.png" alt="img">
+                    </div>
+                    <p class="typepara1" >Laundry wash & dry</p>
+                  </div>
+                  <div class="types">
+                    <div class="typeimg">
+                      <img src="images/1.png" alt="img">
+                    </div>
+                    <p class="typepara1" >Interior windows</p>
+                  </div>
+                  </div>
+              </div>
+              <hr class="my-5">
+
+              <div class="advice">
+                <p class="service-head font-weight-bold">Do you want to tell your helper something?</p>
+                  <textarea class="advice-area pl-2 mb-2" id="" name="" placeholder="Do you want tell something?"></textarea>
+                  <input type="checkbox" id="" name="" value="">
+                  <label for=""> I have pets at home</label><br>
+                  <!-- @*<input type="hidden" class="form-control" asp-for="AddressId">*@ -->
+                  
+              </div>
+              <hr class="my-4">
+
+              <div class="button">
+                <button type="button" id="btnServiceDetails" class="next-btn float-right">Continue</button>
+              </div>
+              </form>
+            </div>
+          <!-- </div> -->
+          
+          <div class="tab-pane fade section-details" id="pills-Details" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <div class="address">
+                <div id="showAddress">
+  
+
+                </div>
+                <span id="errSelectAddress" class="text-danger d-block"></span>
+
+            <p>Please enter your address so that your helper can find you.</p>
+              <div>
+                <button class="address-btn font-weight-bold">+ Add New Address</button>
+              </div>
+              <form class="address-form" method="post" asp-action="" asp-controller="" onsubmit="">
+                <div>
+                  <div class="form-row">
+                    <div class="col">
+                      <label>Street</label>
+                      <input  class="form-control" id="addAddressLine1"  placeholder="Street Name">
+                       <span class="text-danger" id="errAddAddressLine1"></span>
+                    </div>
+                    <div class="col">
+                      <label>House number</label>
+                      <input class="form-control" id="addAddressLine2" placeholder="House number">
+                       <span class="text-danger" id="errAddAddressLine2"></span>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col">
+                      <label>Pincode</label>
+                      <input class="form-control" id="pincode" placeholder="Pincode">
+                      <span class="text-danger" id="errpincode"></span>
+                    </div>
+                    <div class="col">
+                      <label>Location</label>
+                      <input class="form-control" id="addCity" placeholder="City name">
+                      <span class="text-danger" id="errCity"></span>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col">
+                      <label>Phone number</label>
+                      <input class="form-control" id="addAddressPhoneNumber" placeholder="Phone number">
+                      <span class="text-danger" id="errAddAddressPhoneNumber"></span>
+                    </div>
+                  </div>
+                  <button class="save-btn" id="save-address" type="submit">Save</button>
+                  <button class="discard-btn" type="button">Discard</button>
+                  
+                </div>
+              </form>
+              
+              <div class="form-check">
+                <input type="checkbox" class="bill-checkbox mr-2 " name="" id="">
+                <label for="">My billing address differs from the given address.</label>
+              </div>
+
+              <hr>
+
+              <div class="button">
+                <button type="button" class="next-btn float-right" id="tab3-continue-btn">Continue</button>
+              </div>
+
+            </div>  
+          </div>
+
+       
+          
+
+
+          <div class="tab-pane fade" id="pills-Payment" role="tabpanel" aria-labelledby="pills-Payment-tab">
+            <div class="payment-tab">
+
+              <p class="font-weight-bold">Choose one of the following payment methods.</p>
+              <form >
+                <label for="">Discount code (optional)</label>
+                <br>
+                <input type="text" class="form-control" style="width: 200px;display: inline;"placeholder="Discount code">
+                <button class="promo-btn" type="submit">Use</button>
+              </form>
+              <hr>
+              <div class="form-check">
+                <input type="checkbox" class="bill-checkbox mr-2  " name="" id="">
+                <label for="" class="payment-tab-label">I accept the terms and conditions , the cancellation policy and the data protection regulations . I confirm that Helperland will start executing the contract before the end of the cancellation period and that I will lose my right of cancellation as a consumer once the contract has been fully performed.</label>
+                <hr>
+                <div class="button">
+                  <button type="button" class="next-btn float-right" id="final-bookbtn">Book with Cost</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="payment-part">
+          <h5 class="payment-title">Payment Summary</h5>
+          <div class="payment-body">
+            
+            <div class="body1">
+              <p>23/02/2022 08:00</p>
+              <p>length of time	</p>
+              <span class="d-flex justify-content-between">
+                <p>Basic</p>
+                <p>0 Std.</p>
+              </span>
+              <hr>
+              <span class="d-flex justify-content-between body1-total" >
+                <p>total service time	</p>
+                <p>3 Std.</p>
+              </span>
+            </div>
+
+            <hr>
+            <div class="body2">
+              <span class="d-flex justify-content-between">
+                <p>Per cleaning	</p>
+                <p class="font-weight-bold">0,00 €</p>
+              </span>
+            </div>
+            <hr>
+
+            <div class="body3">
+              <span class="d-flex justify-content-between price">
+                <p class="price-head">total price</p>
+                <p class="price-rate">0,00 €</p>
+              </span>
+              <p>According to $ 19 UStG no sales tax will be charged.</p>
+              <span class="d-flex justify-content-between effective-price" >
+                <p>Effective price*</p>
+                <p>0,00 €</p>
+              </span>
+              <p><span style="color: red;">*</span>Save 20% according to $ 35a Income Tax Act (EStG).</p>
+              
+            </div>
+            <p class="payment-footer"><span><img src="images/smiley.png"class="mr-2" alt="" srcset=""></span> a look at our included basic services</p>
+          </div>
+      </div> 
+
+    </div>
+  </div>
+    
+    
+  </section>
+      
+
+     
+     
+     
+      <!-------------------------------footernav start------------------------------------------- -->
+      <footer class="footernav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand" href="#">
+                    <img class="footerlogo" src="images/logo-large.png"  class="d-inline-block align-top" alt="logo">
+                  </a>
+                
+              
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">ABOUT</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">TESTIMONIALS </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">FAQS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">INSURANCE POLICY</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">IMPRESSUM</a>
+                    </li>
+                  </ul>
+                  <div class="footnavimg">
+                    <img class="mr-3" src="images/ic-facebook.png" width="9px" height="18px" alt="logo">
+                    <img class="" src="images/ic-instagram.png" width="20px" height="20px" alt="logo">
+                  </div>
+              </nav>
+              <div class="line mt-2"></div>
+            </div>
+              <div class="container footer">
+                      <p class="text-center ">©2018 Helperland. All rights reserved. <span class="pl-3">Terms and Conditions | Privacy Policy</span></p>
+              </div>
+      
+      
+    </footer>
+    <!-- ----------------------------footernav End------------------------------------------- -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <script>
+      $('.address-btn').click(function() {
+       $('.address-form').show();
+       $('.address-btn').hide();
+       console.log("Ss");
+      });
+
+      $('.discard-btn').click(function() {
+        console.log("Saaas");
+       $('.address-form').hide();
+       $('.address-btn').show();
+       console.log("Saaas");
+      });
+    </script>
+
+</body>
+</html>

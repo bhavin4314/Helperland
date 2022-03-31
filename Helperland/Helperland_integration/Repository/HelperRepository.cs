@@ -165,6 +165,13 @@ namespace Helperland_integration.Repository
 
         }
 
-      
+        public IEnumerable<Rating> SpRatings(int spId)
+        {
+            return _helperlandContext.Ratings.Include(x => x.RatingFromNavigation)
+                                    .Include(y => y.ServiceRequest).AsSplitQuery()
+                                    .Where(r => r.RatingTo == spId).ToList();
+        }
+
+        
     }
 }

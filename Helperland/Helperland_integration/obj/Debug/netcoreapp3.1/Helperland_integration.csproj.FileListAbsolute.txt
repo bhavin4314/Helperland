@@ -563,3 +563,8 @@ H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integr
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\cancelServiceBySp.cshtml.g.cs
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\spDetails.cshtml.g.cs
 H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\spPassword.cshtml.g.cs
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\ServiceProvider\myRatingSP.cshtml.g.cs
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\Admin\adminAllService.cshtml.g.cs
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_adminLayout.cshtml.g.cs
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\Admin\UserManagement.cshtml.g.cs
+H:\Bhavin_Tatvasoft_Training\PSD to HTML\Helperland\Helperland\Helperland_integration\obj\Debug\netcoreapp3.1\Razor\Views\Admin\editServiceRequest.cshtml.g.cs

@@ -42,5 +42,58 @@ $(document).ready(function(){
     $('.close-click').click(function(){
         $('.forgot-hide').modal('hide');
     }); 
+    $(".rescheduleBtnModal").click(function(){
+        $("#customerServiceInfoModal").modal("hide");    
+    });
+    $(".cancelBtnModalMain").click(function(){
+        $("#customerServiceInfoModal").modal("hide");    
+    });
+    
     
 });
+
+function customerDashboard()
+{
+    $("#customerDashboard").css("display","block");
+    $("#customerHistory").css("display","none");
+    $("#customerDashboard-Tab").addClass("activeTab");
+    $("#customerHistory-Tab").removeClass("activeTab");
+}
+
+function customerHistory()
+{
+    $("#customerDashboard").hide();
+    $("#customerHistory").show();
+    $("#customerHistory-Tab").addClass("activeTab");
+    $("#customerDashboard-Tab").removeClass("activeTab");
+}
+
+function customerDetails()
+{
+    $("#customerAddress").hide();
+    $("#customerPassword").hide();
+    $("#customerDetails").show();
+    $("#customerDetails-tab").addClass("activeTab");
+    $("#customerAddress-tab").removeClass("activeTab");
+    $("#customerPassword-tab").removeClass("activeTab");
+}
+
+function customerAddress()
+{
+    $("#customerDetails").hide().removeClass("activeTab");
+    $("#customerPassword").hide();
+    $("#customerAddress").show();
+    $("#customerAddress-tab").addClass("activeTab");
+    $("#customerDetails-tab").removeClass("activeTab");
+    $("#customerPassword-tab").removeClass("activeTab");
+}
+
+function customerPassword()
+{
+    $("#customerDetails").hide();
+    $("#customerAddress").hide();
+    $("#customerPassword").show();
+    $("#customerPassword-tab").addClass("activeTab");
+    $("#customerDetails-tab").removeClass("activeTab");
+    $("#customerAddress-tab").removeClass("activeTab");
+}

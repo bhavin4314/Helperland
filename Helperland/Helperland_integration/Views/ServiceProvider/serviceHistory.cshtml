@@ -42,7 +42,7 @@
                           <a class="date-time" onclick="acceptRequest(@serviceRequest.ServiceRequestId)" data-toggle="modal" data-target="#customerServiceDetailModal" style=" cursor: pointer; ">
                               <div class="d-none">@String.Format("{0:yyyy/MM/dd}", serviceRequest.ServiceStartDate) @Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay</div>
                             <span class="service-date"><img src="~/images/calendar2.png" alt="" srcset="">@String.Format("{0:dd/MM/yyyy}", serviceRequest.ServiceStartDate)</span>
-                            <span class="service-time ml-2"><img src="~/images/layer-712.png" class="" alt="" srcset="">@(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay).Substring(0,5)) - @(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate.AddHours(Convert.ToDouble(serviceRequest.ServiceHours + serviceRequest.ExtraHours))).TimeOfDay).Substring(0,5))</span>
+                            <span class="service-time"><img src="~/images/layer-712.png" class="" alt="" srcset="">@(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay).Substring(0,5)) - @(Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate.AddHours(Convert.ToDouble(serviceRequest.ServiceHours + serviceRequest.ExtraHours))).TimeOfDay).Substring(0,5))</span>
                           </a>
                         </td>
 

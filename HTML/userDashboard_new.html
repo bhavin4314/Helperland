@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/userDashboard_new.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ----------------------------header start------------------------------------------- -->
+    <header class="headerpart fixed-top">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand logo" href="index.html">
+                    <img class="logo" src="images/logo-small.png" alt="logo">
+                </a>
+                <div class="notification-part ml-auto">
+                  
+                  <div class="line1"></div>
+                  <img src="images/icon-notification.png" class="nav-image1" alt="" srcset="">
+                  <div class="notification-number-mobile">2</div>
+                  <div class="line2"></div>
+                </div>
+              <!-- Mobile Menu -->
+              <button class="menu-toggler"  >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </button>
+              <!-- Mobile Menu -->
+      
+                <div class=" navbar-collapse main-menu d-xl-flex justify-content-end" id="navbarSupportedContent active" >
+                    <ul class="navbar-nav  headernavbar mx-left" >
+                            <span class="collapse-menu-item">
+                              <p>Welcome,<br><span class="font-weight-bold">Gaurang Patel</span></p>
+                              <hr>
+                              <li class="nav-item"><a href="" class="nav-link">Dashboard</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Service History</a></li>
+                              <li><a href="" class="nav-link left-menu-service">Service Schedule</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Favourite Pros</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Invoices</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Notifications</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">My setting</a></li>
+                              <li class="nav-item"><a href="" class="nav-link">Logout</a></li>
+                              
+                              <hr>
+                              <li class="nav-item "><a class="nav-link nav-link-1" href="#">Book now</a></li>
+                            
+                            </span>
+                            
+                            <li class="nav-item nav-item-1"><a class="nav-link btn bookingbtn" >Book now</button></a>
+                            <li class="nav-item "><a class="nav-link nav-link-1" href="#">Prices & services</a></li>
+                            <li class="nav-item "><a class="nav-link nav-link-1" href="#">Warranty</a></li>
+                            <li class="nav-item "><a class="nav-link nav-link-1" href="#">Blog</a></li>
+                            <li class="nav-item "><a class="nav-link nav-link-2" href="#">Contact</a></li>
+                            <div class="line1"></div>
+                            <img src="images/icon-notification.png" class="nav-image1" alt="" srcset="">
+                            <div class="notification-number">2</div>
+                            <div class="line2"></div>
+                            
+                            <li class="nav-item dropdown-list">
+                              <a class="nav-link " id="navbar-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="images/user.png" class="nav-image2" alt="" srcset="">
+                                <img src="images/forma-1-copy@2x.png" class="nav-image3" alt="" srcset="">
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="list-item1"><a href="" disabled>Welcome, <br><span class="font-weight-bold">Gaurang Patel</span></a></li>
+                                <hr>
+                                <li class="dropdown-item" ><a>My Dashboard</a></li>
+                                <li class="dropdown-item" ><a>My Settings</a></li>
+                                <li class="dropdown-item" ><a>Logout</a></li>
+                              </ul>
+                            </li>
+                            
+                            <span class="collapse-menu-item">
+                              <hr>
+                              <div class="d-flex justify-content-center mobile-icon">
+                                <a href=""><img src="images/instagram-mobile-menu.png" class="mx-3" alt="" srcset=""></a>
+                                <a href=""><img src="images/facebook-mobile-menu.png" class="mx-3" alt="" srcset=""></a>
+                                
+                              </div>
+                              
+                            </span>
+                    </ul>
+                </div>
+        </nav>
+        </div>
+      </header>
+      <!-- ----------------------------header End------------------------------------------- -->
+     
+     
+      <!-- ----------------------------welcome part start------------------------------------------- -->
+      <section class="welcome-part">
+        <h2 class="Welcome-name">Welcome,  <span style="color: 4f4f4f; font-weight: bold; padding-left: 10px;">   Gaurang!</span></h2>
+      </section>
+     
+      <!-- ----------------------------welcome part End----------------------------------- -->
+      
+      
+      
+      <!-- ----------------------------table part start---------------------------------- -->
+      
+      <section class="services">
+        <div class="container-fluid table-part">
+          <div class="left-menu">
+            <li class="nav-item"><a class="nav-link left-menu-link activeTab" style="padding-right: 200px;" id="customerDashboard-Tab" onclick="customerDashboard()">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link left-menu-link " id="customerHistory-Tab" onclick="customerHistory()">Service History</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link " id="" >Service Schedule</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link">Favourite Pros</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link">Invoices</a></li>
+            <li class="nav-item"><a href="" class="nav-link left-menu-link">Notifications</a></li>
+       
+          </div>
+         
+          <div class="dashboardRight" id="customerDashboard">
+            <div class="right-table" >
+                <div class="table-name d-flex justify-content-between   ">
+                    <p class="table-name-info">My Current Bookings</p>
+                    <button class="btn export-btn ">Book Now!</button>
+                </div>
+                <table class="table text-center" >
+                  <thead>
+                    <tr>
+                      <th scope="col" class="px-0">Service ID <img src="images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class="px-0">Service Details <img src="images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class="px-0">Service Provider <img src="images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class="px-0">Payment <img src="images/sort.png" alt="" srcset=""></th>
+                      <th scope="col" class="px-0">Actions <img src="images/sort.png" alt="" srcset=""></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     
+                    <tr>
+                      <td class="text-center">
+                        <p>123</p>
+                      </td>
+                        <td class="service-date-time px-0">
+                          <a href="" class="date-time"  data-toggle="modal" data-target="#customerServiceInfoModal">
+                            <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+                            <span class="service-time ml-2"><img src="images/layer-712.png" class="" alt="" srcset="">12:00 - 18:00</span>
+                          </a>
+                        </td>
+                        <td class="sp-deails px-0">
+                          <a href="" class="">
+                            <div class="d-flex">
+                                <div class="cap-img">  
+                                    <img class="" src="images/cap.png" alt="" srcset="">
+                                </div>
+                                <div class="name-rating">
+                                    <p class="sp-name">Lyum Watson</p>
+                                    <span class="all-star ">
+                                        <img src="images/star1.png" class="star" alt="">
+                                        <img src="images/star1.png" class="star" alt="">
+                                        <img src="images/star1.png" class="star" alt="">
+                                        <img src="images/star1.png" class="star" alt="">
+                                        <img src="images/star2.png" class="star" alt="">
+                                        <span >4 </span>
+                                    </span>
+                                   
+                                </div>
+                            </div>
+                          </a>
+                        </td>
+                        <td class="payment px-0">€63</td>
+                        <td class="dashboard-btn pl-0" style="margin-left: -20px;">
+                          <button class="btn dashboard-change-button" type="" data-toggle="modal" data-target="#serviceDateTimeModal">Change Date-Time</button>
+                          <button class="btn dashboard-cancel-button" type="" data-toggle="modal" data-target="#serviceCancelModal">Cancel</button>
+                        </td>
+                    </tr> 
+    
+    
+                  </tbody>
+                </table>
+                <!-- ------------------------pagination start----------------------------------- -->
+              <div class="page-hadling " >
+                <div class="pagination-spacing d-flex">
+                  <p class=" pagination-para pagination-spacing">show</p>
+                  <select class="form-group entry-selction pagination-spacing"  id="exampleFormControlSelect1">
+                      <option>10</option>
+                      <option>20</option>
+                      <option>30</option>
+                      <option>40</option>
+                      <option>50</option>
+                    </select>
+                    <span class="pagination-spacing pagination-para">entries</span>
+                    <p class=" pagination-para">Total Record: 55</p>
+                </div>
+                
+                <div class="ml-auto ">
+                    <ul class="pagination ">
+                        <li><a href=""><img src="images/left1.png" alt=""></a></li>
+                        <li><a href=""><img src="images/left2.png" alt=""></a></li>
+                        <li class="active-page"><a href="" >1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href=""><img src="images/left2.png" alt="" class="rotate-img"></a></li>
+                        <li><a href=""><img src="images/left1.png" alt="" class="rotate-img"></a></li>
+                    </ul>
+                </div>            
+            </div>
+    
+        <!------------------------------- pageination end---------------------------------------- -->
+    
+              </div>
+          </div>
+          
+          <div class="historyRight" id="customerHistory" style="display: none;">
+            <div class="right-table history-table "  >
+                <div class="table-name d-flex justify-content-between   ">
+                    <p class="table-name-info">Service History</p>
+                    <button class="btn export-btn">Export</button>
+                </div>
+                <table class="table text-center">
+                  <thead>
+                    <tr>
+                      <th scope="col">Service ID <img src="images/sort.png" alt="" srcset=""></th>
+                      <th scope="col">Service Details <img src="images/sort.png" alt="" srcset=""></th>
+                      <th scope="col">Service Provider <img src="images/sort.png" alt="" srcset=""></th>
+                      <th scope="col">Payment <img src="images/sort.png" alt="" srcset=""></th>
+                      <th scope="col">Status <img src="images/sort.png" alt="" srcset=""></th>
+                      <th scope="col">Rate SP <img src="images/sort.png" alt="" srcset=""></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     
+                    <tr>
+                      <td>
+                        <p>123</p>
+                      </td>
+                        <td class="service-date-time">
+                          <a href="" class="date-time">
+                            <span class="service-date"><img src="images/calendar2.png" alt="" srcset="">09/04/2018</span>
+                            <span class="service-time ml-2"><img src="images/layer-712.png" class="" alt="" srcset="">12:00 - 18:00</span>
+                          </a>
+                        </td>
+                        <td class="sp-deails px-0 ">
+                          <a href="" class="">
+                            <div class="d-flex">
+                                <div class="cap-img">  
+                                    <img class="" src="images/cap.png" alt="" srcset="">
+                                </div>
+                                <div class="name-rating">
+                                    <p class="sp-name">Lyum Watson</p>
+                                    <span class="all-star">
+                                        <img src="images/star1.png" class="star" alt="">
+                                        <img src="images/star1.png" class="star" alt="">
+                                        <img src="images/star1.png" class="star" alt="">
+                                        <img src="images/star1.png" class="star" alt="">
+                                        <img src="images/star2.png" class="star" alt="">
+                                        <span >4 </span>
+                                    </span>
+                                   
+                                </div>
+                            </div>
+                          </a>
+                        </td>
+                        <td class="payment">€63</td>
+                        <td class="status"><p class="status-complete">Completed</p></td>
+                        <td><button class="rate-sp-button" type="button">Rate SP</button></td>
+                    </tr> 
+    
+    
+                  </tbody>
+                </table>
+                <!-- ------------------------pagination start----------------------------------- -->
+              <div class="page-hadling " >
+                <div class="pagination-spacing d-flex">
+                  <p class=" pagination-para pagination-spacing">show</p>
+                  <select class="form-group entry-selction pagination-spacing"  id="exampleFormControlSelect1">
+                      <option>10</option>
+                      <option>20</option>
+                      <option>30</option>
+                      <option>40</option>
+                      <option>50</option>
+                    </select>
+                    <span class="pagination-spacing pagination-para">entries</span>
+                    <p class=" pagination-para">Total Record: 55</p>
+                </div>
+                
+                <div class="ml-auto ">
+                    <ul class="pagination ">
+                        <li><a href=""><img src="images/left1.png" alt=""></a></li>
+                        <li><a href=""><img src="images/left2.png" alt=""></a></li>
+                        <li class="active-page"><a href="" >1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href=""><img src="images/left2.png" alt="" class="rotate-img"></a></li>
+                        <li><a href=""><img src="images/left1.png" alt="" class="rotate-img"></a></li>
+                    </ul>
+                </div>            
+            </div>
+    
+        <!------------------------------- pageination end---------------------------------------- -->
+    
+              </div>
+          </div>  
+
+          
+        </div>
+      </section>
+
+      <!-- ----------------------------table part End------------------------------------------- -->
+      
+      
+      <!-- ---------- -------dashboard-serviceDetailModal part start-------------------- -->
+      
+
+      <!-- Modal -->
+      <div class="modal fade " id="customerServiceInfoModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="">Servicedetails</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="serviceTiming">
+                <p class="font-weight-bold">
+                  <span class="date">01/02/2022</span>
+                  <span class="time">08:00-11:30</span>
+                </p>
+                <p><span class="font-weight-bold">Duration : </span>3 Hrs</p>
+              </div>
+              <hr>
+              <div class="serviceDetails">
+                <p><span class="font-weight-bold">Service Id : </span>111</p>
+                <p><span class="font-weight-bold">Extras : </span>-</p>
+                <p><span class="font-weight-bold">Net Amount : </span><span class="servicePrice">$67</span></p>
+              </div>
+              <hr>
+              <div class="serviceAddress">
+                <p><span class="font-weight-bold">Service Address : </span>48, Nund Bunglows, Ahmedabad-380061</p>
+                <p><span class="font-weight-bold">Phone : </span>7878894512</p>
+                <p><span class="font-weight-bold">Email : </span>b182001@gmail.com</p>
+              </div>
+              <hr>
+              <div class="serviceComments">
+                <p>I dont have pets at home</p>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-start">
+              <button type="button" class="btn rescheduleBtnModal" data-toggle="modal" data-target="#serviceDateTimeModal"><span><img src="images/reschedule-icon-small.png" alt="" srcset=""></span>Reschedule</button>
+              <button type="button" class="btn cancelBtnModalMain" data-toggle="modal" data-target="#serviceCancelModal"><img src="images/close-icon-small.png" alt="" srcset=""></span>Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------------------dashboard-serviceDetailModal part End------------------- -->
+
+
+       <!-- ---------------------dashboard-serviceDateTimeModal part start------------------- -->
+      <div class="modal fade" id="serviceDateTimeModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="">Reschedule Service Request</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form >
+                <p>Select New Date & Time</p>
+                <div class="form-row">
+                  <input class="form-control col-6" type="date" name="" id="">
+                  <select class="form-control col-5 offset-1" id="" asp-for="Time" >
+                    <option value="8:00" >8:00</option>
+                    <option value="8:30">8:30</option>
+                    <option value="9:00">9:00</option>
+                    <option value="9:30">9:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    </select>
+                </div>
+                <button type="button" class="btn updateBtnModal col-12 mt-3">Update</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      
+
+      <!-- ---------------------dashboard-serviceDateTimeModal part End------------------- -->
+
+
+      <!-- ---------------------dashboard-serviceCancelModal part start------------------- -->
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="serviceCancelModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="">Cancel Service Request</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form >
+                <label>Why do you want to cancel the service request</label>
+                <textarea id="" name="" rows="4" cols="57"></textarea>
+                <button class="btn cancelBtnModal mt-3" style="width: 100%;">Cancel now</button>
+              </form>
+            </div>
+         
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------------------dashboard-serviceCancelModal part End------------------- -->
+
+      
+
+      
+      <!-------------------------------footernav start------------------------------------------- -->
+      <footer class="footernav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand" href="#">
+                    <img class="footerlogo" src="images/logo-large.png"  class="d-inline-block align-top" alt="logo">
+                  </a>
+                
+              
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">ABOUT</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">TESTIMONIALS </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">FAQS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">INSURANCE POLICY</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">IMPRESSUM</a>
+                    </li>
+                  </ul>
+                  <div class="footnavimg">
+                    <img class="mr-3" src="images/ic-facebook.png" width="9px" height="18px" alt="logo">
+                    <img class="" src="images/ic-instagram.png" width="20px" height="20px" alt="logo">
+                  </div>
+              </nav>
+              <div class="line mt-2"></div>
+            </div>
+              <div class="container footer">
+                      <p class="text-center ">©2018 Helperland. All rights reserved. <span class="pl-3">Terms and Conditions | Privacy Policy</span></p>
+              </div>
+      
+      
+    </footer>
+    <!-- ----------------------------footernav End------------------------------------------- -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+   
+
+
+</body>
+</html>

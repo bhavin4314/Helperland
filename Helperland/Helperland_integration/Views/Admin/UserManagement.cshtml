@@ -1,0 +1,125 @@
+﻿
+@{
+    Layout="~/Views/Shared/_adminLayout.cshtml";
+}
+<link rel="stylesheet" href="~/css/user-management.css">
+<section class="container-fluid home-section">
+
+    <!-- -------------------------------right-section start-------------------------------------- -->
+
+    <div class="right-section">
+      
+      <div class="table-name d-flex justify-content-between">
+        <p class="table-name-info">User Management </p>
+        <button class="btn user-btn"> <span><img src="~/images/add.png" class="pb-1" alt="" srcset=""></span> Add New User</button>
+      </div>
+    
+      <div class="formpart">
+        <form>
+          <div class="d-flex flex-wrap">
+            <div class="dropdown mr-3 ">
+              <!-- <input type="text" class="form-control" placeholder="User name"> -->
+              <select  class="form-control user-name-select" placeholder="" name="user-name" id="user-name">
+                <option value="user-name">User name</option>
+                <option value="	Lyum watson">Lyum watson</option>
+                <option value="John Smith">John Smith</option>
+              </select>
+            </div>
+            <div class="mr-3 ">
+              <select  class="form-control user-role-select" placeholder="" name="user-role" id="user-role">
+                <option value="user-role">User role</option>
+                <option value="	Inquiry Manager">	Inquiry Manager</option>
+                <option value="Content Manager">Content Manager</option>
+                <option value="	Finance Manager">	Finance Manager</option>
+              </select>
+            </div>
+            <div class="mr-3 contact">
+              <span class="phone-code">+91</span>
+              <input type="text" class="form-control contact-input" placeholder="Phone number">
+            </div>
+            <div class="mr-3 zipcode">
+              <input type="text" class="form-control" placeholder="Zipcode">
+            </div>
+            <div class="mr-3 ">
+              <button type="submit" class="btn searchbtn">Search</button>
+            </div>
+            <div class="clear">
+              <button type="" class="btn clearbtn">Clear</button>
+            </div>
+          </div>
+        </form>
+      </div>
+ <!-- -------------------------------table-section start-------------------------------------- -->
+    
+ <div class="table-part">
+  <table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">User Name<img src="~/images/sort.png" alt="" srcset=""></th>
+        <th scope="col">User Type</th>
+        <th scope="col">Role</th>
+        <th scope="col">Postal Code<img src="~/images/sort.png" alt="" srcset=""></th>
+        <th scope="col">City </th>
+        <th scope="col">Radius <img src="~/images/sort.png" alt="" srcset=""></th>
+        <th scope="col">User Status <img src="~/images/sort.png" alt="" srcset=""></th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+       
+      <tr>
+          <td>Lyum watson</td>
+          <td>Call Center</td>
+          <td>Inquiry Manager</td>
+          <td>123456</td>
+          <td>Berlin</td>
+          <td></td>
+          <td><span class="active-status">Active</span></td>
+          <td>
+            
+            <div class="dropdown">
+              <a href="" class="action-dropdown " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="~/images/group-38.png" alt="">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Edit</a>
+                <a class="dropdown-item" href="#">Deactivate</a>
+                <a class="dropdown-item" href="#">Service History</a>
+              </div>
+            </div>
+          </td>
+      </tr> 
+      
+      </tbody>
+    </table>
+        <!------------------------------- pageination start--------------------------------------->
+        <div class="page-hadling " >
+          <div class="pagination-spacing d-flex">
+            <p class=" pagination-para pagination-spacing">show</p>
+            <select class="form-group entry-selction pagination-spacing"  id="exampleFormControlSelect1">
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+                <option>1000</option>
+              </select>
+              <span class="pagination-spacing pagination-para">entries</span>
+              <p class=" pagination-para">Total Record: 55</p>
+          </div>
+          
+          <div class="ml-auto ">
+              <ul class="pagination ">
+                  <li><a href=""><img src="~/images/polygon-1-copy-5.png" alt=""></a></li>
+                  <li class="active-page"><a href="" >1</a></li>
+                  <li><a href="">2</a></li>
+                  <li><a href="">3</a></li>
+                  <li><a href="">4</a></li>
+                  <li><a href="">5</a></li>
+                  <li><a href=""><img src="~/images/polygon-1-copy-5.png" alt="" class="rotate-img"></a></li>
+              </ul>
+          </div>            
+      </div>
+
+  <!------------------------------- pageination end------------------------------------------- -->
+</div>
+

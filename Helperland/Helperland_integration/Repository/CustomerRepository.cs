@@ -128,7 +128,7 @@ namespace Helperland_integration.Repository
         {
             ServiceRequest serviceRequest = _helperlandContext.ServiceRequests.Where(x => x.ServiceRequestId == serviceId).FirstOrDefault();
             BookServiceViewModel bookServiceViewModel = new BookServiceViewModel();
-            bookServiceViewModel.Date = @String.Format("{0:dd/MM/yyyy}", serviceRequest.ServiceStartDate);
+            bookServiceViewModel.Date = @String.Format("{0:yyyy/MM/dd}", serviceRequest.ServiceStartDate);
             bookServiceViewModel.Time = (Convert.ToString(Convert.ToDateTime(serviceRequest.ServiceStartDate).TimeOfDay).Substring(0, 5));
             bookServiceViewModel.serviceId = serviceRequest.ServiceRequestId;
             return bookServiceViewModel;

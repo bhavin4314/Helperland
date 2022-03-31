@@ -1,0 +1,124 @@
+﻿@{
+    Layout=null;
+}
+@model IEnumerable<Rating>
+
+            <div class="right-table" >
+                <div class="table-name d-flex justify-content-between   ">
+                    <p class="table-name-info">My Current Bookings</p>
+                    <button class="btn export-btn ">Book Now!</button>
+                </div>
+                <table class="table " >
+                 
+                  <tbody>
+                    @foreach (Rating rating in Model)
+                    { 
+                    <tr class="data-space" style="border-radius: 4px">
+                     <td class="d-flex justify-content-between px-15">
+                      <div class="">
+                          <p class="mb-1">@rating.ServiceRequestId</p>
+                          <p class="font-weight-bold">@rating.RatingFromNavigation.FirstName @rating.RatingFromNavigation.LastName</p>
+                      </div>
+                        <div class="service-date-time px-0">
+                          <a href="" class="date-time"  data-toggle="modal" data-target="#customerServiceInfoModal">
+                            <span class="service-date"><img src="~/images/calendar2.png" alt="" srcset="">@rating.ServiceRequest.ServiceStartDate.ToString("dd-MM-yyyy").Replace('-', '/')</span>
+                            <span class="service-time "><img src="~/images/layer-712.png" class="" alt="" srcset="">@rating.ServiceRequest.ServiceStartDate.ToString("HH:mm") - @rating.ServiceRequest.ServiceStartDate.AddHours(Convert.ToDouble(rating.ServiceRequest.ServiceHours + rating.ServiceRequest.ExtraHours)).ToString("HH:mm")</span>
+                          </a>
+                        </div>
+                        <div class="sp-deails px-0">
+                          <a href="" class="">
+                            <div class="">
+                                @{
+                                    decimal spRate = rating.Ratings;
+                                    int i = 0;
+                                }
+
+                                    <p class="mb-1 font-weight-bold">Rating</p>
+                                    <span class="all-star "> 
+                                    @for (i = 0; i < @Math.Round(spRate); i++)
+                                        {
+                                            <img src="~/images/star1.png" class="star" alt="">
+                                        }
+                                     @{ var rateStatus = i; }
+                                        @while (i != 5)
+                                        {
+                                            <img src="~/images/star2.png" class="star" alt="">
+                                            i++;
+                                        }
+                                         @if (rateStatus == 5)
+                                        {
+                                            <span class="ratting-number fw-bold">Excellent</span>
+                                        }
+                                        else if (rateStatus == 4)
+                                        {
+                                            <span class="ratting-number fw-bold">Very Good</span>
+                                        }
+                                        else if (rateStatus == 3)
+                                        {
+                                            <span class="ratting-number fw-bold">Good</span>
+                                        }
+                                        else if (rateStatus == 2)
+                                        {
+                                            <span class="ratting-number fw-bold">Poor</span>
+                                        }
+                                        else if (rateStatus == 1)
+                                        {
+                                            <span class="ratting-number fw-bold">Very Poor</span>
+                                        }
+                                    </span>
+                                   @* <span class="all-star ">
+                                        <img src="~/images/star1.png" class="star" alt="">
+                                        <img src="~/images/star1.png" class="star" alt="">
+                                        <img src="~/images/star1.png" class="star" alt="">
+                                        <img src="~/images/star1.png" class="star" alt="">
+                                        <img src="~/images/star2.png" class="star" alt="">
+                                        <span >4 </span>
+                                    </span>*@
+                                   
+                            </div>
+                          </a>
+                        </div>
+                        </td>
+                        <td class="d-block">
+                            <hr />
+                            <p class="font-weight-bold mb-1">Customer Comment</p>
+                            <p>@rating.Comments</p>
+                        </td>
+                    </tr> 
+                    }
+    
+                  </tbody>
+                </table>
+        </div>
+
+
+            <!-- ------------------------pagination start----------------------------------- -->
+              <div class="page-hadling " >
+                <div class="pagination-spacing d-flex">
+                  <p class=" pagination-para pagination-spacing">show</p>
+                  <select class="form-group entry-selction pagination-spacing"  id="exampleFormControlSelect1">
+                      <option>10</option>
+                      <option>20</option>
+                      <option>30</option>
+                      <option>40</option>
+                      <option>50</option>
+                    </select>
+                    <span class="pagination-spacing pagination-para">entries</span>
+                    <p class=" pagination-para">Total Record: 55</p>
+                </div>
+                
+                <div class="ml-auto ">
+                    <ul class="pagination ">
+                        <li><a href=""><img src="~/images/left1.png" alt=""></a></li>
+                        <li><a href=""><img src="~/images/left2.png" alt=""></a></li>
+                        <li class="active-page"><a href="" >1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href=""><img src="~/images/left2.png" alt="" class="rotate-img"></a></li>
+                        <li><a href=""><img src="~/images/left1.png" alt="" class="rotate-img"></a></li>
+                    </ul>
+                </div>            
+            </div>
+    
+        <!------------------------------- pageination end---------------------------------------- -->

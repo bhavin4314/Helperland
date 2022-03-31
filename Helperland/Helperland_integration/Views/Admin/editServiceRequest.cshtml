@@ -1,0 +1,135 @@
+﻿
+@{
+    Layout = null;
+}
+@model Helperland_integration.ViewModel.ServiceDetailsViewModel
+
+<style>
+    .serviceUpdateBtn{
+        background-color:#1fb6ff;
+        width:100%;
+        border-radius:15px;
+        color:#fff;
+        
+    }
+</style>
+
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="color:#4f4f4f">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Service Request</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+                
+            
+            <form class="edit-address-form" asp-action="editServiceRequest" asp-controller="Admin" onsubmit="return jQueryAjaxPost(this);">
+                
+                @*<input type="hidden" asp-for="AddressId"/>*@
+                <input type="hidden" asp-for="ServiceId"/>
+          
+                <div class="form-row scheduleAdmin">
+                    <div class="col">
+                        <label class="font-weight-bold">Date</label>
+                        <input id="reDate" type="date" asp-for="Date" class="form-control"/>
+                    </div>
+                    <div class="col">
+                        <label class="font-weight-bold">Time</label>
+                        <select class="form-control " asp-for="Time" id="reTime"  >
+                        <option value="8:00" >8:00</option>
+                        <option value="8:30">8:30</option>
+                        <option value="9:00">9:00</option>
+                        <option value="9:30">9:30</option>
+                        <option value="10:00">10:00</option>
+                        <option value="10:30">10:30</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:30">13:30</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:30">14:30</option>
+                        <option value="15:00">15:00</option>
+                        <option value="15:30">15:30</option>
+                        <option value="16:00">16:00</option>
+                        <option value="16:30">16:30</option>
+                        <option value="17:00">17:00</option>
+                        <option value="17:30">17:30</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:30">18:30</option>
+                        </select>
+                    </div>
+                    
+                    
+                </div>            
+                <div class="address-form">
+                            <p class="font-weight-bold mb-1 mt-3">Service Address</p>
+                            <div class="form-row mb-3">
+                              <div class="col">
+                                <label for="AddressLine2">Street Name</label>
+                                <input asp-for="AddressLine2" class="form-control" id="editAddressLine1"  placeholder="Street Name">
+                                 <span class="text-danger" asp-validation-for="AddressLine2"></span>
+                              </div>
+                              <div class="col">
+                                <label for="AddressLine1">House number</label>
+                                <input asp-for="AddressLine1" class="form-control" id="editressLine2" placeholder="House number">
+                                 <span class="text-danger" asp-validation-for="AddressLine1"></span>
+                              </div>
+                            </div>
+                            <div class="form-row mb-3">
+                              <div class="col">
+                                <label for="ZipCode">Pincode</label>
+                                <input asp-for="ZipCode" class="form-control" id="editpincode" placeholder="Pincode">
+                                <span class="text-danger" asp-validation-for="ZipCode"></span>
+                              </div>
+                              <div class="col">
+                                <label for="city">Location</label>
+                                <input asp-for="City" class="form-control" id="editCity" placeholder="City name">
+                                <span class="text-danger" asp-validation-for="City"></span>
+                              </div>
+                            </div>
+                            <div class="form-row">
+                              <div class="col">
+                                  <label class="font-weight-bold">Why do you want reschedule service request ?</label>
+                                  <textarea class="form-control" style="width:100%"></textarea>
+                              </div>
+                          </div>
+                          <div class="form-row">
+                              <div class="col">
+                                  <button class="serviceUpdateBtn btn mt-3" id="edit-address" type="submit" style="cursor:pointer">Update</button>
+                              </div>
+                          </div>
+                            
+                            
+                          </div>
+
+                          
+
+                        </form> 
+      </div>
+      
+    </div>
+  </div>
+
+  <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+      <script>
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0');
+                var yyyy = today.getFullYear();
+                today = yyyy + '-' + mm + '-' + dd;
+                console.log(today);
+                $("#reDate").attr('min', today);
+                var bookDate = document.getElementById("reDate").getAttribute("value");
+                console.log(typeof bookDate);
+                document.getElementById("reDate").value = bookDate ;
+                //document.getElementById("reDate").valueAsDate = new Date(bookDate) ;
+
+                
+            </script>
