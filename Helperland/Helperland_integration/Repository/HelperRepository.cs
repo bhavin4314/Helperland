@@ -69,6 +69,22 @@ namespace Helperland_integration.Repository
             serviceRequest.Status = 3;
             _helperlandContext.Update(serviceRequest);
             _helperlandContext.SaveChanges();
+
+            int favAndBlockCount = _helperlandContext.FavoriteAndBlockeds.Where(x => x.UserId == serviceRequest.ServiceProviderId && x.TargetUserId == serviceRequest.UserId).Count();
+            if (favAndBlockCount == 0)
+            {
+                FavoriteAndBlocked blockBySp = new FavoriteAndBlocked()
+                {
+                    UserId = serviceRequest.UserId,
+                    TargetUserId = (int)serviceRequest.ServiceProviderId,
+                    IsBlocked = false,
+                    IsFavorite = false,
+                };
+                
+                _helperlandContext.FavoriteAndBlockeds.Add(blockBySp);
+                _helperlandContext.SaveChanges();
+            }
+
             return true;
         }
 
